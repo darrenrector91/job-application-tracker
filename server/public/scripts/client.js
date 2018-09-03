@@ -23,6 +23,8 @@ function newJob() {
   let notes = $('#notes').val()
   let date = $('#date').val()
   let status = $('#status').val()
+  let filename = $('#filename').val()
+
 
   if (checkInputs(company, notes, date)) {
     let objectToSend = {
@@ -31,36 +33,36 @@ function newJob() {
       email: email,
       notes: notes,
       date: date,
-      status: status
+      status: status,
+      filename: filename
     };
     // call saveJob with the new obejct
     saveJob(objectToSend);
     console.log(objectToSend);
-    
-    
-    // $.ajax({
-    //   type: 'PUT',
-    //   url: '/jobs/update/' + jobID,
-    //   data: objectToUpdate,
-    //   success: function (response) {
-    //     console.log('response', response);
-    //     getJobs();
-    //     $('#editJob').empty();
-    //     $('#updateJob').on('click', newJob); //end updateJob on click
-    //     $('#updateJob').off('click', updateJob);
-    //     $('#formLabel').text('Add Job');
-    //     $('#updateJob').text('Add Job');
 
+    $.ajax({
+      type: 'PUT',
+      url: '/jobs/update/' + jobID,
+      data: objectToUpdate,
+      success: function (response) {
+        console.log('response', response);
+        getJobs();
+        $('#editJob').empty();
+        $('#updateJob').on('click', newJob); //end updateJob on click
+        $('#updateJob').off('click', updateJob);
+        $('#formLabel').text('Add Job');
+        $('#updateJob').text('Add Job');
 
-    //     $('#company').val('');
-    //     $('#contact').val('');
-    //     $('#email').val('');
-    //     $('#notes').val('');
-    //     $('#date').val('');
-    //     $('#status').val('');
-    //     $('#updateJob').val('');
-    //   }
-    // });
+        $('#company').val('');
+        $('#contact').val('');
+        $('#email').val('');
+        $('#notes').val('');
+        $('#date').val('');
+        $('#status').val('');
+        $('#filename').val('');
+        $('#updateJob').val('');
+      }
+    });
   }
 }
 
@@ -72,6 +74,7 @@ function updateJob() {
   let notes = $('#notes').val()
   let date = $('#date').val()
   let status = $('#status').val()
+  let filename = $('#filename').val()
 
   console.log(email);
   if (checkInputs(company, notes, date)) {
@@ -83,7 +86,8 @@ function updateJob() {
       email: email,
       notes: notes,
       date: date,
-      status: status
+      status: status,
+      filename: filename
     };
     $.ajax({
       type: 'PUT',
@@ -105,6 +109,7 @@ function updateJob() {
         $('#notes').val('');
         $('#date').val('');
         $('#status').val('');
+        $('#filename').val('');
         $('#updateJob').val('');
       }
     });
@@ -131,6 +136,8 @@ function editJob() {
       $('#email').val(response[0].email);
       $('#notes').val(response[0].notes);
       $('#date').val(response[0].date);
+      $('#status').val(response[0].status);
+      $('#filename').val(response[0].filename);
       $('#updateJob').val(response[0].id);
     }
   });
@@ -173,6 +180,7 @@ function displayJobs(data) {
       newRow.append('<td>' + data[i].notes + '</td>');
       newRow.append('<td>' + data[i].date + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
+      newRow.append('<td>' + data[i].filename + '</td>');
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button></td>');
       newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button></td>');
 
@@ -199,6 +207,8 @@ function saveJob(newJob) {
       $('#notes').val('');
       $('#date').val('');
       $('#status').val('');
+      $('#filename').val('');
+
     } // end success
   }); //end ajax
 }
@@ -213,4 +223,10 @@ function deleteJob() {
       getJobs();
     }
   });
+}
+
+function selectFile() {
+  var file = document.getElementById('file').files[0];
+  var filename = file.name;
+  document.getElementById('filename').innerHTML = filename;
 }

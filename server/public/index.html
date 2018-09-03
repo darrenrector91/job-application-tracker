@@ -27,6 +27,7 @@
                 <th>Info</th>
                 <th>Date</th>
                 <th>Job status</th>
+                <th>File</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -41,22 +42,22 @@
         <form class="job-form">
             <div class="row">
                 <div class="form-group col">
-                    <label for="company-name" class="control-label">Company name</label>
+                    <label for="company-name" class="control-label">Company</label>
                     <input type="text" class="form-control" id="company" aria-describedby="companyName" placeholder="Enter company name">
                 </div>
                 <div class="form-group col">
-                    <label for="company-contact" class="control-label">Contact</label>
+                    <label for="company-contact" class="control-label">Name</label>
                     <input type="text" class="form-control" id="contact" placeholder="Enter name">
                 </div>
                 <div class="form-group col">
-                    <label for="contact-email" class="control-label">Contact email</label>
+                    <label for="contact-email" class="control-label">Email</label>
                     <input type="email" class="form-control" id="email" aria-describedby="Enter email" placeholder="Enter email">
                 </div>
             </div>
             <div class="row">
                 <div class="input-group col">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Submitted w/application</span>
+                        <span class="input-group-text">Notes</span>
                     </div>
                     <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="a cover letter, résumé, additional materials, portfolio or reference list.."></textarea>
                 </div>
@@ -67,8 +68,13 @@
                     <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
                 </div>
                 <div class="form-group col">
+                    <label for="file"  class="control-label">Filename</label>
+                    <input type="text" class="form-control" name="file" placeholder="Filename">
+                </div>
+                <div class="form-group col">
                     <label for="status">Job status</label>
                     <select class="form-control" id="status" placeholder="">
+                        <option disabled selected>Select status</option>
                         <option>Applied</option>
                         <option>Phone interview</option>
                         <option>First interview</option>
@@ -80,7 +86,18 @@
                     </select>
                 </div>
             </div>  
-            <button type="submit" class="btn btn-primary" id="updateJob">Submit</button>
+            <div class="row">
+                <div class="form-group col">
+                    <input type="file" id="file" onchange="selectFile()">
+                </div>
+                <div class="form-group col" id="filename"></div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <button type="submit" class="btn btn-primary" id="updateJob">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
+                </div>
+            </div>
         </form>
     </div>
 </body>
