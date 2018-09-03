@@ -14,10 +14,40 @@ $(document).ready(function () {
 
 function newJob() {
     console.log('in add new job on click');
-    var x = document.getElementById("myFile");
-    var txt = "";
 
-    if ('files' in x) {
+    // get user input and put in an object
+  // NOT WORKING YET :(
+  // using a test object
+  let company = $('#company').val()
+  let contact = $('#contact').val()
+  let email = $('#email').val()
+  let notes = $('#notes').val()
+  let date = $('#date').val()
+  let status = $('#status').val()
+  let filename = $('#myFile').val()
+
+  if (checkInputs(company, notes, date)) {
+    let objectToSend = {
+      company: company,
+      contact: contact,
+      email: email,
+      notes: notes,
+      date: date,
+      status: status,
+      filename: filename
+    };
+    // call saveJob with the new object
+    saveJob(objectToSend);
+    console.log('objectToSend: ', objectToSend);
+    
+  }
+}
+
+// file upload function from w3school
+function getFile(){
+  var x = document.getElementById("myFile");
+  var txt = "";
+  if ('files' in x) {
       if (x.files.length == 0) {
           txt = "Select one or more files.";
       } else {
@@ -41,74 +71,14 @@ function newJob() {
           txt += "The files upload is not supported by your browser!";
           txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
       }
-    }
+  }
+  let filename = file.name;
 
-    // get user input and put in an object
-  // NOT WORKING YET :(
-  // using a test object
-  let company = $('#company').val()
-  let contact = $('#contact').val()
-  let email = $('#email').val()
-  let notes = $('#notes').val()
-  let date = $('#date').val()
-  let status = $('#status').val()
-  let filename = $('#myFile').val()
+  document.getElementById("filename").val = filename;
+
   console.log(filename);
   
-
-  if (checkInputs(company, notes, date)) {
-    let objectToSend = {
-      company: company,
-      contact: contact,
-      email: email,
-      notes: notes,
-      date: date,
-      status: status,
-      filename: filename
-    };
-    // call saveJob with the new object
-    saveJob(objectToSend);
-    console.log('objectToSend: ', objectToSend);
-    
-  }
 }
-
-// file upload function from w3school
-// function getFile(){
-//   var x = document.getElementById("myFile");
-//   var txt = "";
-//   if ('files' in x) {
-//       if (x.files.length == 0) {
-//           txt = "Select one or more files.";
-//       } else {
-//           for (var i = 0; i < x.files.length; i++) {
-//               txt += "<br><strong>" + (i+1) + ". file</strong><br>";
-//               var file = x.files[i];
-              
-//               if ('name' in file) {
-//                   txt += "name: " + file.name + "<br>";
-//               }
-//               if ('size' in file) {
-//                   txt += "size: " + file.size + " bytes <br>";
-//               }
-//           }
-//       }
-//   } 
-//   else {
-//       if (x.value == "") {
-//           txt += "Select one or more files.";
-//       } else {
-//           txt += "The files upload is not supported by your browser!";
-//           txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
-//       }
-//   }
-//   let filename = file.name;
-
-//   document.getElementById("filename").val = filename;
-
-//   console.log(filename);
-  
-// }
 
 function saveJob(newJob) {
   console.log('in saveJob', newJob);
