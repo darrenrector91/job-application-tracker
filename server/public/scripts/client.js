@@ -228,5 +228,5 @@ function deleteJob() {
 function selectFile() {
   var file = document.getElementById('file').files[0];
   var filename = file.name;
-  document.getElementById('filename').innerHTML = filename;
+  document.getElementById('displayFileName').innerHTML = filename;
 }
