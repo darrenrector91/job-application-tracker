@@ -36,31 +36,29 @@ function newJob() {
     // call saveJob with the new obejct
     saveJob(objectToSend);
     console.log(objectToSend);
-    
-    
-    // $.ajax({
-    //   type: 'PUT',
-    //   url: '/jobs/update/' + jobID,
-    //   data: objectToUpdate,
-    //   success: function (response) {
-    //     console.log('response', response);
-    //     getJobs();
-    //     $('#editJob').empty();
-    //     $('#updateJob').on('click', newJob); //end updateJob on click
-    //     $('#updateJob').off('click', updateJob);
-    //     $('#formLabel').text('Add Job');
-    //     $('#updateJob').text('Add Job');
 
+    $.ajax({
+      type: 'PUT',
+      url: '/jobs/update/' + jobID,
+      data: objectToUpdate,
+      success: function (response) {
+        console.log('response', response);
+        getJobs();
+        $('#editJob').empty();
+        $('#updateJob').on('click', newJob); //end updateJob on click
+        $('#updateJob').off('click', updateJob);
+        $('#formLabel').text('Add Job');
+        $('#updateJob').text('Add Job');
 
-    //     $('#company').val('');
-    //     $('#contact').val('');
-    //     $('#email').val('');
-    //     $('#notes').val('');
-    //     $('#date').val('');
-    //     $('#status').val('');
-    //     $('#updateJob').val('');
-    //   }
-    // });
+        $('#company').val('');
+        $('#contact').val('');
+        $('#email').val('');
+        $('#notes').val('');
+        $('#date').val('');
+        $('#status').val('');
+        $('#updateJob').val('');
+      }
+    });
   }
 }
 
