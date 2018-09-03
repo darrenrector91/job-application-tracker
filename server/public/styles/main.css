@@ -63,3 +63,13 @@ b.max-bold{ font-weight: 700; }
 .tableButton {
     width: 100px;
 }
+
+#clearform {
+    color: blue;
+    background-color: transparent;
+    border-color: blue;
+}
+
+.btn {
+    width: 100px;
+}
