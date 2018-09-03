@@ -73,3 +73,9 @@ b.max-bold{ font-weight: 700; }
 .btn {
     width: 100px;
 }
+
+#table {
+    width: 400mm;
+    position: relative;
+    right: 47mm;
+}
