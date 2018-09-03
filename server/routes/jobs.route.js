@@ -3,7 +3,6 @@ const pool = require('../modules/pool');
 const express = require('express');
 const router = express.Router();
 
-
 router.get('/', function(req, res) {
     console.log('hit get jobs');
 
@@ -35,8 +34,8 @@ router.get('/:id', function(req, res) {
 });
 
 router.put('/update/:id', (req, res) => {
-    const queryText = 'UPDATE job SET name = $1, contact = $2, email = $3, notes = $4, date = $5 WHERE id = $6';
-    pool.query(queryText, [req.body.name, req.body.contact, req.body.email, req.body.notes, req.body.date, req.params.id])
+    const queryText = 'UPDATE job SET company = $1, contact = $2, email = $3, notes = $4, date = $5, status = $6 WHERE id = $7';
+    pool.query(queryText, [req.body.company, req.body.contact, req.body.email, req.body.notes, req.body.date, req.body.status, req.params.id])
         .then((result) => {
             console.log('result:', result.rows);
             res.sendStatus(200);
@@ -47,22 +46,22 @@ router.put('/update/:id', (req, res) => {
         });
 });
 
-router.put('/:id', (req, res) => {
-    const queryText = 'UPDATE job SET notes = $1 WHERE id = $2';
-    pool.query(queryText, [req.body.notes, req.params.id])
-        .then((result) => {
-            console.log('result:', result.rows);
-            res.sendStatus(200);
-        })
-        .catch((err) => {
-            console.log('error:', err);
-            res.sendStatus(500);
-        });
-});
+// router.put('/:id', (req, res) => {
+//     const queryText = 'UPDATE job SET notes = $1 WHERE id = $2';
+//     pool.query(queryText, [req.body.notes, req.params.id])
+//         .then((result) => {
+//             console.log('result:', result.rows);
+//             res.sendStatus(200);
+//         })
+//         .catch((err) => {
+//             console.log('error:', err);
+//             res.sendStatus(500);
+//         });
+// });
 
 router.post('/', function(req, res) {
-    const queryText = 'INSERT INTO job (name, email, contact, notes, date) VALUES ($1, $2, $3, $4, $5)';
-    pool.query(queryText, [req.body.name, req.body.email, req.body.contact, req.body.notes, req.body.date])
+    const queryText = 'INSERT INTO job (company, email, contact, notes, date, status) VALUES ($1, $2, $3, $4, $5, $6)';
+    pool.query(queryText, [req.body.company, req.body.email, req.body.contact, req.body.notes, req.body.date, req.body.status])
         .then((result) => {
             console.log('result:', result.rows);
             res.send(result.rows);

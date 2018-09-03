@@ -17,47 +17,73 @@ function newJob() {
   // get user input and put in an object
   // NOT WORKING YET :(
   // using a test object
-  let companyName = $('#companyName').val()
-  let companyContact = $('#companyContact').val()
-  let contactEmail = $('#contactEmail').val()
-  let applicationSummary = $('#applicationSummary').val()
+  let company = $('#company').val()
+  let contact = $('#contact').val()
+  let email = $('#email').val()
+  let notes = $('#notes').val()
   let date = $('#date').val()
-  let dropdown = $('#dropdown').val()
+  let status = $('#status').val()
 
-  if (checkInputs(companyName, applicationSummary, date)) {
+  if (checkInputs(company, notes, date)) {
     let objectToSend = {
-      companyName: companyName,
-      companyContact: companyContact,
-      contactEmail: contactEmail,
-      applicationSummary: applicationSummary,
+      company: company,
+      contact: contact,
+      email: email,
+      notes: notes,
       date: date,
-      dropdown: dropdown
+      status: status
     };
     // call saveJob with the new obejct
     saveJob(objectToSend);
+    console.log(objectToSend);
+    
+    
+    // $.ajax({
+    //   type: 'PUT',
+    //   url: '/jobs/update/' + jobID,
+    //   data: objectToUpdate,
+    //   success: function (response) {
+    //     console.log('response', response);
+    //     getJobs();
+    //     $('#editJob').empty();
+    //     $('#updateJob').on('click', newJob); //end updateJob on click
+    //     $('#updateJob').off('click', updateJob);
+    //     $('#formLabel').text('Add Job');
+    //     $('#updateJob').text('Add Job');
+
+
+    //     $('#company').val('');
+    //     $('#contact').val('');
+    //     $('#email').val('');
+    //     $('#notes').val('');
+    //     $('#date').val('');
+    //     $('#status').val('');
+    //     $('#updateJob').val('');
+    //   }
+    // });
   }
 }
 
 function updateJob() {
 
-  let companyName = $('#companyName').val()
-  let companyContact = $('#companyContact').val()
-  let contactEmail = $('#contactEmail').val()
-  let applicationSummary = $('#applicationSummary').val()
+  let company = $('#company').val()
+  let contact = $('#contact').val()
+  let email = $('#email').val()
+  let notes = $('#notes').val()
   let date = $('#date').val()
-  let dropdown = $('#dropdown').val()
+  let status = $('#status').val()
 
-  console.log(contactEmail);
-  if (checkInputs(companyName, applicationSummary, date)) {
+  console.log(email);
+  if (checkInputs(company, notes, date)) {
     let jobID = $(this).val();
     console.log(jobID);
     let objectToUpdate = {
-      companyName: companyName,
-      companyContact: companyContact,
-      contactEmail: contactEmail,
-      applicationSummary: applicationSummary,
+      company: company,
+      contact: contact,
+      email: email,
+      notes: notes,
       date: date,
-      dropdown: dropdown
+      status: status
     };
     $.ajax({
       type: 'PUT',
@@ -73,12 +99,12 @@ function updateJob() {
         $('#updateJob').text('Add Job');
 
 
-        $('#companyName').val('');
-        $('#companyContact').val('');
-        $('#contactEmail').val('');
-        $('#applicationSummary').val('');
+        $('#company').val('');
+        $('#contact').val('');
+        $('#email').val('');
+        $('#notes').val('');
         $('#date').val('');
-        $('#dropdown').val('');
+        $('#status').val('');
         $('#updateJob').val('');
       }
     });
@@ -88,7 +114,6 @@ function updateJob() {
 function editJob() {
 
   $('#updateJob').text('Edit Job');
-
   $('#updateJob').off('click', newJob); //end updateJob on click
   $('#updateJob').on('click', updateJob);
 
@@ -101,18 +126,18 @@ function editJob() {
     success: function (response) {
       console.log('got one job:', jobID, response);
 
-      $('#companyName').val(response[0].companyName).focus();
-      $('#companyContact').val(response[0].companyContact);
-      $('#contactEmail').val(response[0].contactEmail);
-      $('#applicationSummary').val(response[0].applicationSummary);
+      $('#company').val(response[0].company).focus();
+      $('#contact').val(response[0].contact);
+      $('#email').val(response[0].email);
+      $('#notes').val(response[0].notes);
       $('#date').val(response[0].date);
       $('#updateJob').val(response[0].id);
     }
   });
 }
 
-function checkInputs(companyName, applicationSummary, date) {
-  if (companyName == '' || applicationSummary == '' || date == '') {
+function checkInputs(company, notes, date) {
+  if (company == '' || notes == '' || date == '') {
     alert('Company name, summary, and date can not be empty, please review required fields.');
     return false;
   } else {
@@ -147,7 +172,7 @@ function displayJobs(data) {
       newRow.append('<td>' + data[i].email + '</td>');
       newRow.append('<td>' + data[i].notes + '</td>');
       newRow.append('<td>' + data[i].date + '</td>');
-      newRow.append('<td>' + data[i].job_status + '</td>');
+      newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button></td>');
       newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button></td>');
 
@@ -168,12 +193,12 @@ function saveJob(newJob) {
       console.log('got some jobs: ', response);
       getJobs();
 
-      $('#companyName').val('').focus();
-      $('#companyContact').val('');
-      $('#contactEmail').val('');
-      $('#applicationSummary').val('');
+      $('#company').val('').focus();
+      $('#contact').val('');
+      $('#email').val('');
+      $('#notes').val('');
       $('#date').val('');
-      $('#updateJob').val('');
+      $('#status').val('');
     } // end success
   }); //end ajax
 }
