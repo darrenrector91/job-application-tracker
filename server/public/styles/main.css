@@ -63,3 +63,15 @@ b.max-bold{ font-weight: 700; }
 .tableButton {
     width: 100px;
 }
+
+#myFile {
+    position: absolute;
+    top: 10mm;
+}
+
+#file {
+    position: absolute;
+    top: 16mm;
+    left: 1mm;
+    width: 155mm;
+}

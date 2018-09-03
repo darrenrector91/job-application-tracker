@@ -13,8 +13,37 @@ $(document).ready(function () {
 }); // end doc ready
 
 function newJob() {
-  console.log('in add new job on click');
-  // get user input and put in an object
+    console.log('in add new job on click');
+    var x = document.getElementById("myFile");
+    var txt = "";
+
+    if ('files' in x) {
+      if (x.files.length == 0) {
+          txt = "Select one or more files.";
+      } else {
+          for (var i = 0; i < x.files.length; i++) {
+              txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+              var file = x.files[i];
+              
+              if ('name' in file) {
+                  txt += "name: " + file.name + "<br>";
+              }
+              if ('size' in file) {
+                  txt += "size: " + file.size + " bytes <br>";
+              }
+          }
+      }
+  } 
+  else {
+      if (x.value == "") {
+          txt += "Select one or more files.";
+      } else {
+          txt += "The files upload is not supported by your browser!";
+          txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+      }
+    }
+
+    // get user input and put in an object
   // NOT WORKING YET :(
   // using a test object
   let company = $('#company').val()
@@ -23,6 +52,9 @@ function newJob() {
   let notes = $('#notes').val()
   let date = $('#date').val()
   let status = $('#status').val()
+  let filename = $('#myFile').val()
+  console.log(filename);
+  
 
   if (checkInputs(company, notes, date)) {
     let objectToSend = {
@@ -31,7 +63,8 @@ function newJob() {
       email: email,
       notes: notes,
       date: date,
-      status: status
+      status: status,
+      filename: filename
     };
     // call saveJob with the new object
     saveJob(objectToSend);
@@ -39,6 +72,43 @@ function newJob() {
     
   }
 }
+
+// file upload function from w3school
+// function getFile(){
+//   var x = document.getElementById("myFile");
+//   var txt = "";
+//   if ('files' in x) {
+//       if (x.files.length == 0) {
+//           txt = "Select one or more files.";
+//       } else {
+//           for (var i = 0; i < x.files.length; i++) {
+//               txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+//               var file = x.files[i];
+              
+//               if ('name' in file) {
+//                   txt += "name: " + file.name + "<br>";
+//               }
+//               if ('size' in file) {
+//                   txt += "size: " + file.size + " bytes <br>";
+//               }
+//           }
+//       }
+//   } 
+//   else {
+//       if (x.value == "") {
+//           txt += "Select one or more files.";
+//       } else {
+//           txt += "The files upload is not supported by your browser!";
+//           txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+//       }
+//   }
+//   let filename = file.name;
+
+//   document.getElementById("filename").val = filename;
+
+//   console.log(filename);
+  
+// }
 
 function saveJob(newJob) {
   console.log('in saveJob', newJob);
@@ -69,6 +139,7 @@ function updateJob() {
   let notes = $('#notes').val()
   let date = $('#date').val()
   let status = $('#status').val()
+  let filename = $('#filename').val()
 
   console.log(email);
   if (checkInputs(company, notes, date)) {
@@ -80,7 +151,8 @@ function updateJob() {
       email: email,
       notes: notes,
       date: date,
-      status: status
+      status: status,
+      filename: filename
     };
     $.ajax({
       type: 'PUT',
@@ -103,6 +175,8 @@ function updateJob() {
         $('#date').val('');
         $('#status').val('');
         $('#updateJob').val('');
+        $('#filename').val('');
+
       }
     });
   }
@@ -128,7 +202,9 @@ function editJob() {
       $('#email').val(response[0].email);
       $('#notes').val(response[0].notes);
       $('#date').val(response[0].date);
+      $('#status').val(response[0].status);
       $('#updateJob').val(response[0].id);
+      $('#filename').val(response[0].filename);
     }
   });
 }
@@ -170,6 +246,7 @@ function displayJobs(data) {
       newRow.append('<td>' + data[i].notes + '</td>');
       newRow.append('<td>' + data[i].date + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
+      newRow.append('<td>' + data[i].filename + '</td>');
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button></td>');
       newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button></td>');
 
@@ -192,3 +269,4 @@ function deleteJob() {
     }
   });
 }
+
