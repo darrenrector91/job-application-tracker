@@ -49,7 +49,7 @@ router.put('/update/:id', (req, res) => {
 router.post('/', function(req, res) {
     console.log('in router.post');
     const queryText = 'INSERT INTO job(company, contact, email, notes, date, status, filename) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-    pool.query(queryText, [req.body.company, req.body.contact, req.body.email, req.body.notes, req.body.date, req.body.filename, req.body.status])
+    pool.query(queryText, [req.body.company, req.body.contact, req.body.email, req.body.notes, req.body.date, req.body.status, req.body.filename])
         .then((result) => {
             console.log('result:', result.rows);
             res.send(result.rows);
@@ -74,18 +74,4 @@ router.delete('/:id', function(req,res) {
 
 });
 
-
-
-// router.put('/:id', (req, res) => {
-//     const queryText = 'UPDATE job SET notes = $1 WHERE id = $2';
-//     pool.query(queryText, [req.body.notes, req.params.id])
-//         .then((result) => {
-//             console.log('result:', result.rows);
-//             res.sendStatus(200);
-//         })
-//         .catch((err) => {
-//             console.log('error:', err);
-//             res.sendStatus(500);
-//         });
-// });
 module.exports = router;

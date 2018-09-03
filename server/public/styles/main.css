@@ -58,6 +58,8 @@ b.max-bold{ font-weight: 700; }
 
 .job-form {
     margin-top: 40px;
+    margin-left: 60px;
+    width: 350mm;
 }
 
 .tableButton {
@@ -74,4 +76,18 @@ b.max-bold{ font-weight: 700; }
     top: 16mm;
     left: 1mm;
     width: 155mm;
+}
+
+#btn-outline {
+    background-color: transparent;
+    border-color: blue;
+    color: blue;
+}
+
+.btn-size {
+    width: 100px;
+}
+
+.container {
+    margin-right: 500px !important;
 }

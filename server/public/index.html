@@ -27,7 +27,6 @@
                 <th>Notes</th>
                 <th>Date</th>
                 <th>Status</th>
-                <th>File name</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -82,15 +81,16 @@
                     </select>
                 </div>
                 <div class="form-group col">
-                    <label for="filename" class="control-label">File name</label>
-                    <input type="text" value="" class="form-control" id="filename" placeholder="File name">
+                    <label for="file" class="control-label" >File</label>
+                    <input type="file" class="form-control" id="file" onchange="selectFile()">
                 </div>
-                <div class="form-group col">
-                    <input type="file" class="form-group col" id="myFile" multiple size="50" onchange="newJob()">
-                    <p id="file"></p>
-                </div>
-            </div>  
-            <button type="submit" class="btn btn-primary" id="updateJob">Submit</button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary btn-size" id="btn-outline" onclick="clearForm()">Clear</button>
+                <button type="submit" class="btn btn-primary btn-size" id="updateJob">Submit</button>
+                <div class="row" id="result1">TEST</div>
+            </div>
+            
         </form>
     </div>
 </body>
