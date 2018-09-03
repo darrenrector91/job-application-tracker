@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Job Tracking</title>
+    
+    <!-- STYLING -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Job Application Tracking</h1>
+    </header>
+    <div class="container">
+<div id="table" class="row">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Company name</th>
+                <th>Contact name</th>
+                <th>Contact email</th>
+                <th>Info</th>
+                <th>Date</th>
+                <th>Job status</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody id="viewJobs"></tbody>
+        </tbody>
+    
+    </table>
+
+    </div>
+        <form class="job-form">
+            <div class="row">
+                <div class="form-group col">
+                    <label for="company-name">Company name</label>
+                    <input type="text" class="form-control" id="companyName" aria-describedby="companyName" placeholder="Enter company name">
+                </div>
+                <div class="form-group col">
+                    <label for="company-contact">Contact</label>
+                    <input type="text" class="form-control" id="companyContact" placeholder="Enter name">
+                </div>
+                <div class="form-group col">
+                    <label for="contact-email">Contact email</label>
+                    <input type="email" class="form-control" id="contactEmail" aria-describedby="Enter email" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group col">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Submitted w/application</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" id="applicationSummary" placeholder="a cover letter, résumé, additional materials, portfolio or reference list.."></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label class="control-label" for="date">Date</label>
+                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                </div>
+                <div class="form-group col">
+                    <label for="dropdown">Job status</label>
+                    <select class="form-control" id="dropdown" placeholder="">
+                        <option>Applied</option>
+                        <option>Phone interview</option>
+                        <option>First interview</option>
+                        <option>Second interview</option>
+                        <option>Additional interview</option>
+                        <option>Rejected</option>
+                        <option>Offer made</option>
+                        <option>Accepted offer</option>
+                    </select>
+                </div>
+            </div>  
+            <button type="submit" class="btn btn-primary" id="updateJob">Submit</button>
+        </form>
+    </div>
+</body>
+    <!-- SCRIPTS -->
+    <script src="vendors/jquery-3.3.1.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <script src="vendors/bootstrap.min.js"></script>
+</html>
