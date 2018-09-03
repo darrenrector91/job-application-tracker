@@ -1,9 +1,5 @@
 ## Job Tracker
-
-Group project to build application that allows jobs to be tracked and moved
     
-![Job Tracker](https://i.imgur.com/eO1BmVY.png)
-
 Steps to launch app
 
 <ol>
