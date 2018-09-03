@@ -1,0 +1,366 @@
+diff --git a/server/public/index.html b/server/public/index.html
+index 313f9b8..56d1ade 100644
+--- a/server/public/index.html
++++ b/server/public/index.html
+@@ -20,13 +20,13 @@
+     <table class="table table-striped table-bordered">
+         <thead>
+             <tr>
+-                <th>ID</th>
+-                <th>Company</th>
+-                <th>Contact</th>
+-                <th>Email</th>
+-                <th>Notes</th>
++                <th>#</th>
++                <th>Company name</th>
++                <th>Contact name</th>
++                <th>Contact email</th>
++                <th>Info</th>
+                 <th>Date</th>
+-                <th>Status</th>
++                <th>Job status</th>
+                 <th>Edit</th>
+                 <th>Delete</th>
+             </tr>
+@@ -56,20 +56,19 @@
+             <div class="row">
+                 <div class="input-group col">
+                     <div class="input-group-prepend">
+-                        <span class="input-group-text">Notes</span>
++                        <span class="input-group-text">Submitted w/application</span>
+                     </div>
+-                    <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="Extra notes"></textarea>
++                    <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="a cover letter, résumé, additional materials, portfolio or reference list.."></textarea>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="form-group col">
+                     <label for="date" class="control-label" >Date</label>
+-                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
++                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                 </div>
+                 <div class="form-group col">
+-                    <label for="status" class="control-label">Status</label>
+-                    <select class="form-control" id="status">
+-                        <option disabled selected>Select status</option>
++                    <label for="status">Job status</label>
++                    <select class="form-control" id="status" placeholder="">
+                         <option>Applied</option>
+                         <option>Phone interview</option>
+                         <option>First interview</option>
+@@ -80,17 +79,8 @@
+                         <option>Accepted offer</option>
+                     </select>
+                 </div>
+-                <div class="form-group col">
+-                    <label for="file" class="control-label" >File</label>
+-                    <input type="file" class="form-control" id="file" onchange="selectFile()">
+-                </div>
+-            </div>
+-            <div class="row">
+-                <button type="button" class="btn btn-primary btn-size" id="btn-outline" onclick="clearForm()">Clear</button>
+-                <button type="submit" class="btn btn-primary btn-size" id="updateJob">Submit</button>
+-                <div class="row" id="result1">TEST</div>
+-            </div>
+-            
++            </div>  
++            <button type="submit" class="btn btn-primary" id="updateJob">Submit</button>
+         </form>
+     </div>
+ </body>
+@@ -98,5 +88,4 @@
+     <script src="vendors/jquery-3.3.1.min.js"></script>
+     <script src="scripts/client.js"></script>
+     <script src="vendors/bootstrap.min.js"></script>
+-    <!-- readonly="readonly" -->
+ </html>
+\ No newline at end of file
+diff --git a/server/public/scripts/client.js b/server/public/scripts/client.js
+index 514daf3..7be39a7 100644
+--- a/server/public/scripts/client.js
++++ b/server/public/scripts/client.js
+@@ -13,9 +13,8 @@ $(document).ready(function () {
+ }); // end doc ready
+ 
+ function newJob() {
+-    console.log('in add new job on click');
+-
+-    // get user input and put in an object
++  console.log('in add new job on click');
++  // get user input and put in an object
+   // NOT WORKING YET :(
+   // using a test object
+   let company = $('#company').val()
+@@ -24,9 +23,6 @@ function newJob() {
+   let notes = $('#notes').val()
+   let date = $('#date').val()
+   let status = $('#status').val()
+-  let filename = $('#filename').val()
+-  console.log(filename);
+-  
+ 
+   if (checkInputs(company, notes, date)) {
+     let objectToSend = {
+@@ -35,38 +31,39 @@ function newJob() {
+       email: email,
+       notes: notes,
+       date: date,
+-      status: status,
+-      filename: filename
++      status: status
+     };
+-    // call saveJob with the new object
+-    console.log('objectToSend: ', objectToSend);
++    // call saveJob with the new obejct
+     saveJob(objectToSend);
++    console.log(objectToSend);
++    
+     
++    // $.ajax({
++    //   type: 'PUT',
++    //   url: '/jobs/update/' + jobID,
++    //   data: objectToUpdate,
++    //   success: function (response) {
++    //     console.log('response', response);
++    //     getJobs();
++    //     $('#editJob').empty();
++    //     $('#updateJob').on('click', newJob); //end updateJob on click
++    //     $('#updateJob').off('click', updateJob);
++    //     $('#formLabel').text('Add Job');
++    //     $('#updateJob').text('Add Job');
++
++
++    //     $('#company').val('');
++    //     $('#contact').val('');
++    //     $('#email').val('');
++    //     $('#notes').val('');
++    //     $('#date').val('');
++    //     $('#status').val('');
++    //     $('#updateJob').val('');
++    //   }
++    // });
+   }
+ }
+ 
+-function saveJob(newJob) {
+-  console.log('in saveJob', newJob);
+-
+-  $.ajax({
+-    url: '/jobs',
+-    type: 'POST',
+-    data: newJob,
+-    success: function (response) {
+-      console.log('got some jobs: ', response);
+-      getJobs();
+-
+-      $('#company').val('').focus();
+-      $('#contact').val('');
+-      $('#email').val('');
+-      $('#notes').val('');
+-      $('#date').val('');
+-      $('#status').val('');
+-      $('filename').val('');
+-    } // end success
+-  }); //end ajax
+-}
+-
+ function updateJob() {
+ 
+   let company = $('#company').val()
+@@ -75,7 +72,6 @@ function updateJob() {
+   let notes = $('#notes').val()
+   let date = $('#date').val()
+   let status = $('#status').val()
+-  let filename = $('#filename').val()
+ 
+   console.log(email);
+   if (checkInputs(company, notes, date)) {
+@@ -87,8 +83,7 @@ function updateJob() {
+       email: email,
+       notes: notes,
+       date: date,
+-      status: status,
+-      filename: filename
++      status: status
+     };
+     $.ajax({
+       type: 'PUT',
+@@ -111,8 +106,6 @@ function updateJob() {
+         $('#date').val('');
+         $('#status').val('');
+         $('#updateJob').val('');
+-        $('#filename').val('');
+-
+       }
+     });
+   }
+@@ -138,9 +131,7 @@ function editJob() {
+       $('#email').val(response[0].email);
+       $('#notes').val(response[0].notes);
+       $('#date').val(response[0].date);
+-      $('#status').val(response[0].status);
+       $('#updateJob').val(response[0].id);
+-      $('#filename').val(response[0].filename);
+     }
+   });
+ }
+@@ -182,17 +173,35 @@ function displayJobs(data) {
+       newRow.append('<td>' + data[i].notes + '</td>');
+       newRow.append('<td>' + data[i].date + '</td>');
+       newRow.append('<td>' + data[i].status + '</td>');
+-      newRow.append('<td>' + data[i].filename + '</td>');
+-      newRow.append('<td><button type="button" class="editJob btn btn-success tableButton"' + data[i].id + '"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button></td>');
++      newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button></td>');
+       newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button></td>');
+-      style="color:blue;margin-left:30px;"
++
+       $('#viewJobs').append(newRow);
+   }
+ }
+ 
+-// let displayAllStatus = true;
++let displayAllStatus = true;
+ 
++function saveJob(newJob) {
++  console.log('in saveJob', newJob);
+ 
++  $.ajax({
++    url: '/jobs',
++    type: 'POST',
++    data: newJob,
++    success: function (response) {
++      console.log('got some jobs: ', response);
++      getJobs();
++
++      $('#company').val('').focus();
++      $('#contact').val('');
++      $('#email').val('');
++      $('#notes').val('');
++      $('#date').val('');
++      $('#status').val('');
++    } // end success
++  }); //end ajax
++}
+ 
+ function deleteJob() {
+   let jobID = $(this).val();
+@@ -204,27 +213,4 @@ function deleteJob() {
+       getJobs();
+     }
+   });
+-}
+-
+-function clearForm() {
+-    $('#company').val('').focus();
+-    $('#contact').val('');
+-    $('#email').val('');
+-    $('#notes').val('');
+-    $('#date').val('');
+-    $('#status').val('');
+-    $('#updateJob').val('');
+-    $('#filename').val('');
+-
+-    $('#updateJob').text('Submiet');
+-    $('#updateJob').off('click', newJob);
+-}
+-
+-function selectFil() {
+-  let file = document.getElementById('file').files[0];
+-  let filename = file.name;
+-  console.log(filename);
+-  document.getElementById('result1').innerHTML = filename;
+-  
+-}
+-
++}
+\ No newline at end of file
+diff --git a/server/public/styles/main.css b/server/public/styles/main.css
+index 5c684b9..60fd48e 100644
+--- a/server/public/styles/main.css
++++ b/server/public/styles/main.css
+@@ -58,36 +58,8 @@ b.max-bold{ font-weight: 700; }
+ 
+ .job-form {
+     margin-top: 40px;
+-    margin-left: 60px;
+-    width: 350mm;
+ }
+ 
+ .tableButton {
+     width: 100px;
+-}
+-
+-#myFile {
+-    position: absolute;
+-    top: 10mm;
+-}
+-
+-#file {
+-    position: absolute;
+-    top: 16mm;
+-    left: 1mm;
+-    width: 155mm;
+-}
+-
+-#btn-outline {
+-    background-color: transparent;
+-    border-color: blue;
+-    color: blue;
+-}
+-
+-.btn-size {
+-    width: 100px;
+-}
+-
+-.container {
+-    margin-right: 500px !important;
+ }
+\ No newline at end of file
+diff --git a/server/routes/jobs.route.js b/server/routes/jobs.route.js
+index 8faf3cd..d996a4d 100644
+--- a/server/routes/jobs.route.js
++++ b/server/routes/jobs.route.js
+@@ -34,8 +34,8 @@ router.get('/:id', function(req, res) {
+ });
+ 
+ router.put('/update/:id', (req, res) => {
+-    const queryText = 'UPDATE job SET company = $1, contact = $2, email = $3, notes = $4, date = $5, status = $6, filename = $7 WHERE id = $8';
+-    pool.query(queryText, [req.body.company, req.body.contact, req.body.email, req.body.notes, req.body.date, req.body.status, req.body.filename, req.params.id])
++    const queryText = 'UPDATE job SET company = $1, contact = $2, email = $3, notes = $4, date = $5, status = $6 WHERE id = $7';
++    pool.query(queryText, [req.body.company, req.body.contact, req.body.email, req.body.notes, req.body.date, req.body.status, req.params.id])
+         .then((result) => {
+             console.log('result:', result.rows);
+             res.sendStatus(200);
+@@ -46,10 +46,22 @@ router.put('/update/:id', (req, res) => {
+         });
+ });
+ 
++// router.put('/:id', (req, res) => {
++//     const queryText = 'UPDATE job SET notes = $1 WHERE id = $2';
++//     pool.query(queryText, [req.body.notes, req.params.id])
++//         .then((result) => {
++//             console.log('result:', result.rows);
++//             res.sendStatus(200);
++//         })
++//         .catch((err) => {
++//             console.log('error:', err);
++//             res.sendStatus(500);
++//         });
++// });
++
+ router.post('/', function(req, res) {
+-    console.log('in router.post');
+-    const queryText = 'INSERT INTO job(company, contact, email, notes, date, status, filename) VALUES ($1, $2, $3, $4, $5, $6, $7)';
+-    pool.query(queryText, [req.body.company, req.body.contact, req.body.email, req.body.notes, req.body.date, req.body.status, req.body.filename])
++    const queryText = 'INSERT INTO job (company, email, contact, notes, date, status) VALUES ($1, $2, $3, $4, $5, $6)';
++    pool.query(queryText, [req.body.company, req.body.email, req.body.contact, req.body.notes, req.body.date, req.body.status])
+         .then((result) => {
+             console.log('result:', result.rows);
+             res.send(result.rows);
+@@ -73,5 +85,4 @@ router.delete('/:id', function(req,res) {
+         });
+ 
+ });
+-
+ module.exports = router;
+\ No newline at end of file
