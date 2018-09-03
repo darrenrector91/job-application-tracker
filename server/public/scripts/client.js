@@ -33,35 +33,32 @@ function newJob() {
       date: date,
       status: status
     };
-    // call saveJob with the new obejct
+    // call saveJob with the new object
     saveJob(objectToSend);
-    console.log(objectToSend);
+    console.log('objectToSend: ', objectToSend);
     
-    
-    // $.ajax({
-    //   type: 'PUT',
-    //   url: '/jobs/update/' + jobID,
-    //   data: objectToUpdate,
-    //   success: function (response) {
-    //     console.log('response', response);
-    //     getJobs();
-    //     $('#editJob').empty();
-    //     $('#updateJob').on('click', newJob); //end updateJob on click
-    //     $('#updateJob').off('click', updateJob);
-    //     $('#formLabel').text('Add Job');
-    //     $('#updateJob').text('Add Job');
-
-
-    //     $('#company').val('');
-    //     $('#contact').val('');
-    //     $('#email').val('');
-    //     $('#notes').val('');
-    //     $('#date').val('');
-    //     $('#status').val('');
-    //     $('#updateJob').val('');
-    //   }
-    // });
   }
+}
+
+function saveJob(newJob) {
+  console.log('in saveJob', newJob);
+
+  $.ajax({
+    url: '/jobs',
+    type: 'POST',
+    data: newJob,
+    success: function (response) {
+      console.log('got some jobs: ', response);
+      getJobs();
+
+      $('#company').val('').focus();
+      $('#contact').val('');
+      $('#email').val('');
+      $('#notes').val('');
+      $('#date').val('');
+      $('#status').val('');
+    } // end success
+  }); //end ajax
 }
 
 function updateJob() {
@@ -180,28 +177,9 @@ function displayJobs(data) {
   }
 }
 
-let displayAllStatus = true;
+// let displayAllStatus = true;
 
-function saveJob(newJob) {
-  console.log('in saveJob', newJob);
 
-  $.ajax({
-    url: '/jobs',
-    type: 'POST',
-    data: newJob,
-    success: function (response) {
-      console.log('got some jobs: ', response);
-      getJobs();
-
-      $('#company').val('').focus();
-      $('#contact').val('');
-      $('#email').val('');
-      $('#notes').val('');
-      $('#date').val('');
-      $('#status').val('');
-    } // end success
-  }); //end ajax
-}
 
 function deleteJob() {
   let jobID = $(this).val();
