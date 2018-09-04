@@ -48,7 +48,7 @@ router.put('/update/:id', (req, res) => {
 
 router.post('/', function(req, res) {
     const queryText = 'INSERT INTO job (company, email, contact, position, notes, date, status, filename) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
-    pool.query(queryText, [req.body.company, req.body.email, req.body.contact, eq.body.position, req.body.notes, req.body.date, req.body.status, req.body.filename])
+    pool.query(queryText, [req.body.company, req.body.email, req.body.contact, req.body.position, req.body.notes, req.body.date, req.body.status, req.body.filename])
         .then((result) => {
             console.log('result:', result.rows);
             res.send(result.rows);
