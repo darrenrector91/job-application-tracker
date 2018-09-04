@@ -20,6 +20,7 @@ function newJob() {
   let company = $('#company').val()
   let contact = $('#contact').val()
   let email = $('#email').val()
+  let position = $('#position').val()
   let notes = $('#notes').val()
   let date = $('#date').val()
   let status = $('#status').val()
@@ -31,6 +32,7 @@ function newJob() {
       company: company,
       contact: contact,
       email: email,
+      position: position,
       notes: notes,
       date: date,
       status: status,
@@ -56,6 +58,7 @@ function newJob() {
         $('#company').val('');
         $('#contact').val('');
         $('#email').val('');
+        $('#position').val('');
         $('#notes').val('');
         $('#date').val('');
         $('#status').val('');
@@ -71,6 +74,7 @@ function updateJob() {
   let company = $('#company').val()
   let contact = $('#contact').val()
   let email = $('#email').val()
+  let position = $('#position').val()
   let notes = $('#notes').val()
   let date = $('#date').val()
   let status = $('#status').val()
@@ -84,6 +88,7 @@ function updateJob() {
       company: company,
       contact: contact,
       email: email,
+      position: position,
       notes: notes,
       date: date,
       status: status,
@@ -106,6 +111,7 @@ function updateJob() {
         $('#company').val('');
         $('#contact').val('');
         $('#email').val('');
+        $('#position').val('');
         $('#notes').val('');
         $('#date').val('');
         $('#status').val('');
@@ -134,6 +140,7 @@ function editJob() {
       $('#company').val(response[0].company).focus();
       $('#contact').val(response[0].contact);
       $('#email').val(response[0].email);
+      $('#position').val(response[0].position);
       $('#notes').val(response[0].notes);
       $('#date').val(response[0].date);
       $('#status').val(response[0].status);
@@ -177,6 +184,7 @@ function displayJobs(data) {
       newRow.append('<td>' + data[i].company + '</td>');
       newRow.append('<td>' + data[i].contact + '</td>');
       newRow.append('<td>' + data[i].email + '</td>');
+      newRow.append('<td>' + data[i].position + '</td>');
       newRow.append('<td>' + data[i].notes + '</td>');
       newRow.append('<td>' + data[i].date + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
@@ -204,6 +212,7 @@ function saveJob(newJob) {
       $('#company').val('').focus();
       $('#contact').val('');
       $('#email').val('');
+      $('#position').val('');
       $('#notes').val('');
       $('#date').val('');
       $('#status').val('');

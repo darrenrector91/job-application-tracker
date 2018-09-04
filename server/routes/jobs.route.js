@@ -34,8 +34,8 @@ router.get('/:id', function(req, res) {
 });
 
 router.put('/update/:id', (req, res) => {
-    const queryText = 'UPDATE job SET company = $1, contact = $2, email = $3, notes = $4, date = $5, status = $6, filename = $7 WHERE id = $8';
-    pool.query(queryText, [req.body.company, req.body.contact, req.body.email, req.body.notes, req.body.date, req.body.status, req.body.filename, req.params.id])
+    const queryText = 'UPDATE job SET company = $1, contact = $2, email = $3, position = $4, notes = $5, date = $6, status = $7, filename = $8 WHERE id = $9';
+    pool.query(queryText, [req.body.company, req.body.contact, req.body.email, req.body.position, req.body.notes, req.body.date, req.body.status, req.body.filename, req.params.id])
         .then((result) => {
             console.log('result:', result.rows);
             res.sendStatus(200);
@@ -44,11 +44,11 @@ router.put('/update/:id', (req, res) => {
             console.log('error:', err);
             res.sendStatus(500);
         });
-});
+})
 
 router.post('/', function(req, res) {
-    const queryText = 'INSERT INTO job (company, email, contact, notes, date, status, filename) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-    pool.query(queryText, [req.body.company, req.body.email, req.body.contact, req.body.notes, req.body.date, req.body.status, req.body.filename])
+    const queryText = 'INSERT INTO job (company, email, contact, position, notes, date, status, filename) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
+    pool.query(queryText, [req.body.company, req.body.email, req.body.contact, eq.body.position, req.body.notes, req.body.date, req.body.status, req.body.filename])
         .then((result) => {
             console.log('result:', result.rows);
             res.send(result.rows);
