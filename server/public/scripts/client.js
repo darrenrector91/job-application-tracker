@@ -10,13 +10,11 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.editJob', editJob);
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
 
-}); // end doc ready
+});
 
 function newJob() {
   console.log('in add new job on click');
-  // get user input and put in an object
-  // NOT WORKING YET :(
-  // using a test object
+
   let company = $('#company').val()
   let contact = $('#contact').val()
   let email = $('#email').val()
@@ -25,7 +23,6 @@ function newJob() {
   let date = $('#date').val()
   let status = $('#status').val()
   let filename = $('#filename').val()
-
 
   if (checkInputs(company, notes, date)) {
     let objectToSend = {
@@ -107,7 +104,6 @@ function updateJob() {
         $('#formLabel').text('Add Job');
         $('#updateJob').text('Add Job');
 
-
         $('#company').val('');
         $('#contact').val('');
         $('#email').val('');
@@ -174,7 +170,6 @@ function getJobs() {
 } // end getJobs
 
 function displayJobs(data) {
-  // WORKING
 
   $('#viewJobs').empty();
 
