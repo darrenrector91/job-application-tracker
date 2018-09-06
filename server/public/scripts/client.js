@@ -162,7 +162,8 @@ function getJobs() {
     url: '/jobs',
     type: 'GET',
     success: function (data) {
-      console.log('got some jobs: ', data);
+      console.log('got some jobs: ', data); 
+    
       displayJobs(data);
     } // end success
   }); //end ajax
@@ -175,13 +176,17 @@ function displayJobs(data) {
 
   for (let i = 0; i < data.length; i++) {
       let newRow = $('<tr>');
+      let convertedDate = data[i].date;
+      convertedDate = convertedDate.split('T')[0];
+      console.log(convertedDate);
+      
       newRow.append('<td>' + data[i].id + '</td>');
       newRow.append('<td>' + data[i].company + '</td>');
       newRow.append('<td>' + data[i].contact + '</td>');
       newRow.append('<td>' + data[i].email + '</td>');
       newRow.append('<td>' + data[i].position + '</td>');
       newRow.append('<td>' + data[i].notes + '</td>');
-      newRow.append('<td>' + data[i].date + '</td>');
+      newRow.append('<td>' + convertedDate + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button></td>');
