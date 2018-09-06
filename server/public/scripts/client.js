@@ -120,7 +120,7 @@ function updateJob() {
 
 function editJob() {
 
-  $('#updateJob').text('Edit Job');
+  $('#updateJob').text('Edit');
   $('#updateJob').off('click', newJob); //end updateJob on click
   $('#updateJob').on('click', updateJob);
 
