@@ -61,7 +61,7 @@ b.max-bold{ font-weight: 700; }
 }
 
 .tableButton {
-    width: 100px;
+    width: 40px;
 }
 
 #clearform {
@@ -74,10 +74,62 @@ b.max-bold{ font-weight: 700; }
     width: 100px;
 }
 
-#table {
-    width: 100%;
-    position: relative;
-    right: 19mm;
+thead {
+    text-align: center;
 }
 
+#table {
+    width: 374mm;
+    position: relative;
+    right: 36mm;
+    font-size: 9pt;
+}
 
+.btn {
+    width: 69px;
+}
+
+/* .idColumn {
+   width: 2%; 
+}
+
+.nameColumn {
+    width: 9%;      
+}
+
+.contactColumn {
+    width: 9%;
+}
+
+.emailColumn {
+    width: 9%;
+}
+
+.positionColumn{
+    width: 5%;
+}
+
+.infoColumn {
+    width: 13%;
+}
+
+.dateColumn {
+    width: 7%;
+}
+
+.statusColumn {
+    width: 7%;
+}
+
+.fileColumn {
+    width: 7%;
+}
+
+.editColumn {
+    width: 5%;
+}
+
+.deleteColumn {
+    width: 5%;
+}
+ */

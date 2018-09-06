@@ -23,17 +23,17 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Company name</th>
-                <th>Contact name</th>
-                <th>Contact email</th>
-                <th>Position</th>
-                <th>Info</th>
-                <th>Date</th>
-                <th>Job status</th>
-                <th>File</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th class="idColumn">#</th>
+                <th class="nameColumn">Company</th>
+                <th class="contactColumn">Contact</th>
+                <th class="emailColumn">Contact email</th>
+                <th class="positionColumn">Position</th>
+                <th class="infoColumn">Notes/Information</th>
+                <th class="dateColumn">Date</th>
+                <th class="statusColumn">Job status</th>
+                <th class="fileColumn">File</th>
+                <th class="editColumn">Edit</th>
+                <th class="deleteColumn">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -100,8 +100,8 @@
             </div>
             <div class="row">
                 <div class="form-group col">
-                    <button type="submit" class="btn btn-primary" id="updateJob">Submit</button>
-                    <button type="submit" class="btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
+                    <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
+                    <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
                 </div>
             </div>
         </form>
