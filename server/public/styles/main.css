@@ -75,7 +75,7 @@ b.max-bold{ font-weight: 700; }
 }
 
 #table {
-    width: 350mm;
+    width: 100%;
     position: relative;
     right: 19mm;
 }
