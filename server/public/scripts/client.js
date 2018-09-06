@@ -178,8 +178,8 @@ function displayJobs(data) {
       let newRow = $('<tr>');
       let convertedDate = data[i].date;
       convertedDate = convertedDate.split('T')[0];
-      convertedDate = moment().format('MM-DD-YYYY')
-      
+      // convertedDate = moment().format('MM-DD-YYYY')
+
       console.log(convertedDate);
       
       newRow.append('<td>' + data[i].id + '</td>');
