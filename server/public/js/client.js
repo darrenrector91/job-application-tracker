@@ -191,8 +191,8 @@ function displayJobs(data) {
       newRow.append('<td>' + convertedDate + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
-      newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button></td>');
-      newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button></td>');
+      newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil"></i></button></td>');
+      newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
 
       $('#viewJobs').append(newRow);
   }
@@ -241,3 +241,16 @@ function selectFile() {
   var filename = file.name;
   document.getElementById('displayFileName').innerHTML = filename;
 }
+
+        
+    // Write on keyup event of keyword input element
+    $("#search").keyup(function(){
+      var searchText = $(this).val().toLowerCase();
+      // Show only matching TR, hide rest of them
+      $.each($("#table tbody tr"), function() {
+          if($(this).text().toLowerCase().indexOf(searchText) === -1)
+             $(this).hide();
+          else
+             $(this).show();                
+      });
+  }); 
