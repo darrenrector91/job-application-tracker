@@ -22,12 +22,12 @@
         <header>
             <h1 class="page-title">Gig Find</h1>
         </header>
+        <!-- <a href="test.html"><button>test</button></a> -->
         <div class="container">
                 <div class="search">
                         <span class="fa fa-search"></span>
                         <input placeholder="Search term" id="search" > 
                       </div>
-    <!-- <input type="text" class="searchBar" id="search" placeholder="Search for names.." title="Type in a name"> -->
         <div id="table" class="row">
             <table class="table table-bordered table-hover">
                 <thead>
@@ -39,7 +39,7 @@
                         <th class="positionColumn">Position</th>
                         <th class="infoColumn">Notes/Information</th>
                         <th class="dateColumn">Date</th>
-                        <th class="statusColumn">Job status</th>
+                        <th class="statusColumn">Status</th>
                         <th class="fileColumn">File</th>
                         <th class="editColumn">Edit</th>
                         <th class="deleteColumn">Delete</th>
@@ -70,48 +70,57 @@
                             <label for="position" class="control-label">Position</label>
                             <input type="text" class="form-control" id="position" aria-describedby="Position" placeholder="Enter position">
                         </div>
+                        <div class="form-group col">
+                                <label for="status">Job status</label>
+                                <select class="form-control" id="status" placeholder="">
+                                    <option disabled selected>Select status</option>
+                                    <option>Applied</option>
+                                    <option>Phone interview</option>
+                                    <option>First interview</option>
+                                    <option>Second interview</option>
+                                    <option>Additional interview</option>
+                                    <option>Rejected</option>
+                                    <option>Offer made</option>
+                                    <option>Accepted offer</option>
+                                </select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="date" class="control-label" >Date</label>
+                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
                         <div class="input-group col">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Notes</span>
                             </div>
-                            <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="a cover letter, résumé, additional materials, portfolio or reference list.."></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col">
-                            <label for="date" class="control-label" >Date</label>
-                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                            <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="add notes..."></textarea>
                         </div>
                         <div class="form-group col">
                             <label for="file"  class="control-label">Filename</label>
                             <input type="text" id="filename"  class="form-control" name="file" placeholder=".png, .jpg">
                         </div>
-                        <div class="form-group col">
-                            <label for="status">Job status</label>
-                            <select class="form-control" id="status" placeholder="">
-                                <option disabled selected>Select status</option>
-                                <option>Applied</option>
-                                <option>Phone interview</option>
-                                <option>First interview</option>
-                                <option>Second interview</option>
-                                <option>Additional interview</option>
-                                <option>Rejected</option>
-                                <option>Offer made</option>
-                                <option>Accepted offer</option>
-                            </select>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="input-group col">
+                            <textarea class="form-control" aria-label="With textarea" id="notes"></textarea>
                         </div>
-                    </div>  
-                    <div class="row">
+                    </div> -->
+                    <!-- <div class="row">
                         <div class="form-group col">
                             <input type="file" id="file" onchange="selectFile()">
                         </div>
                         <div class="form-group col" id="displayFileName"></div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <div class="form-group col">
                             <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
                             <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
                         </div>
+                    </div>
+                    <div class="row" id="spacer">
+
                     </div>
                 </form>
             </div>

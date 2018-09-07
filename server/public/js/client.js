@@ -19,7 +19,7 @@ function newJob() {
   let contact = $('#contact').val()
   let email = $('#email').val()
   let position = $('#position').val()
-  let notes = $('#notes').val()
+  let notes = $('textarea').val()
   let date = $('#date').val()
   let status = $('#status').val()
   let filename = $('#filename').val()
@@ -56,7 +56,7 @@ function newJob() {
         $('#contact').val('');
         $('#email').val('');
         $('#position').val('');
-        $('#notes').val('');
+        $('textarea').val('');
         $('#date').val('');
         $('#status').val('');
         $('#filename').val('');
@@ -73,6 +73,8 @@ function updateJob() {
   let email = $('#email').val()
   let position = $('#position').val()
   let notes = $('#notes').val()
+  console.log(notes);
+  
   let date = $('#date').val()
   let status = $('#status').val()
   let filename = $('#filename').val()
@@ -90,6 +92,7 @@ function updateJob() {
       date: date,
       status: status,
       filename: filename
+      
     };
     $.ajax({
       type: 'PUT',
@@ -108,7 +111,7 @@ function updateJob() {
         $('#contact').val('');
         $('#email').val('');
         $('#position').val('');
-        $('#notes').val('');
+        $('textarea').val('');
         $('#date').val('');
         $('#status').val('');
         $('#filename').val('');
@@ -170,6 +173,8 @@ function getJobs() {
   // display on DOM with buttons that allow edit of each
 } // end getJobs
 
+
+// gets jobs form dB to display in table onload
 function displayJobs(data) {
 
   $('#viewJobs').empty();
@@ -215,7 +220,7 @@ function saveJob(newJob) {
       $('#contact').val('');
       $('#email').val('');
       $('#position').val('');
-      $('#notes').val('');
+      $('textarea').val('');
       $('#date').val('');
       $('#status').val('');
       $('#filename').val('');
@@ -242,15 +247,14 @@ function selectFile() {
   document.getElementById('displayFileName').innerHTML = filename;
 }
 
-        
-    // Write on keyup event of keyword input element
-    $("#search").keyup(function(){
-      var searchText = $(this).val().toLowerCase();
-      // Show only matching TR, hide rest of them
-      $.each($("#table tbody tr"), function() {
-          if($(this).text().toLowerCase().indexOf(searchText) === -1)
-             $(this).hide();
-          else
-             $(this).show();                
-      });
-  }); 
+// Write on keyup event of keyword input element
+$("#search").keyup(function(){
+  var searchText = $(this).val().toLowerCase();
+  // Show only matching TR, hide rest of them
+  $.each($("#table tbody tr"), function() {
+      if($(this).text().toLowerCase().indexOf(searchText) === -1)
+          $(this).hide();
+      else
+          $(this).show();                
+  });
+}); 

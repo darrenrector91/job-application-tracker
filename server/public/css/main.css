@@ -7,7 +7,7 @@ html{ font-size: 100%; height: 100%; overflow-x: hidden; margin: 0px;  padding: 
 
 body{ font-size: 16px; font-family: 'Poppins', serif; width: 100%; height: 100%; margin: 0; font-weight: 400;
 	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; word-wrap: break-word; 
-	color: #333; background-color: rgb(114, 113, 113); }
+	color: rgb(245,245,245) !important; background-color: rgb(114, 113, 113) !important; }
 
 h1, h2, h3, h4, h5, h6, p, a, ul, span, li, img, inpot, button{ margin: 0; padding: 0; }
 
@@ -74,9 +74,10 @@ b.max-bold{ font-weight: 700; }
 }
 
 #clearform {
-    color: blue;
-    background-color: transparent;
-    border-color: blue;
+    color: rgb(49, 49, 168);
+    background-color: whitesmoke;
+    border-color: rgb(49, 49, 168);
+    margin-top: 5mm;
 }
 
 .btn {
@@ -87,7 +88,13 @@ thead {
     text-align: center;
     background-color: rgba(79, 142, 224, 0.657);
     font-family: 'Questrial', sans-serif;
-    font-size: 12pt;
+    font-size: 17pt !important;
+    color: rgb(49, 49, 49);
+}
+
+.table-bordered {
+    border: 2px solid rgb(151, 218, 26) !important;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #3b3b3ba1;
 }
 
 /* .fa {
@@ -99,32 +106,18 @@ thead {
     position: relative;
     right: 36mm;
     font-size: 9pt;
+    
 }
 
 .btn {
     width: 69px;
+    
 }
 
 .rowBtn {
     width: 20mm;
+    margin-top: 4mm;
 }
-
-tr:hover {
-    
-}
-
-/* .searchBar {
-    height: 10mm;
-    width: 100mm;
-    position: relative;
-    right: 31mm;
-    margin-bottom: 5mm;
-
-}
-
-.searchBar input { text-indent: 30px;} */
-
-
 .search {
     height: 10mm;
     width: 100mm;
@@ -153,15 +146,15 @@ tr:hover {
 }
 
 .editJob {
-    color: rgb(22, 167, 3) !important;
-    background-color: transparent !important;
-    border-color: rgb(22, 167, 3) !important;
+    color: rgb(255,255,255) !important;
+    background-color: rgb(61, 141, 51) !important;
+    border-color: rgb(61, 141, 51) !important;
 }
 
 .deleteJob {
-    color: rgb(167, 22, 3) !important;
-    background-color: transparent !important;
-    border-color: rgb(167, 22, 3) !important;
+    color: whitesmoke !important;
+    background-color: rgb(192, 82, 68) !important;
+    border-color: rgb(192, 82, 68) !important;
 }
 
 .dateColumn {
@@ -169,50 +162,16 @@ tr:hover {
     text-align: center;
 }
 
-/* .idColumn {
-   width: 2%; 
+#spacer {
+    width: 100%;
+    height: 50mm;
+    border: 1px solid transparent;
 }
 
-.nameColumn {
-    width: 9%;      
+.form-control {
+    background-color: #e7e7e7b2 !important;
+    border: 2px solid rgb(151, 218, 26) !important;
+    /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
 }
-
-.contactColumn {
-    width: 9%;
-}
-
-.emailColumn {
-    width: 9%;
-}
-
-.positionColumn{
-    width: 5%;
-}
-
-.infoColumn {
-    width: 13%;
-}
-
-.dateColumn {
-    width: 7%;
-}
-
-.statusColumn {
-    width: 7%;
-}
-
-.fileColumn {
-    width: 7%;
-}
-
-.editColumn {
-    width: 5%;
-}
-
-.deleteColumn {
-    width: 5%;
-}
- */
-
 
   
