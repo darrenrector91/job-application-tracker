@@ -9,6 +9,8 @@ $(document).ready(function () {
   $('#updateJob').on('click', newJob); //end updateJob on click
   $('#viewJobs').on('click', '.editJob', editJob);
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
+  $('#viewJobs').on('click', '.showImage', showImage);
+
 
 });
 
@@ -195,12 +197,19 @@ function displayJobs(data) {
       newRow.append('<td>' + data[i].notes + '</td>');
       newRow.append('<td>' + convertedDate + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
-      newRow.append('<td>' + data[i].filename + '</td>');
+      newRow.append('<td><button type="button" class=" showImage btn btn-info fileButton" value="' + data[i].filename + '"><i class="fa fa-image"></i></button></td>');
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil"></i></button></td>');
-      newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
+      newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value"' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
 
       $('#viewJobs').append(newRow);
   }
+}
+
+function showImage() {
+  let fileName = "images/" + $(this).val();
+  console.log(fileName);
+  
+  $('#displayImg').append("<img src='"+ fileName + "'></img>");
 }
 
 let displayAllStatus = true;
