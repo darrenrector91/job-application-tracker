@@ -170,10 +170,28 @@ function getJobs() {
       console.log('got some jobs: ', data); 
     
       displayJobs(data);
-    } // end success
-  }); //end ajax
+    }, // end success
+    error: function (jqXHR, exception) {
+      var msg = '';
+      if (jqXHR.status === 0) {
+          msg = 'Not connect.\n Verify Network.';
+      } else if (jqXHR.status == 404) {
+          msg = 'Requested page not found. [404]';
+      } else if (jqXHR.status == 500) {
+          msg = 'Internal Server Error [500].';
+      } else if (exception === 'parsererror') {
+          msg = 'Requested JSON parse failed.';
+      } else if (exception === 'timeout') {
+          msg = 'Time out error.';
+      } else if (exception === 'abort') {
+          msg = 'Ajax request aborted.';
+      } else {
+          msg = 'Uncaught Error.\n' + jqXHR.responseText;
+      }
+      alert(html(msg));
+  }, //end ajax
   // display on DOM with buttons that allow edit of each
-} // end getJobs
+})} // end getJobs
 
 
 // gets jobs form dB to display in table onload
@@ -197,8 +215,11 @@ function displayJobs(data) {
       newRow.append('<td>' + data[i].notes + '</td>');
       newRow.append('<td>' + convertedDate + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
-      newRow.append('<td><button type="button" class=" showImage btn btn-info fileButton" value="' + data[i].filename + '"><i class="fa fa-image"></i></button></td>');
+
+      newRow.append('<td><button type="button" class="showImage btn btn-info fileButton" value="' + data[i].filename + '"><i class="fa fa-image"></i></button></td>');
+
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil"></i></button></td>');
+
       newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value"' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
 
       $('#viewJobs').append(newRow);
@@ -206,11 +227,59 @@ function displayJobs(data) {
 }
 
 function showImage() {
-  let fileName = "images/" + $(this).val();
+  fileName = "images/" + $(this).val();
   console.log(fileName);
   
-  $('#displayImg').append("<img src='"+ fileName + "'></img>");
+  // $('#displayImg').append("<img src='"+ fileName + "'></img>");
+
+  var modal = document.getElementById('myModal');
+  console.log(modal);
+  
+
+  var img = document.getElementById('displayImg').src = fileName;
+  console.log(img);
+
+  var modalImg = document.getElementById("img01");
+  console.log(modalImg);
+  
+  
+  img.onclick = function(){
+    console.log('in img.onclick');
+    
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    console.log(modalImg.src);
+    
+    modalImg.alt = this.alt;
+    captionText.innerHTML = this.alt;
+  }
 }
+
+// function openModal() {
+//   // Get the modal
+//   // var modal = document.getElementById('myModal');
+
+//   // Get the image and insert it inside the modal - use its "alt" text as a caption
+//   // var img = document.getElementById('displayImg');
+//   // console.log(img);
+  
+//   // var modalImg = document.getElementById("displayImg");
+//   // var captionText = document.getElementById("caption");
+//   // img.onclick = function(){
+//   //     modal.style.display = "block";
+//   //     modalImg.src = this.src;
+//   //     modalImg.alt = this.alt;
+//   //     // captionText.innerHTML = this.alt;
+//   // }
+//   // When the user clicks on <span> (x), close the modal
+//   modal.onclick = function() {
+//       img01.className += " out";
+//       setTimeout(function() {
+//         modal.style.display = "none";
+//         img01.className = "modal-content";
+//       }, 400); 
+//   }
+// }
 
 let displayAllStatus = true;
 

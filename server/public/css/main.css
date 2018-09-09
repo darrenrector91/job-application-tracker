@@ -174,4 +174,18 @@ thead {
     /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
 }
 
-  
+
+/* #displayImg {
+    position: absolute;
+    left: 25%;
+    height: 100mm;
+    width: 50mm;
+} */
+
+#testBtn,
+#tableBtn {
+    position: relative;
+    left: 348mm;
+    top: 17mm;
+    margin: 5mm;
+}

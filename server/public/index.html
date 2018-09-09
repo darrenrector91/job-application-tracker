@@ -13,16 +13,19 @@
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">       
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">  
          <!-- Favicon -->
         <link rel="icon" href="favicon.ico">
+        <!-- Modal -->
+        <link rel="stylesheet" href="css/modal.css">
 
     </head>
     <body>
         <header>
             <h1 class="page-title">Gig Find</h1>
         </header>
-        <!-- <a href="test.html"><button class="btn btn-primary">test</button></a> -->
+        <a href="table.html"><button id="testBtn" class="btn btn-secondary">test</button></a>
+        <!-- <a href="test.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
         <div class="container">
                 <div class="search">
                         <span class="fa fa-search"></span>
@@ -102,36 +105,35 @@
                             <input type="text" id="filename"  class="form-control" name="file" placeholder=".png, .jpg">
                         </div>
                     </div>
-                    <!-- <div class="row">
-                        <div class="input-group col">
-                            <textarea class="form-control" aria-label="With textarea" id="notes"></textarea>
-                        </div>
-                    </div> -->
-                    <!-- <div class="row">
-                        <div class="form-group col">
-                            <input type="file" id="file" onchange="selectFile()">
-                        </div>
-                        <div class="form-group col" id="displayFileName"></div>
-                    </div> -->
+                    <!-- Clear form/reload page -->
+                    <!-- Not the purest way to handle clearing form but enough for this piece -->
                     <div class="row">
                         <div class="form-group col">
                             <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
                             <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
                         </div>
                     </div>
-                    <div class="row" id="spacer">
-
-                    </div>
                 </form>
             </div>
-            <div id="displayImg"></div>
+            <!-- <div id="displayImg"></div> -->
+
+            <img id="displayImg" width="500" height="300">
+            <!-- myImg -->
+            <!-- Modal -->
+            <div id="myModal" class="modal">
+                <img class="modal-content" id="img01">
+            </div>
     </body>
         <!-- jQuery -->
         <script src="vendors/jquery-3.3.1.min.js"></script>
+        <!-- Fancybox -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
         <!-- Scripts -->
         <script src="js/client.js"></script>
         <!-- Bootstrap -->
         <script src="vendors/bootstrap.min.js"></script>
         <!-- Moment.js -->
         <script src="js/moment.min.js"></script>
+        <!-- Modal -->
+        <script src="js/modal.js"></script>
 </html>
