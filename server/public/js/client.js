@@ -235,7 +235,6 @@ function showImage() {
   var modal = document.getElementById('myModal');
   console.log(modal);
   
-
   var img = document.getElementById('displayImg').src = fileName;
   console.log(img);
 
@@ -243,7 +242,7 @@ function showImage() {
   console.log(modalImg);
   
   
-  img.onclick = function(){
+  modal.onclick = function(){
     console.log('in img.onclick');
     
     modal.style.display = "block";
