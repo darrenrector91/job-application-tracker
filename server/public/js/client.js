@@ -227,7 +227,7 @@ function displayJobs(data) {
 }
 
 function showImage() {
-  fileName = "images/screenshots" + $(this).val();
+  fileName = "images/screenshots/" + $(this).val();
   console.log(fileName);
   
   // $('#displayImg').append("<img src='"+ fileName + "'></img>");
