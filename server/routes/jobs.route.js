@@ -1,5 +1,4 @@
 const pool = require('../modules/pool');
-
 const express = require('express');
 const router = express.Router();
 
@@ -22,6 +21,20 @@ router.get('/:id', function(req, res) {
     console.log('hit get jobs');
 
     const queryText = 'SELECT * FROM job WHERE id=$1';
+    pool.query(queryText, [req.params.id])
+        .then((result) => {
+            console.log('query results:', result);
+            res.send(result.rows);
+        })
+        .catch((err) => {
+            console.log('error making query:', err);
+            res.sendStatus(500);
+        });
+});
+
+router.get('/filename/:id', function(req, res) {
+    console.log('hit get jobs');
+    const queryText = 'SELECT filename FROM job WHERE id=$1';
     pool.query(queryText, [req.params.id])
         .then((result) => {
             console.log('query results:', result);

@@ -19,6 +19,11 @@
     <link rel="icon" href="favicon.ico">
     <!-- Modal -->
     <link rel="stylesheet" href="css/modal.css">
+    <!-- Bootstrap Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <!-- Modal -->
+    <link rel="stylesheet" href="css/modal.css">
+
 
 </head>
 
@@ -114,15 +119,58 @@
             </table>
         </div>
     </div>
-    <!-- <div id="displayImg"></div> -->
 
-    <img id="displayImg" width="500" height="300">
-    <!-- myImg -->
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <img class="modal-content" id="img01">
-    </div>
 </body>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDgjY9O33RPzuRDfVPHhFZ_9h_SkGD0BH4",
+        authDomain: "gig-finder-75751.firebaseapp.com",
+        databaseURL: "https://gig-finder-75751.firebaseio.com",
+        projectId: "gig-finder-75751",
+        storageBucket: "gig-finder-75751.appspot.com",
+        messagingSenderId: "25565657670"
+    };
+    firebase.initializeApp(config)
+    var uploader = document.getElementById('uploader');
+    var fileButton = document.getElementById('fileButton');
+
+    fileButton.addEventListener('change', function (e) {
+
+        // Get file
+        var file = e.target.files[0];
+
+
+        // Create a storage ref
+        var storageRef = firebase.storage().ref(file.name);
+
+        // Upload file
+        var task = storageRef.put(file)
+
+        // Update progress bar
+        task.on('state_changed',
+
+            function progress(snapshot) {
+                var percentage = (snapshot.bytesTransferred /
+                    snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+            },
+
+            function error(err) {
+
+            },
+
+            function complete() {
+
+            }
+
+        )
+
+    });
+</script>
 <!-- jQuery -->
 <script src="vendors/jquery-3.3.1.min.js"></script>
 <!-- Fancybox -->
@@ -133,5 +181,9 @@
 <script src="vendors/bootstrap.min.js"></script>
 <!-- Moment.js -->
 <script src="js/moment.min.js"></script>
+<!-- Bootstrap Datepicker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<!-- Modal -->
+<script src="js/modal.js"></script>
 
 </html>

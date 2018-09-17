@@ -192,3 +192,16 @@ thead {
     top: 17mm;
     margin: 5mm;
 }
+
+.progress {
+    margin-bottom: 10px;
+    
+}
+
+#uploader {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    margin-bottom: 10px;
+    background-color: blue;
+}
