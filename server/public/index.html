@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Job Tracking</title>
-        
-        <!-- Styling -->
-        <link rel="stylesheet" href="css/main.css">
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">  
-         <!-- Favicon -->
-        <link rel="icon" href="favicon.ico">
-        <!-- Modal -->
-        <link rel="stylesheet" href="css/modal.css">
 
-    </head>
-    <body>
-        <header>
-            <h1 class="page-title">Gig Finder</h1>
-        </header>
-        <!-- <a href="table.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
-        <!-- <a href="test.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
-        <div class="container">
-                <div class="search">
-                        <span class="fa fa-search"></span>
-                        <input placeholder="Search term" id="search" > 
-                      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Job Tracking</title>
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    <!-- Modal -->
+    <link rel="stylesheet" href="css/modal.css">
+    <!-- Bootstrap Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <!-- Modal -->
+    <link rel="stylesheet" href="css/modal.css">
+
+
+</head>
+
+<body>
+    <header>
+        <h1 class="page-title">Gig Finder</h1>
+    </header>
+    <!-- <a href="table.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
+    <a href="test.html"><button id="testBtn" class="btn btn-secondary">test</button></a>
+    <div class="container">
+        <div class="search">
+            <span class="fa fa-search"></span>
+            <input placeholder="Search term" id="search">
+        </div>
         <div id="table" class="row">
             <table class="table table-bordered table-hover">
                 <thead>
@@ -49,91 +56,145 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tbody id="viewJobs"></tbody>
+                <tbody id="viewJobs"></tbody>
                 </tbody>
             </table>
+        </div>
+        <form class="job-form">
+            <div class="row">
+                <div class="form-group col">
+                    <label for="company-name" class="control-label">Company</label>
+                    <input type="text" class="form-control" id="company" aria-describedby="companyName" placeholder="Enter company name">
+                </div>
+                <div class="form-group col">
+                    <label for="company-contact" class="control-label">Name</label>
+                    <input type="text" class="form-control" id="contact" placeholder="Enter name">
+                </div>
+                <div class="form-group col">
+                    <label for="contact-email" class="control-label">Email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="Enter email" placeholder="Enter email">
+                </div>
             </div>
-                <form class="job-form">
-                    <div class="row">
-                        <div class="form-group col">
-                            <label for="company-name" class="control-label">Company</label>
-                            <input type="text" class="form-control" id="company" aria-describedby="companyName" placeholder="Enter company name">
-                        </div>
-                        <div class="form-group col">
-                            <label for="company-contact" class="control-label">Name</label>
-                            <input type="text" class="form-control" id="contact" placeholder="Enter name">
-                        </div>
-                        <div class="form-group col">
-                            <label for="contact-email" class="control-label">Email</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="Enter email" placeholder="Enter email">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col">
-                            <label for="position" class="control-label">Position</label>
-                            <input type="text" class="form-control" id="position" aria-describedby="Position" placeholder="Enter position">
-                        </div>
-                        <div class="form-group col">
-                                <label for="status">Job status</label>
-                                <select class="form-control" id="status" placeholder="">
-                                    <option disabled selected>Select status</option>
-                                    <option>Applied</option>
-                                    <option>Phone interview</option>
-                                    <option>First interview</option>
-                                    <option>Second interview</option>
-                                    <option>Additional interview</option>
-                                    <option>Rejected</option>
-                                    <option>Offer made</option>
-                                    <option>Accepted offer</option>
-                                </select>
-                        </div>
-                        <div class="form-group col">
-                            <label for="date" class="control-label" >Date</label>
-                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        
-                        <div class="input-group col">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Notes</span>
-                            </div>
-                            <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="add notes..."></textarea>
-                        </div>
-                        <div class="form-group col">
-                            <label for="file"  class="control-label">Filename</label>
-                            <input type="text" id="filename"  class="form-control" name="file" placeholder=".png, .jpg">
-                        </div>
-                    </div>
-                    <!-- Clear form/reload page -->
-                    <!-- Not the purest way to handle clearing form but enough for this piece -->
-                    <div class="row">
-                        <div class="form-group col">
-                            <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
-                            <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="position" class="control-label">Position</label>
+                    <input type="text" class="form-control" id="position" aria-describedby="Position" placeholder="Enter position">
+                </div>
+                <div class="form-group col">
+                    <label for="status">Job status</label>
+                    <select class="form-control" id="status" placeholder="">
+                        <option disabled selected>Select status</option>
+                        <option>Applied</option>
+                        <option>Phone interview</option>
+                        <option>First interview</option>
+                        <option>Second interview</option>
+                        <option>Additional interview</option>
+                        <option>Rejected</option>
+                        <option>Offer made</option>
+                        <option>Accepted offer</option>
+                    </select>
+                </div>
+                <!-- <div class="form-group ">
+                            <label class="control-label " for="date">Date</label>
+                            <input class="form-control" id="date" name="date" placeholder="mm/dd/yyyy" type="text"/>
+                        </div> -->
+                <div class="form-group col">
+                    <label for="date" class="control-label">Date</label>
+                    <input class="form-control" id="date" name="date" placeholder="mm/dd/yyyy" type="text" />
+                </div>
             </div>
-            <!-- <div id="displayImg"></div> -->
+            <div class="row">
 
-            <img id="displayImg" width="500" height="300">
-            <!-- myImg -->
-            <!-- Modal -->
-            <div id="myModal" class="modal">
-                <img class="modal-content" id="img01">
+                <div class="input-group col">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Notes</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="add notes..."></textarea>
+                </div>
+                <div class="form-group col">
+                    <label for="file" class="control-label">Filename</label>
+                    <input type="text" id="filename" class="form-control" name="file" placeholder=".png, .jpg">
+                </div>
             </div>
-    </body>
-        <!-- jQuery -->
-        <script src="vendors/jquery-3.3.1.min.js"></script>
-        <!-- Fancybox -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
-        <!-- Scripts -->
-        <script src="js/client.js"></script>
-        <!-- Bootstrap -->
-        <script src="vendors/bootstrap.min.js"></script>
-        <!-- Moment.js -->
-        <script src="js/moment.min.js"></script>
-        <!-- Modal -->
-        <script src="js/modal.js"></script>
+            <!-- Clear form/reload page -->
+            <div class="row">
+                <div class="form-group col">
+                    <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
+                    <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
+                </div>
+                <div class="form-group col">
+                    <input type="file" value="upload" id="fileButton">
+                    <progress value="0" max="100" id="uploader">0%</progress>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDgjY9O33RPzuRDfVPHhFZ_9h_SkGD0BH4",
+        authDomain: "gig-finder-75751.firebaseapp.com",
+        databaseURL: "https://gig-finder-75751.firebaseio.com",
+        projectId: "gig-finder-75751",
+        storageBucket: "gig-finder-75751.appspot.com",
+        messagingSenderId: "25565657670"
+    };
+    firebase.initializeApp(config)
+    var uploader = document.getElementById('uploader');
+    var fileButton = document.getElementById('fileButton');
+
+    fileButton.addEventListener('change', function (e) {
+
+        // Get file
+        var file = e.target.files[0];
+
+
+        // Create a storage ref
+        var storageRef = firebase.storage().ref(file.name);
+
+        // Upload file
+        var task = storageRef.put(file)
+
+        // Update progress bar
+        task.on('state_changed',
+
+            function progress(snapshot) {
+                var percentage = (snapshot.bytesTransferred /
+                    snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+            },
+
+            function error(err) {
+
+            },
+
+            function complete() {
+
+            }
+
+        )
+
+    });
+</script>
+<!-- jQuery -->
+<script src="vendors/jquery-3.3.1.min.js"></script>
+<!-- Fancybox -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
+<!-- Scripts -->
+<script src="js/client.js"></script>
+<!-- Bootstrap -->
+<script src="vendors/bootstrap.min.js"></script>
+<!-- Moment.js -->
+<script src="js/moment.min.js"></script>
+<!-- Bootstrap Datepicker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<!-- Modal -->
+<script src="js/modal.js"></script>
+
 </html>
