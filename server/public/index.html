@@ -34,10 +34,6 @@
     <!-- <a href="table.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
     <!-- <a href="test.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
     <div class="container">
-        <div class="search row">
-            <span class="fa fa-search"></span>
-            <input placeholder="Search term" id="search">
-        </div>
         <form class="job-form">
             <div class="row">
                 <div class="form-group col">
@@ -88,14 +84,18 @@
                     </div>
                     <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="add notes..."></textarea>
                 </div>
-            <!-- Clear form/reload page -->
-            <!-- Not the purest way to handle clearing form but enough for this piece -->
+                <!-- Clear form/reload page -->
+                <!-- Not the purest way to handle clearing form but enough for this piece -->
                 <div class="form-group col">
                     <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
                     <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
                 </div>
             </div>
         </form>
+        <div class="search row">
+            <span class="fa fa-search"></span>
+            <input placeholder="Search term" id="search">
+        </div>
         <div id="table" class="row">
             <table class="table table-bordered table-hover">
                 <thead>
