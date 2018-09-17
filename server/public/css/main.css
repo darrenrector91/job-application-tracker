@@ -29,7 +29,7 @@ a, button{ display: inline-block; text-decoration: none; color: inherit; line-he
 
 a:focus, a:active, a:hover,
 button:focus, button:active, button:hover,
-a b.light-color:hover{ text-decoration: none; color: #FFA804; }
+a b.light-color:hover{ text-decoration: none;}
 
 b{ font-weight: 600; }
 
@@ -80,9 +80,9 @@ b.max-bold{ font-weight: 700; }
     margin-top: 5mm;
 }
 
-.btn {
+/* .btn {
     width: 100px;
-}
+} */
 
 thead {
     text-align: center;
@@ -108,11 +108,11 @@ thead {
     font-size: 9pt;
     
 }
-
+/* 
 .btn {
     width: 69px;
     
-}
+} */
 
 .rowBtn {
     width: 20mm;
