@@ -300,7 +300,7 @@ $(document).ready(function () {
       xhr.onload = function(event) {
         var blob = xhr.response;
       };
-      // console.log(url);
+      console.log(url);
       
       xhr.open('GET', url);
       xhr.send();
@@ -308,7 +308,8 @@ $(document).ready(function () {
       // Or inserted into an <img> element:
       var img = document.getElementById('imageDisplay');
       img.src = url;
-      document.getElementById("getImageFileName").src = url;
+      
+      $('#imageDisplay').html('<img src=' + url + 'height="150mm" width="100mm">');
       
     }).catch(function(error) {
       // Handle any errors
