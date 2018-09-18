@@ -268,7 +268,7 @@ $(document).ready(function () {
 
   function getImageFileName() {
     let jobID = $(this).val();
-    console.log('jobID: ', jobID);
+    // console.log('jobID: ', jobID);
 
     $.ajax({
       type: 'GET',
@@ -287,7 +287,7 @@ $(document).ready(function () {
 
   function displayImage(data) {
     var imageData = data[0].filename;
-    console.log(imageData);
+    // console.log(imageData);
 
     //Get image from storage
     let storageRef = storage.ref('screenshots/' + imageData);
@@ -300,7 +300,7 @@ $(document).ready(function () {
       xhr.onload = function(event) {
         var blob = xhr.response;
       };
-      console.log(url);
+      // console.log(url);
       
       xhr.open('GET', url);
       xhr.send();
@@ -308,6 +308,8 @@ $(document).ready(function () {
       // Or inserted into an <img> element:
       var img = document.getElementById('imageDisplay');
       img.src = url;
+      document.getElementById("getImageFileName").src = url;
+      
     }).catch(function(error) {
       // Handle any errors
     });
