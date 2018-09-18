@@ -1,8 +1,4 @@
-console.log('js');
-
 $(document).ready(function () {
-  console.log('JQ');
-
   // load existing jobs on page load
   getJobs();
 
@@ -13,8 +9,8 @@ $(document).ready(function () {
 
   // $('#viewJobs').on('click', '.showImage', showImage);
 
-  var modal = document.querySelector(".modal");
-  var trigger = document.querySelector(".trigger");
+  // var modal = document.querySelector(".modal");
+  // var trigger = document.querySelector(".trigger");
   var date_input = $('input[name="date"]'); //our date input has the name "date"
   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
   date_input.datepicker({
@@ -23,6 +19,40 @@ $(document).ready(function () {
     todayHighlight: true,
     autoclose: true,
   })
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDgjY9O33RPzuRDfVPHhFZ_9h_SkGD0BH4",
+    authDomain: "gig-finder-75751.firebaseapp.com",
+    databaseURL: "https://gig-finder-75751.firebaseio.com",
+    projectId: "gig-finder-75751",
+    storageBucket: "gig-finder-75751.appspot.com",
+    messagingSenderId: "25565657670"
+  };
+  firebase.initializeApp(config)
+  var uploader = document.getElementById('uploader');
+  var fileButton = document.getElementById('fileButton');
+  fileButton.addEventListener('change', function (e) {
+    // Get file
+    var file = e.target.files[0];
+    // Create a storage ref
+    var storageRef = firebase.storage().ref('screenshots/' + file.name);
+    console.log(file.name);
+    // Upload file
+    var task = storageRef.put(file)
+    // Update progress bar
+    task.on('state_changed',
+      function progress(snapshot) {
+        var percentage = (snapshot.bytesTransferred /
+          snapshot.totalBytes) * 100;
+        uploader.value = percentage;
+      },
+      function error(err) {
+        window.alert('error uploading image, check console', err)
+      },
+      function complete() {}
+    )
+  });
 
   function newJob() {
     console.log('in add new job on click');
@@ -171,13 +201,13 @@ $(document).ready(function () {
   }
 
   function getJobs() {
-    console.log('in getJobs');
+    // console.log('in getJobs');
     // ajax call to server to get jobs
     $.ajax({
       url: '/jobs',
       type: 'GET',
       success: function (data) {
-        console.log('got some jobs: ', data);
+        // console.log('got some jobs: ', data);
 
         displayJobs(data);
       }, // end success
@@ -207,8 +237,8 @@ $(document).ready(function () {
 
   // gets jobs form dB to display in table onload
   function displayJobs(data) {
-    console.log(data);
-    
+    // console.log(data);
+
     $('#viewJobs').empty();
 
     for (let i = 0; i < data.length; i++) {
@@ -248,17 +278,45 @@ $(document).ready(function () {
         displayImage(data);
       },
       error: function (err) {
-        console.log('error getting image file name: ', err);
+        console.log('error getting image file name from database: ', err);
       }
     });
   }
 
-  function displayImage(data) {
-    console.log('image data ', data[0]);
-    
-  }
+  let storage = firebase.storage();
 
-  let displayAllStatus = true;
+  function displayImage(data) {
+    var imageData = data[0].filename;
+    console.log(imageData);
+
+    //Get image from storage
+    let storageRef = storage.ref('screenshots/' + imageData);
+
+    storageRef.getDownloadURL().then(function(url) {
+    
+      // This can be downloaded directly:
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = function(event) {
+        var blob = xhr.response;
+      };
+      console.log(url);
+      
+      xhr.open('GET', url);
+      xhr.send();
+    
+      // Or inserted into an <img> element:
+      var img = document.getElementById('imageDisplay');
+      img.src = url;
+    }).catch(function(error) {
+      // Handle any errors
+    });
+    
+
+
+  };
+
+  // let displayAllStatus = true;
 
   function saveJob(newJob) {
     console.log('in saveJob', newJob);
