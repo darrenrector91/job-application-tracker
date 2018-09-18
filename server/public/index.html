@@ -17,13 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
-    <!-- Modal -->
-    <link rel="stylesheet" href="css/modal.css">
     <!-- Bootstrap Datepicker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
-    <!-- Modal -->
-    <link rel="stylesheet" href="css/modal.css">
-
 
 </head>
 
@@ -90,6 +85,10 @@
                     <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
                     <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Clear</button>
                 </div>
+                <div class="form-group col">
+                    <input type="file" value="upload" id="fileButton">
+                    <progress value="0" max="100" id="uploader">0%</progress>
+                </div>
             </div>
         </form>
         <div class="search row">
@@ -109,6 +108,7 @@
                         <th class="dateColumn">Date</th>
                         <th class="statusColumn">Status</th>
                         <th class="fileColumn">File</th>
+                        <th class="viewImage">Image</th>
                         <th class="editColumn">Edit</th>
                         <th class="deleteColumn">Delete</th>
                     </tr>
@@ -117,13 +117,15 @@
                 <tbody id="viewJobs"></tbody>
                 </tbody>
             </table>
+            <label for="imageFileName" class="imageFileNameLabel">Image file name</label>
+            <input name="imageFileName" type="text" id="getImageFileName">
         </div>
     </div>
 
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script> -->
     <script>
         // Initialize Firebase
         var config = {
@@ -144,7 +146,9 @@
             var file = e.target.files[0];
 
             // Create a storage ref
-            var storageRef = firebase.storage().ref(file.name);
+            var storageRef = firebase.storage().ref('screenshots/' + file.name);
+            console.log(file.name);
+            
 
             // Upload file
             var task = storageRef.put(file)
@@ -171,7 +175,7 @@
         });
     </script>
     <!-- jQuery -->
-    <script src="vendors/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Fancybox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
     <!-- Scripts -->
@@ -179,11 +183,9 @@
     <!-- Bootstrap -->
     <script src="vendors/bootstrap.min.js"></script>
     <!-- Moment.js -->
-    <script src="js/moment.min.js"></script>
+    <script src="vendors/bootstrap-datepicker.js"></script>
     <!-- Bootstrap Datepicker -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <!-- Modal -->
-    <script src="js/modal.js"></script>
 </body>
 
 </html>

@@ -200,8 +200,23 @@ thead {
 
 #uploader {
     -webkit-appearance: none;
-    appearance: none;
-    width: 50%;
-    margin-bottom: 10px;
-    background-color: blue;
+    width: 101%;
+    margin-top: 10px;
+}
+
+#imageFileName {
+    position: absolute;
+    left: 199mm;
+    bottom: 95mm;
+    height: 10mm;
+    width: 110mm;
+    font-size: 17pt;
+}
+
+.imageFileNameLabel {
+    position: absolute;
+    left: 158mm;
+    bottom: 94mm;
+    color: black;
+    font-size: 15pt;
 }

@@ -9,8 +9,8 @@ $(document).ready(function () {
   $('#updateJob').on('click', newJob); //end updateJob on click
   $('#viewJobs').on('click', '.editJob', editJob);
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
-  $('#modalView').on('click', '.openModal', toggleModal);
-  
+  $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
+
   // $('#viewJobs').on('click', '.showImage', showImage);
 
   var modal = document.querySelector(".modal");
@@ -207,7 +207,8 @@ $(document).ready(function () {
 
   // gets jobs form dB to display in table onload
   function displayJobs(data) {
-
+    console.log(data);
+    
     $('#viewJobs').empty();
 
     for (let i = 0; i < data.length; i++) {
@@ -227,23 +228,34 @@ $(document).ready(function () {
       newRow.append('<td>' + convertedDate + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
-      // newRow.append('<td><button type="button" class="trigger openModal btn btn-info"><i class="fa fa-image"></i></button></td>');
+      newRow.append('<td><button type="button" class="getImageFileName btn btn-info" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-pencil"></i></button></td>');
       newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value"' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
 
-      // newRow.append('<td>' + '<input type='checkbox'/>' + '</td>');
       $('#viewJobs').append(newRow);
     }
   }
 
-  function toggleModal() {
-    modal.classList.toggle("show-modal");
+  function getImageFileName() {
+    let jobID = $(this).val();
+    console.log('jobID: ', jobID);
+
+    $.ajax({
+      type: 'GET',
+      url: '/jobs/filename/' + jobID,
+      success: function (data) {
+        console.log('imageFileName: ', data);
+        displayImage(data);
+      },
+      error: function (err) {
+        console.log('error getting image file name: ', err);
+      }
+    });
   }
 
-  function windowOnClick(event) {
-      if (event.target === modal) {
-          toggleModal();
-      }
+  function displayImage(data) {
+    console.log('image data ', data[0]);
+    
   }
 
   let displayAllStatus = true;
@@ -288,7 +300,7 @@ $(document).ready(function () {
     var file = document.getElementById('file').files[0];
     var filename = file.name;
     console.log(filename);
-    
+
 
     document.getElementById('displayFileName').innerHTML = filename;
   }
@@ -304,8 +316,4 @@ $(document).ready(function () {
         $(this).show();
     });
   });
-
-  // trigger.addEventListener("click", toggleModal);
-  window.addEventListener("click", windowOnClick);
-
 });

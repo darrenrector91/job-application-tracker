@@ -33,7 +33,7 @@ router.get('/:id', function(req, res) {
 });
 
 router.get('/filename/:id', function(req, res) {
-    console.log('hit get jobs');
+    console.log('in filename');
     const queryText = 'SELECT filename FROM job WHERE id=$1';
     pool.query(queryText, [req.params.id])
         .then((result) => {
