@@ -72,7 +72,7 @@ router.post('/', function(req, res) {
         });
 });
 
-router.delete('/:id', function(req,res) {
+router.delete('/delete/:id', function(req,res) {
     const queryText = 'DELETE FROM job WHERE id = $1';
     pool.query(queryText,[req.params.id])
         .then((result) => {

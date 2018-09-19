@@ -346,10 +346,10 @@ $(document).ready(function () {
   }
 
   function deleteJob() {
-    let jobID = $(this).val();
+    let jobsID = $(this).val();
     $.ajax({
       type: 'DELETE',
-      url: '/jobs/' + jobID,
+      url: '/jobs/delete/' + jobsID,
       success: function (response) {
         console.log('response', response);
         getJobs();
