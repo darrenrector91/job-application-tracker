@@ -135,6 +135,8 @@ thead {
   .search input {
     width: 100mm;
     height: 44px;
+    position: absolute;
+    right: 5mm;
     background: #fcfcfc;
     border: 1px solid rgb(151, 218, 26);
     border-radius: 2px;
@@ -144,8 +146,10 @@ thead {
   .search input { text-indent: 32px;}
   .search .fa-search { 
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 3.3mm;
+    right: 98mm;
+    z-index: 9999;
+
 }
 
 .editJob {
@@ -188,8 +192,8 @@ thead {
 #testBtn,
 #tableBtn {
     position: relative;
-    left: 348mm;
-    top: 17mm;
+    left: 359mm;
+    bottom: 28mm;
     margin: 5mm;
 }
 
@@ -219,6 +223,12 @@ thead {
     bottom: 94mm;
     color: black;
     font-size: 15pt;
+}
+
+.newJobBtn {
+    position: absolute;
+    left: 340mm;
+    z-index: 9999;
 }
 
 /* #imageDisplay {

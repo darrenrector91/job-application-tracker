@@ -352,11 +352,12 @@ $(document).ready(function () {
       url: '/jobs/delete/' + jobsID,
       success: function (response) {
         console.log('response', response);
+
         getJobs();
       }
     });
   }
-
+  
   function selectFile() {
     var file = document.getElementById('file').files[0];
     var filename = file.name;
