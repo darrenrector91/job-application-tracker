@@ -2,7 +2,7 @@ const pool = require('../modules/pool');
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
     console.log('hit get jobs');
 
     const queryText = 'SELECT * FROM job ORDER BY id';
@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
         });
 });
 
-router.get('/:id', function(req, res) {
+router.get('/:id', (req, res) => {
     console.log('hit get jobs');
 
     const queryText = 'SELECT * FROM job WHERE id=$1';
@@ -32,7 +32,7 @@ router.get('/:id', function(req, res) {
         });
 });
 
-router.get('/filename/:id', function(req, res) {
+router.get('/filename/:id', (req, res) => {
     console.log('in filename');
     const queryText = 'SELECT filename FROM job WHERE id=$1';
     pool.query(queryText, [req.params.id])
@@ -44,6 +44,20 @@ router.get('/filename/:id', function(req, res) {
             console.log('error making query:', err);
             res.sendStatus(500);
         });
+});
+
+router.delete('/:id',  (req, res) => {
+    const queryText = 'DELETE FROM job WHERE id = $1';
+    pool.query(queryText, [req.params.id])
+        .then((result) => {
+            console.log('result:', result.rows);
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('error:', err);
+            res.sendStatus(500);
+        });
+
 });
 
 router.put('/update/:id', (req, res) => {
@@ -59,7 +73,7 @@ router.put('/update/:id', (req, res) => {
         });
 })
 
-router.post('/', function(req, res) {
+router.post('/', (req, res) => {
     const queryText = 'INSERT INTO job (company, email, contact, position, notes, date, status, filename) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
     pool.query(queryText, [req.body.company, req.body.email, req.body.contact, req.body.position, req.body.notes, req.body.date, req.body.status, req.body.filename])
         .then((result) => {
@@ -72,17 +86,6 @@ router.post('/', function(req, res) {
         });
 });
 
-router.delete('/delete/:id', function(req,res) {
-    const queryText = 'DELETE FROM job WHERE id = $1';
-    pool.query(queryText,[req.params.id])
-        .then((result) => {
-            console.log('result:', result.rows);
-            res.sendStatus(200);
-        })
-        .catch((err) => {
-            console.log('error:', err);
-            res.sendStatus(500);
-        });
 
-});
+
 module.exports = router;

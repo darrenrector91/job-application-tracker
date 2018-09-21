@@ -1,0 +1,240 @@
+{% include 'grate_logo_logic' %}
+
+<style>
+    /*
+Product SKU: FLYER8X11;
+
+Content Width: 8.5" = 215.900mm
+Content Height: 11" = 279.400mm
+
+Bleed: 1/8" = 3.175mm
+
+Total Width: 8.75" = 222.25mm
+Total Height: 11.25" = 285.75mm
+
+*/
+
+/* ========== Fonts ========== */
+
+
+@font-face {
+  font-family: 'ChronicaProRegular';
+  src: url('https://fonts.totalexpert.net/ChronicaProRegular.eot');
+  src: url('https://fonts.totalexpert.net/ChronicaProRegular.woff') format('woff'),
+       url('https://fonts.totalexpert.net/ChronicaProRegular.ttf') format('truetype'),
+       url('https://fonts.totalexpert.net/ChronicaProRegular.svg#ChronicaProRegular') format('svg'),
+       url('https://fonts.totalexpert.net/ChronicaProRegular.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ========== General Styles ========== */
+
+.cover-image {
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.contain-image {
+  background-repeat: no-repeat;
+  background-position: top center;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
+
+.flyer-footer {
+  width: 100%;
+  height: 68mm;
+  position: absolute;
+  bottom: 0;
+  padding: 0 8.7mm 0 8.7mm;
+  font-family: 'ChronicaProRegular';
+}
+
+.call-to-action{
+    font-size: 12pt;
+    color: rgb(210,49,56);
+    line-height: 1.2;
+    height: 6mm;
+}
+
+.contact-info{
+    width: 198mm;
+    height: 34.2mm;
+    background-image: url('https://totalexpert.net/media/assets/images/g-rate/lines-sb.png');
+    padding: 1.6mm;
+    color: rgb(36,39,42);
+}
+
+/* ========== Contact Block Styles ========== */
+
+.left-block{
+  width: 92.9mm;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+.right-block{
+    width: 95.5mm;
+    height: 100%;
+    float: right;
+    position: relative;
+}
+
+.lender-photo {
+  width: 24.5mm;
+  height: 30mm;
+  overflow: hidden;
+  float: left;
+  margin: 0 3.4mm 0 0;
+}
+
+.lender-logo{
+    width: 32mm;
+    height: 5.5mm;
+    background-position: center;
+    float: left;
+    margin: 1mm 0;
+}
+
+.lender-text{
+    width: 65mm;
+    height: 30mm;
+    float: left;
+    overflow: hidden;
+    font-size: 9pt;
+  color: rgb(36,39,42);
+}
+
+.lender-name,
+.lender-title,
+.lender-address1,
+.lender-address2{
+    width: 65mm;
+    float: left;
+    overflow: hidden;
+    line-height: 1.26;
+}
+
+.lender-title{
+    max-height: 7mm;
+    line-height: 1.1;
+}
+
+.lender-address1{
+    margin: 1.5mm 0 0 0 !important;
+}
+
+.lender-phone,
+.lender-email,
+.lender-website{
+  width: 90mm;
+  float: left;
+  overflow: hidden;
+  line-height: 1.26;
+  font-size: 12pt;
+}
+
+.lender-name{
+  font-size: 12pt;
+  color: rgb(210,49,56);
+  margin: 1mm 0 0 0 !important;
+}
+
+.call-to-action2{
+    color: rgb(210,49,56);
+    font-size: 12pt;
+    margin: .8mm 0 0 0 !important;
+}
+
+.lender-phone{
+    margin: 1.4mm 0 !important;
+}
+
+.editable-phone {
+    max-width: 5mm;
+    min-width:3mm;
+    height: 4mm;
+    line-height: 1.3;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: -.3mm;
+}
+
+.lender-email{
+    margin: 1mm 0 0 0 !important;
+}
+
+/* ========== Disclaimer Styles ========== */
+
+.disclaimer {
+    width: 100%;
+    margin: 1mm 0 0 0;
+    padding: 0;
+    height: 20mm;
+}
+
+.eh-logo {
+    width: 16.85mm;
+    height: 2.37mm;
+    margin: 0 1mm 0 0;
+    float: left;
+}
+
+
+.disclaimer-text {
+    font-size: 6pt;
+    line-height: 1.3;
+    color: rgb(0, 0, 0);
+    text-align: justify;
+    margin: .5mm 0 0 0 !important;
+    padding: 0;
+}
+
+</style>
+
+
+<div class="flyer-footer">
+    <p class="call-to-action">{{call_to_action}}</p>
+    <div class="contact-info contain-image">
+            
+        <div class="left-block">
+            {% if comarketer.settings.profile_image %}
+            <div class="lender-photo cover-image editable-image" style="background-image:url('{{ comarketer.settings.profile_image }}');"></div>              {% endif %}
+            <div class="lender-text">
+                <p class="lender-name">{{ comarketer.settings.name }}</p>
+                <p class="lender-title">{{ comarketer.settings.job_title }}</p>
+                {% if comarketer_logo_image != '' %}
+                <div class="lender-logo contain-image" style="background-image:url('{{comarketer_logo_image}}');"></div>{% endif %}
+                <p class="lender-address1">{% if comarketer.settings.address %}{{ comarketer.settings.address }}{% if comarketer.settings.address_two %}, {{ comarketer.settings.address_two }} {% endif %}{% endif %}</p>
+                <p class="lender-address2">{% if comarketer.settings.city %}{{ comarketer.settings.city }}, {% endif %}{{ comarketer.settings.state }} {{ comarketer.settings.zipcode }}</p>
+            </div>
+            <!-- <div class="lender-logo contain-image" style="background-image:url('{{ comarketer_logo_image }}');"></div> -->
+        </div>
+        <div class="right-block">
+            <p class="call-to-action2">Let's get started</p>
+            <p class="lender-phone">
+              {% if comarketer.settings.phone_office %}O:&nbsp;{{ comarketer.settings.phone_office }}{% endif %}
+              {% if comarketer.settings.phone_cell %}&nbsp;<span class="editable-phone editable">C</span>:&nbsp;{{ comarketer.settings.phone_cell }}{% endif %}
+            </p>
+            <p class="lender-website">{{ comarketer.settings.website }}</p>
+            <p class="lender-email">{{ comarketer.settings.email }}</p>
+        </div>
+        
+    </div>
+    
+    <div class="disclaimer">
+        <div class="eh-logo contain-image" style="background-image: url('https://totalexpert.net/media/assets/images/g-rate/ehl.png');"></div>
+        <p class="disclaimer-text">{{ organization.settings.disclaimer }}</p>
+    </div>
+
+</div>

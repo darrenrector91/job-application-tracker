@@ -2,50 +2,156 @@
        PRIMARY STYLES
 --------------------------------- */
 
-html{ font-size: 100%; height: 100%; overflow-x: hidden; margin: 0px;  padding: 0px; touch-action: manipulation; }
+html {
+    font-size: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+    touch-action: manipulation;
+}
 
 
-body{ font-size: 16px; font-family: 'Poppins', serif; width: 100%; height: 100%; margin: 0; font-weight: 400;
-	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; word-wrap: break-word; 
-	color: rgb(245,245,245) !important; background-color: rgb(114, 113, 113) !important; }
+body {
+    font-size: 16px;
+    font-family: 'Poppins', serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-wrap: break-word;
+    color: rgb(245, 245, 245) !important;
+    background-color: rgb(114, 113, 113) !important;
+}
 
-h1, h2, h3, h4, h5, h6, p, a, ul, span, li, img, inpot, button{ margin: 0; padding: 0; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+span,
+li,
+img,
+inpot,
+button {
+    margin: 0;
+    padding: 0;
+}
 
-h1,h2,h3,h4,h5,h6{ line-height: 1.5; font-weight: inherit; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.5;
+    font-weight: inherit;
+}
 
-h1,h2,h3{ font-family: 'Poppins', cursive; }
+h1,
+h2,
+h3 {
+    font-family: 'Poppins', cursive;
+}
 
-p{ line-height: 1.6; font-size: 1.05em; font-weight: 400; color: #777; }
+p {
+    line-height: 1.6;
+    font-size: 1.05em;
+    font-weight: 400;
+    color: #777;
+}
 
-h1{ font-size: 4em; line-height: 1; }
-h2{ font-size: 2.2em; line-height: 1.1; }
-h3{ font-size: 1.8em; }
-h4{ font-size: 1.3em; }
-h5{ font-size: 1em; }
-h6{ font-size: .9em; letter-spacing: 1px; }
+h1 {
+    font-size: 4em;
+    line-height: 1;
+}
 
-a, button{ display: inline-block; text-decoration: none; color: inherit; line-height: 1; 
-	-webkit-transition: all .25s ease-in-out; transition: all .25s ease-in-out; }
+h2 {
+    font-size: 2.2em;
+    line-height: 1.1;
+}
 
-a:focus, a:active, a:hover,
-button:focus, button:active, button:hover,
-a b.light-color:hover{ text-decoration: none;}
+h3 {
+    font-size: 1.8em;
+}
 
-b{ font-weight: 600; }
+h4 {
+    font-size: 1.3em;
+}
 
-img{ width: 100%; }
+h5 {
+    font-size: 1em;
+}
 
-li{ list-style: none; display: inline-block; }
+h6 {
+    font-size: .9em;
+    letter-spacing: 1px;
+}
 
-span{ display: inline-block; }
+a,
+button {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    line-height: 1;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
 
-button{ outline: 0; border: 0; background: none; cursor: pointer; }
+a:focus,
+a:active,
+a:hover,
+button:focus,
+button:active,
+button:hover,
+a b.light-color:hover {
+    text-decoration: none;
+}
 
-.icon{ font-size: 1.1em; display: inline-block; line-height: inherit; }
+b {
+    font-weight: 600;
+}
 
-[class^="icon-"]:before, [class*=" icon-"]:before{ line-height: inherit; }
+img {
+    width: 100%;
+}
 
-b.max-bold{ font-weight: 700; }
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+span {
+    display: inline-block;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 1.1em;
+    display: inline-block;
+    line-height: inherit;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    line-height: inherit;
+}
+
+b.max-bold {
+    font-weight: 700;
+}
 
 .page-title,
 .search {
@@ -109,8 +215,9 @@ thead {
     position: relative;
     right: 36mm;
     font-size: 9pt;
-    
+
 }
+
 /* 
 .btn {
     width: 69px;
@@ -121,6 +228,7 @@ thead {
     width: 20mm;
     margin-top: 4mm;
 }
+
 .search {
     height: 10mm;
     width: 100mm;
@@ -130,9 +238,9 @@ thead {
     position: relative;
     color: #aaa;
     font-size: 16px;
-  }
-  
-  .search input {
+}
+
+.search input {
     width: 100mm;
     height: 44px;
     position: absolute;
@@ -141,10 +249,13 @@ thead {
     border: 1px solid rgb(151, 218, 26);
     border-radius: 2px;
     box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
-  }
-  
-  .search input { text-indent: 32px;}
-  .search .fa-search { 
+}
+
+.search input {
+    text-indent: 32px;
+}
+
+.search .fa-search {
     position: absolute;
     top: 3.3mm;
     right: 98mm;
@@ -152,8 +263,16 @@ thead {
 
 }
 
+.clearSearch {
+    position: absolute;
+    left: 99mm;
+    top: 1mm;
+    background-color: transparent !important;
+    border: 2px solid cornflowerblue;
+}
+
 .editJob {
-    color: rgb(255,255,255) !important;
+    color: rgb(255, 255, 255) !important;
     background-color: rgb(61, 141, 51) !important;
     border-color: rgb(61, 141, 51) !important;
 }
@@ -199,7 +318,7 @@ thead {
 
 .progress {
     margin-bottom: 10px;
-    
+
 }
 
 #uploader {
