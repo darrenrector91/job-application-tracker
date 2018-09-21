@@ -313,6 +313,8 @@ $(document).ready(function () {
       url: '/jobs/' + jobID,
       method: 'GET',
       success: function (response) {
+        // console.log('response ', response);
+        
 
         $('#company').val(response[0].company).focus();
         $('#contact').val(response[0].contact);
@@ -323,6 +325,8 @@ $(document).ready(function () {
         $('#status').val(response[0].status);
         $('#filename').val(response[0].filename);
         $('#updateJob').val(response[0].id);
+
+        $('#myModal').modal('show');
       },
       error: function (jqXHR, exception) {
         var msg = '';
