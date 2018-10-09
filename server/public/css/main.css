@@ -26,6 +26,10 @@ body {
     background-color: rgb(114, 113, 113) !important;
 }
 
+th {
+    width: 100px;
+}
+
 h1,
 h2,
 h3,
@@ -168,7 +172,8 @@ b.max-bold {
 }
 
 .table {
-    width: 300mm !important;
+    position: relative;
+    right: 28mm;
 }
 
 .job-form {
@@ -210,13 +215,13 @@ thead {
     margin-right: 2mm !important;
 } */
 
-#table {
+/* #table {
     width: 300mm;
     position: relative;
     right: 122mm;
     font-size: 9pt;
 
-}
+} */
 
 /* 
 .btn {
