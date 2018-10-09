@@ -167,8 +167,8 @@ b.max-bold {
 
 }
 
-.job-table {
-    margin-top: 40px;
+.table {
+    width: 100%;
 }
 
 .job-form {
