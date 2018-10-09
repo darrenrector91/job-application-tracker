@@ -168,7 +168,7 @@ b.max-bold {
 }
 
 .table {
-    width: 100%;
+    width: 300mm !important;
 }
 
 .job-form {
