@@ -38,7 +38,7 @@ ul,
 span,
 li,
 img,
-inpot,
+input,
 button {
     margin: 0;
     padding: 0;
@@ -103,6 +103,10 @@ button {
     -webkit-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
 }
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: rgb(131, 131, 131);
+  }
 
 a:focus,
 a:active,
