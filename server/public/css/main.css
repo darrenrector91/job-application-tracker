@@ -23,7 +23,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     word-wrap: break-word;
     color: rgb(245, 245, 245) !important;
-    background-color: rgb(114, 113, 113) !important;
+    background-color: rgb(30, 39, 56) !important;
 }
 
 h1,
@@ -227,6 +227,7 @@ thead {
 .rowBtn {
     width: 20mm;
     margin-top: 4mm;
+    
 }
 
 .search {
@@ -248,7 +249,9 @@ thead {
     background: #fcfcfc;
     border: 1px solid rgb(151, 218, 26);
     border-radius: 2px;
-    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
+    background-color: #aaa;
+    color: #fff;
 }
 
 .search input {
@@ -263,12 +266,17 @@ thead {
 
 }
 
+.spyGlass {
+    color: #fff;
+}
+
 .clearSearch {
     position: absolute;
     left: 99mm;
     top: 1mm;
     background-color: transparent !important;
     border: 2px solid cornflowerblue;
+    color: #fff;
 }
 
 .editJob {
