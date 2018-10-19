@@ -102,7 +102,7 @@ $(document).ready(function () {
       newRow.append('<td>' + data[i].contact + '</td>');
       newRow.append('<td>' + data[i].email + '</td>');
       newRow.append('<td>' + data[i].position + '</td>');
-      newRow.append('<td>' + data[i].notes + '</td>');
+      newRow.append('<td style="max-width: 100px;">' + data[i].notes + '</td>');
       newRow.append('<td>' + convertedDate + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');

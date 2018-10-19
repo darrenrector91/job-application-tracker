@@ -171,6 +171,19 @@ b.max-bold {
     margin-top: 40px;
 }
 
+.setWidth {
+    max-width: 100px;
+}
+
+.concat div {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: inherit;
+}
+
 .job-form {
     margin-top: 20px;
     margin-bottom: 20px;
