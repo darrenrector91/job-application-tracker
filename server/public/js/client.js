@@ -1,87 +1,87 @@
 $(document).ready(function () {
   // load existing jobs on page load
-  getJobs()
+  getJobs();
 
-  // clear button for search
+  //clear button for search
   $('.search').append('<td><button type="button" class="clearSearch btn btn-warning">Clear</button></td>')
 
-  // click events
-  $('#updateJob').on('click', newJob)
-  $('#viewJobs').on('click', '.editJob', editJob)
-  $('#viewJobs').on('click', '.deleteJob', deleteJob)
-  $('#viewJobs').on('click', '.getImageFileName', getImageFileName)
-  $('.search').on('click', '.clearSearch', clearSearch)
+  //click events
+  $('#updateJob').on('click', newJob);
+  $('#viewJobs').on('click', '.editJob', editJob);
+  $('#viewJobs').on('click', '.deleteJob', deleteJob);
+  $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
+  $('.search').on('click', '.clearSearch', clearSearch);
 
-  // datepicker
-  var dateInput = $('input[name="date"]') // our date input has the name "date"
-  var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : 'body'
-  dateInput.datepicker({
+  //datepicker
+  var date_input = $('input[name="date"]'); //our date input has the name "date"
+  var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+  date_input.datepicker({
     format: 'mm/dd/yyyy',
     container: container,
     todayHighlight: true,
-    autoclose: true
+    autoclose: true,
   })
 
   // Initialize Firebase
   var config = {
-    apiKey: 'AIzaSyDgjY9O33RPzuRDfVPHhFZ_9h_SkGD0BH4',
-    authDomain: 'gig-finder-75751.firebaseapp.com',
-    databaseURL: 'https://gig-finder-75751.firebaseio.com',
-    projectId: 'gig-finder-75751',
-    storageBucket: 'gig-finder-75751.appspot.com',
-    messagingSenderId: '25565657670'
-  }
+    apiKey: "AIzaSyDgjY9O33RPzuRDfVPHhFZ_9h_SkGD0BH4",
+    authDomain: "gig-finder-75751.firebaseapp.com",
+    databaseURL: "https://gig-finder-75751.firebaseio.com",
+    projectId: "gig-finder-75751",
+    storageBucket: "gig-finder-75751.appspot.com",
+    messagingSenderId: "25565657670"
+  };
   firebase.initializeApp(config)
-  var uploader = document.getElementById('uploader')
-  var fileButton = document.getElementById('fileButton')
+  var uploader = document.getElementById('uploader');
+  var fileButton = document.getElementById('fileButton');
   fileButton.addEventListener('change', function (e) {
     // Get file
-    var file = e.target.files[0]
+    var file = e.target.files[0];
     // Create a storage ref
-    var storageRef = firebase.storage().ref('screenshots/' + file.name)
-    console.log(file.name)
+    var storageRef = firebase.storage().ref('screenshots/' + file.name);
+    console.log(file.name);
     // Upload file
     var task = storageRef.put(file)
     // Update progress bar
     task.on('state_changed',
-      function progress (snapshot) {
+      function progress(snapshot) {
         var percentage = (snapshot.bytesTransferred /
-          snapshot.totalBytes) * 100
-        uploader.value = percentage
+          snapshot.totalBytes) * 100;
+        uploader.value = percentage;
       },
-      function error (error) {
+      function error(error) {
         window.alert('error uploading image, check console', error)
       },
-      function complete () {}
+      function complete() {}
     )
-  })
+  });
 
-  function getJobs () {
+  function getJobs() {
     // ajax call to server to get jobs
     $.ajax({
       url: '/jobs',
       type: 'GET',
       success: function (data) {
-        displayJobs(data)
+        displayJobs(data);
       }, // end success
       error: function (jqXHR, exception) {
-        var msg = ''
+        var msg = '';
         if (jqXHR.status === 0) {
-          msg = 'Not connect.\n Verify Network.'
-        } else if (jqXHR.status === 404) {
-          msg = 'Requested page not found. [404]'
-        } else if (jqXHR.status === 500) {
-          msg = 'Internal Server Error [500].'
+          msg = 'Not connect.\n Verify Network.';
+        } else if (jqXHR.status == 404) {
+          msg = 'Requested page not found. [404]';
+        } else if (jqXHR.status == 500) {
+          msg = 'Internal Server Error [500].';
         } else if (exception === 'parsererror') {
-          msg = 'Requested JSON parse failed.'
+          msg = 'Requested JSON parse failed.';
         } else if (exception === 'timeout') {
-          msg = 'Time out error.'
+          msg = 'Time out error.';
         } else if (exception === 'abort') {
-          msg = 'Ajax request aborted.'
+          msg = 'Ajax request aborted.';
         } else {
-          msg = 'Uncaught Error.\n' + jqXHR.responseText
+          msg = 'Uncaught Error.\n' + jqXHR.responseText;
         }
-        alert(html(msg))
+        alert(html(msg));
       }, //end ajax
       // display on DOM with buttons that allow edit of each
     })
@@ -428,6 +428,8 @@ $(document).ready(function () {
   }
 
   let storage = firebase.storage();
+
+
 
   function selectFile() {
     var file = document.getElementById('file').files[0];

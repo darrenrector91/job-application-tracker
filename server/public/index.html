@@ -10,8 +10,7 @@
     <!-- Styling -->
     <link rel="stylesheet" href="css/main.css">
     <!-- Bootstrap -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
     <!-- Font Awesome -->
@@ -24,12 +23,11 @@
 </head>
 
 <body>
-    <!-- #66C010 -->
     <header>
         <h1 class="page-title">Gig Finder</h1>
     </header>
     <!-- <a href="table.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
-    <!-- <a href="test.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
+    <a href="test.html"><button id="testBtn" class="btn btn-secondary">test</button></a>
     <div class="container">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-warning btn-lg newJobBtn" data-toggle="modal" data-target="#myModal">
@@ -38,9 +36,9 @@
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-image: url('images/binoculars.jpg'); color: #002145; height: 75mm">
+                    <div class="modal-header" style="background-color:#66C010; color: #002145">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel"></h4>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                     </div>
                     <div class="modal-body">
                         <form class="job-form">
@@ -130,16 +128,15 @@
         <div class="search row">
             <span class="fa fa-search spyGlass"></span>
             <input placeholder="Search term" id="search">
-            <button type="submit" class="btn btn-info" id="searchJob">Search</button>
         </div>
-        <div id="table-section" class="row">
+        <div id="table" class="row">
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th class="idColumn">#</th>
                         <th class="nameColumn">Company</th>
                         <th class="contactColumn">Contact</th>
-                        <th class="emailColumn">Email</th>
+                        <th class="emailColumn">Contact email</th>
                         <th class="positionColumn">Position</th>
                         <th class="infoColumn">Notes/Information</th>
                         <th class="dateColumn">Date</th>
@@ -161,20 +158,17 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
     <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Fancybox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
     <!-- Scripts -->
     <script src="js/client.js"></script>
     <!-- Bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <!-- <script src="vendors/bootstrap.min.js"></script> -->
+    <script src="vendors/bootstrap.min.js"></script>
     <!-- Moment.js -->
     <script src="vendors/bootstrap-datepicker.js"></script>
     <!-- Bootstrap Datepicker -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-   
 </body>
 
 </html>
