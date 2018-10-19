@@ -1,5 +1,3 @@
-// var $ = jquery;
-
 $(document).ready(function () {
   // load existing jobs on page load
   getJobs()
@@ -430,8 +428,6 @@ $(document).ready(function () {
   }
 
   let storage = firebase.storage();
-
-
 
   function selectFile() {
     var file = document.getElementById('file').files[0];

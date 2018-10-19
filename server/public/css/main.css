@@ -163,6 +163,12 @@ b.max-bold {
 
 }
 
+.search > button {
+    position: absolute;
+    left: 448px;
+    top: 4px;
+}
+
 .page-title {
     margin-top: 20px;
     text-align: center;
@@ -255,7 +261,7 @@ thead {
     left: 99mm;
     top: 1mm;
     background-color: transparent !important;
-    border: 2px solid cornflowerblue;
+    border: 2px solid rgb(162, 237, 100);
 }
 
 .editJob {
