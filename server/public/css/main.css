@@ -38,7 +38,7 @@ ul,
 span,
 li,
 img,
-inpot,
+input,
 button {
     margin: 0;
     padding: 0;
@@ -104,6 +104,10 @@ button {
     transition: all .25s ease-in-out;
 }
 
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: rgb(131, 131, 131);
+  }
+
 a:focus,
 a:active,
 a:hover,
@@ -159,6 +163,12 @@ b.max-bold {
 
 }
 
+.search > button {
+    position: absolute;
+    left: 448px;
+    top: 4px;
+}
+
 .page-title {
     margin-top: 20px;
     text-align: center;
@@ -167,8 +177,9 @@ b.max-bold {
 
 }
 
-.job-table {
-    margin-top: 40px;
+.table {
+    position: relative;
+    right: 28mm;
 }
 
 .job-form {
@@ -205,24 +216,6 @@ thead {
     box-shadow: 0 0 3px #ccc, 0 10px 15px #3b3b3ba1;
     margin-bottom: 20px;
 }
-
-/* .fa {
-    margin-right: 2mm !important;
-} */
-
-#table {
-    width: 374mm;
-    position: relative;
-    right: 36mm;
-    font-size: 9pt;
-
-}
-
-/* 
-.btn {
-    width: 69px;
-    
-} */
 
 .rowBtn {
     width: 20mm;
@@ -268,7 +261,7 @@ thead {
     left: 99mm;
     top: 1mm;
     background-color: transparent !important;
-    border: 2px solid cornflowerblue;
+    border: 2px solid rgb(162, 237, 100);
 }
 
 .editJob {
@@ -299,14 +292,6 @@ thead {
     border: 2px solid rgb(151, 218, 26) !important;
     /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
 }
-
-
-/* #displayImg {
-    position: absolute;
-    left: 25%;
-    height: 100mm;
-    width: 50mm;
-} */
 
 #testBtn,
 #tableBtn {
@@ -350,13 +335,46 @@ thead {
     z-index: 9999;
 }
 
-/* #imageDisplay {
-    height: 150mm;
-    width: 100mm;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 0 3px #fff, 0 10px 15px #3b3b3ba1;
-    background-color: #fff;
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: rgb(114,114,114) !important;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 12px !important;
+    outline: 0;
+}
 
+.modal-header {
+    border-radius: 12px 12px 0 0 !important;
+}
 
-} */
+#filename {
+    margin: 0 0 5mm 0;
+}
+
+#fileButton {
+    margin: 0 0 5mm 0;
+}
+
+body.modal-open .modal-container{
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+}
+
+#table-section {
+    width: 100%
+}
+
+#table-section table {
+    max-width: 400px;
+    width: 50%
+}
