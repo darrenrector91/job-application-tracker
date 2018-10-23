@@ -35,21 +35,10 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c8d1cc", endColorstr="#4b2826", GradientType=1); */
 
     background: rgb(200, 209, 204);
-    background: -moz-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 27%, rgba(75, 40, 38, 1) 77%);
-    background: -webkit-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 27%, rgba(75, 40, 38, 1) 77%);
-    background: linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 27%, rgba(75, 40, 38, 1) 77%);
+    background: -moz-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 0%, rgba(75, 40, 38, 1) 77%);
+    background: -webkit-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 0%, rgba(75, 40, 38, 1) 77%);
+    background: linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 0%, rgba(75, 40, 38, 1) 77%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c8d1cc", endColorstr="#4b2826", GradientType=1);
-
-
-
-
-
-
-
-
-
-
-
 }
 
 h1,
