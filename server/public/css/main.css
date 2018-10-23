@@ -23,23 +23,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
     word-wrap: break-word;
     color: rgb(245, 245, 245) !important;
+    /* background-color: rgb(75, 40, 38) !important; */
+    /* background-color: rgb(98, 117, 151) !important; */
+    background: rgb(91, 85, 76);
+    background: -moz-radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
+    background: -webkit-radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
+    background: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b554c", endColorstr="#4b2826", GradientType=1);
 
-
-    /* background: rgb(9, 48, 121);
-    background: linear-gradient(180deg, rgba(9, 48, 121, 1) 33%, rgba(9, 121, 38, 0.6965161064425771) 67%); */
-
-    /* background: rgb(200, 209, 204);
-    background: -moz-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 51%, rgba(75, 40, 38, 1) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 51%, rgba(75, 40, 38, 1) 100%);
-    background: linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 51%, rgba(75, 40, 38, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c8d1cc", endColorstr="#4b2826", GradientType=1); */
-
-    background: rgb(200, 209, 204);
-    background: -moz-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 0%, rgba(75, 40, 38, 1) 77%);
-    background: -webkit-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 0%, rgba(75, 40, 38, 1) 77%);
-    background: linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 0%, rgba(75, 40, 38, 1) 77%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c8d1cc", endColorstr="#4b2826", GradientType=1);
-    background-repeat: no-repeat;
 }
 
 h1,
@@ -185,6 +176,7 @@ b.max-bold {
 
 .job-table {
     margin-top: 40px;
+    background-color: rgba(49, 57, 60, 0.397);
 }
 
 .setWidth {
@@ -227,41 +219,27 @@ input#fileButton {
     margin-top: 4mm;
 }
 
-/* .btn {
-    width: 100px;
-} */
-
 thead {
     text-align: center;
-    background-color: rgba(79, 142, 224, 0.657);
+    background-color: rgb(218, 98, 6);
     font-family: 'Questrial', sans-serif;
-    font-size: 17pt !important;
-    color: rgb(49, 49, 49);
+    font-size: 15pt !important;
+    color: rgb(49,49,49);
+    text-transform: uppercase;
 }
 
 .table-bordered {
-    /* border: 2px solid rgb(151, 218, 26) !important; */
-    box-shadow: 0 0 3px #ccc, 0 10px 15px #3b3b3ba1;
     margin-bottom: 20px;
 }
-
-/* .fa {
-    margin-right: 2mm !important;
-} */
 
 #table {
     width: 374mm;
     position: relative;
     right: 36mm;
-    font-size: 9pt;
-
+    font-size: 12pt;
+    font-weight: 600;
+    text-align: center;
 }
-
-/* 
-.btn {
-    width: 69px;
-    
-} */
 
 .rowBtn {
     width: 20mm;
