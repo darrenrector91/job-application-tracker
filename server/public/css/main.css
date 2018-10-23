@@ -404,10 +404,10 @@ thead {
     }
 
     input#fileButton {
-        border: 1px solid #000 !important;
-        background-color: lightgray;
+        /* border: 1px solid #000 !important; */
+        /* background-color: lightgray; */
         width: 361px;
-        border-radius: 4px;
+        /* border-radius: 4px; */
         color: #000;
         z-index: -1;
 
