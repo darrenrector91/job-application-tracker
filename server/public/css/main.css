@@ -459,4 +459,8 @@ thead {
         right: 59mm;
         z-index: 1;
     }
+
+    .form-group {
+        margin-top: 2px !important;
+    }
 }
