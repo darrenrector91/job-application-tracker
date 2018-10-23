@@ -383,17 +383,18 @@ thead {
 }
 
 
-/* .newJobBtn {
+.newJobBtn {
     position: absolute;
-    left: 340mm;
-    z-index: 9999;
-} */
+    left: 356mm;
+    top: 102px;
+}
 
 @media only screen and (max-width: 796px) {
 
     .modal-content {
         z-index: 9999;
         width: 395px !important;
+        padding-bottom: 75px;
 
     }
 
@@ -435,6 +436,7 @@ thead {
         width: 100%;
         top: 70px;
         left: 17px;
+        padding-bottom: 130px;
 
     }
 
@@ -444,5 +446,4 @@ thead {
         margin-right: auto;
         margin-left: auto;
     }
-}
 }
