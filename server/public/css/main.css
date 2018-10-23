@@ -176,7 +176,6 @@ b.max-bold {
 
 .job-table {
     margin-top: 40px;
-    background-color: rgba(49, 57, 60, 0.397);
 }
 
 .setWidth {
@@ -204,6 +203,16 @@ input#fileButton {
 
 }
 
+.spyGlass {
+    color: #fff;
+}
+
+.modal {
+    position: absolute;
+    z-index: 9999;
+    overflow-x: auto;
+}
+
 .modal-body label {
     color: #000;
 }
@@ -224,7 +233,7 @@ thead {
     background-color: rgb(218, 98, 6);
     font-family: 'Questrial', sans-serif;
     font-size: 15pt !important;
-    color: rgb(49,49,49);
+    color: rgb(49, 49, 49);
     text-transform: uppercase;
 }
 
@@ -283,9 +292,7 @@ thead {
 
 }
 
-.spyGlass {
-    color: #fff;
-}
+
 
 .clearSearch {
     position: absolute;
@@ -381,6 +388,12 @@ thead {
     top: 102px;
 }
 
+.modal-title {
+    position: absolute;
+    left: 16px;
+    font-size: 20pt;
+}
+
 @media only screen and (max-width: 796px) {
 
     .modal-content {
@@ -437,5 +450,13 @@ thead {
         width: 85%;
         margin-right: auto;
         margin-left: auto;
+    }
+
+    .search .fa-search {
+        color: #fff;
+        position: absolute;
+        top: 3.3mm;
+        right: 59mm;
+        z-index: 1;
     }
 }
