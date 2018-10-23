@@ -197,11 +197,11 @@ b.max-bold {
     width: 100%;
 }
 
-input#fileButton {
+/* input#fileButton {
     width: 230px;
     color: #000;
 
-}
+} */
 
 .spyGlass {
     color: #fff;
@@ -406,7 +406,7 @@ thead {
     input#fileButton {
         border: 1px solid #000 !important;
         background-color: lightgray;
-        width: 361px;
+        width: 464px;
         border-radius: 4px;
         color: #000;
         z-index: -1;
