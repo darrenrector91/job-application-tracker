@@ -39,6 +39,7 @@ body {
     background: -webkit-linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 0%, rgba(75, 40, 38, 1) 77%);
     background: linear-gradient(0deg, rgba(200, 209, 204, 1) 0%, rgba(134, 125, 110, 1) 0%, rgba(75, 40, 38, 1) 77%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c8d1cc", endColorstr="#4b2826", GradientType=1);
+    background-repeat: no-repeat;
 }
 
 h1,
