@@ -111,7 +111,7 @@ $(document).ready(function () {
       //delete row button
       newRow.append('<td><button type="button" class="deleteJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
       // display image button
-      newRow.append('<td><button type="button" class="getImageFileName btn btn-info" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
+      newRow.append('<td><button type="button" class="getImageFileName btn btn-info" data-toggle="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
       $('#viewJobs').append(newRow);
     }
   }
@@ -399,10 +399,12 @@ $(document).ready(function () {
       xhr.open('GET', url);
       xhr.send();
 
-      var img = document.getElementById('imageDisplay');
+      var img = document.getElementById('image-modal');
       img.src = url;
 
-      $('#imageDisplay').html('<img src=' + url + 'height="150mm" width="100%">');
+      // $('#imageDisplay').html('<img src=' + url + 'height="150mm" width="100%">');
+      $('#image-modal').modal('show').html('<img src=' + url + 'height="150mm" width="80%">');
+
 
     }).catch(function (error) {
       console.log('Error displaying image ', error);
