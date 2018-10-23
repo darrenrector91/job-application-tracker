@@ -411,7 +411,7 @@ thead {
         position: absolute;
         left: 132px;
         width: 310px;
-    
+
     }
 
     .clearSearch {
@@ -435,6 +435,14 @@ thead {
         width: 100%;
         top: 70px;
         left: 17px;
-    
+
     }
+
+    #imageDisplay {
+        margin-top: 80px;
+        width: 85%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
 }
