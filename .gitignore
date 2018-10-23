@@ -7,3 +7,11 @@ node_modules/
 .env
 ic_*
 text.html
+login.html
+login.css
+*.scss
+*.ttf
+*.less
+*.svg
+*.woff
+select2.js

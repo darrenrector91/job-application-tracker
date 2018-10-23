@@ -23,7 +23,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     word-wrap: break-word;
     color: rgb(245, 245, 245) !important;
-    background-color: rgb(30, 39, 56) !important;
+    /* background-color: rgb(30, 39, 56) !important; */
+    background-color: rgb(98, 117, 151) !important;
+
 }
 
 h1,
@@ -38,7 +40,7 @@ ul,
 span,
 li,
 img,
-inpot,
+input,
 button {
     margin: 0;
     padding: 0;
@@ -190,6 +192,16 @@ b.max-bold {
     width: 100%;
 }
 
+input#fileButton {
+    width: 230px;
+    color: #000;
+
+}
+
+.modal-body label {
+    color: #000;
+}
+
 .tableButton {
     width: 40px;
 }
@@ -240,7 +252,7 @@ thead {
 .rowBtn {
     width: 20mm;
     margin-top: 4mm;
-    
+
 }
 
 .search {
@@ -286,10 +298,10 @@ thead {
 .clearSearch {
     position: absolute;
     left: 99mm;
-    top: 1mm;
     background-color: transparent !important;
     border: 2px solid cornflowerblue;
     color: #fff;
+    height: 43px;
 }
 
 .editJob {
@@ -337,6 +349,11 @@ thead {
     margin: 5mm;
 }
 
+#testBtn {
+    background-color: white;
+    color: black;
+}
+
 .progress {
     margin-bottom: 10px;
 
@@ -344,7 +361,7 @@ thead {
 
 #uploader {
     -webkit-appearance: none;
-    width: 101%;
+    width: 100%;
     margin-top: 10px;
 }
 
@@ -365,19 +382,59 @@ thead {
     font-size: 15pt;
 }
 
+
 .newJobBtn {
     position: absolute;
     left: 340mm;
     z-index: 9999;
 }
 
-/* #imageDisplay {
-    height: 150mm;
-    width: 100mm;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 0 3px #fff, 0 10px 15px #3b3b3ba1;
-    background-color: #fff;
+@media only screen and (max-width: 796px) {
 
+    .modal-content {
+        z-index: 9999;
+        width: 395px !important;
 
-} */
+    }
+
+    input#fileButton {
+        border: 1px solid #000 !important;
+        background-color: lightgray;
+        width: 361px;
+        border-radius: 4px;
+        color: #000;
+
+    }
+
+    input#search {
+        position: absolute;
+        left: 132px;
+        width: 310px;
+    
+    }
+
+    .clearSearch {
+        position: relative;
+        left: 450px;
+    }
+
+    .modal-body label {
+        color: #000;
+    }
+
+    .newJobBtn {
+        overflow-x: auto;
+        position: absolute;
+        left: 15px;
+        top: 151px;
+        width: 380px;
+    }
+
+    #table {
+        
+        width: 100%;
+        top: 70px;
+        left: 17px;
+    
+    }
+}
