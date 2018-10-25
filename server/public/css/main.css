@@ -217,6 +217,24 @@ input#fileButton {
     color: #000;
 }
 
+.imageModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 290px !important;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+    width: 830px !important;
+    margin-top: 20px !important;
+}
+
+.modal-header {
+    background-color: rgb(202, 92, 8);
+}
+
 .tableButton {
     width: 40px;
 }
@@ -230,10 +248,10 @@ input#fileButton {
 
 thead {
     text-align: center;
-    background-color: rgb(218, 98, 6);
+    background-color: rgb(202, 92, 8);
     font-family: 'Questrial', sans-serif;
     font-size: 15pt !important;
-    color: rgb(49, 49, 49);
+    color: rgb(24, 23, 23);
     text-transform: uppercase;
 }
 
@@ -273,7 +291,7 @@ thead {
     position: absolute;
     right: 5mm;
     background: #fcfcfc;
-    border: 1px solid rgb(151, 218, 26);
+    /* border: 1px solid rgb(151, 218, 26); */
     border-radius: 2px;
     /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
     background-color: #aaa;
@@ -291,8 +309,6 @@ thead {
     z-index: 9999;
 
 }
-
-
 
 .clearSearch {
     position: absolute;
@@ -328,7 +344,7 @@ thead {
 
 .form-control {
     background-color: #e7e7e7b2 !important;
-    border: 2px solid rgb(151, 218, 26) !important;
+    /* border: 2px solid rgb(151, 218, 26) !important; */
     /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
 }
 
@@ -394,7 +410,28 @@ thead {
     font-size: 20pt;
 }
 
-@media only screen and (max-width: 796px) {
+#imageDisplay {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 40px;
+}
+
+.statusOptions {
+    color: aqua;
+}
+
+th {
+    /* background-color: rgb(218, 98, 6, 0.150); */
+}
+
+td {
+    background-color: rgba(119, 119, 119, 0.377);
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 768px) {
 
     .modal-content {
         z-index: 9999;
@@ -462,5 +499,143 @@ thead {
 
     .form-group {
         margin-top: 2px !important;
+    }
+
+    /* Samsung Galaxy S5 ----------- */
+    @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3) {
+
+        /* Styles */
+        .modal-content {
+            z-index: 9999;
+            width: 395px !important;
+            padding-bottom: 75px;
+
+        }
+
+        input#fileButton {
+            border: 1px solid #000 !important;
+            background-color: lightgray;
+            width: 361px;
+            border-radius: 4px;
+            color: #000;
+            z-index: -1;
+
+        }
+
+        input#search {
+            position: absolute;
+            left: 132px;
+            width: 310px;
+
+        }
+
+        .clearSearch {
+            position: relative;
+            left: 450px;
+        }
+
+        .modal-body label {
+            color: #000;
+        }
+
+        .newJobBtn {
+            overflow-x: auto;
+            position: absolute;
+            left: 465px;
+            top: 101px;
+            width: 110px;
+        }
+
+        #table {
+            width: 524px !important;
+            top: 10px;
+            left: 7px;
+            padding-bottom: 130px;
+
+        }
+
+        #imageDisplay {
+            margin-top: 80px;
+            width: 85%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .search .fa-search {
+            color: #fff;
+            position: absolute;
+            top: 3.3mm;
+            right: 59mm;
+            z-index: 1;
+        }
+    }
+
+    /* Samsung Galaxy S5 ----------- */
+    @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3) {
+
+        /* Styles */
+        .modal-content {
+            z-index: 9999;
+            width: 395px !important;
+            padding-bottom: 75px;
+
+        }
+
+        input#fileButton {
+            border: 1px solid #000 !important;
+            background-color: lightgray;
+            width: 361px;
+            border-radius: 4px;
+            color: #000;
+            z-index: -1;
+
+        }
+
+        input#search {
+            position: absolute;
+            left: 128px;
+            width: 300px;
+
+        }
+
+        .clearSearch {
+            position: relative;
+            left: 440px;
+        }
+
+        .modal-body label {
+            color: #000;
+        }
+
+        .newJobBtn {
+            overflow-x: auto;
+            position: absolute;
+            left: 11px;
+            top: 154px;
+            width: 377px;
+        }
+
+        #table {
+            width: 524px !important;
+            top: 57px;
+            left: 7px;
+            padding-bottom: 130px;
+
+        }
+
+        #imageDisplay {
+            margin-top: 80px;
+            width: 85%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .search .fa-search {
+            color: #fff;
+            position: absolute;
+            top: 3.3mm;
+            right: 59mm;
+            z-index: 1;
+        }
     }
 }
