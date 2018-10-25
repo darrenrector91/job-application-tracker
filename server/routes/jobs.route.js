@@ -46,7 +46,7 @@ router.get('/filename/:id', (req, res) => {
         });
 });
 
-router.delete('/:id',  (req, res) => {
+router.delete('/:id', (req, res) => {
     const queryText = 'DELETE FROM job WHERE id = $1';
     pool.query(queryText, [req.params.id])
         .then((result) => {
@@ -84,6 +84,13 @@ router.post('/', (req, res) => {
             console.log('error:', err);
             res.sendStatus(500);
         });
+});
+
+// clear all server session information about this user
+router.get('/logout', (req, res) => {
+    // Use passport's built-in method to log out the user
+    req.logout();
+    res.sendStatus(200);
 });
 
 
