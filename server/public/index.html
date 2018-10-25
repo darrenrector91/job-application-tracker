@@ -37,13 +37,12 @@
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <!-- <div class="modal-header" style="background-color:#66C010; color: #002145"> -->
-                    <div class="modal-header" style="background-color:#da6206; color: #002145">
+                    <div class="modal-header" style="background-color:rgb(158, 32, 0); color: #000000">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
                                     class="far fa-window-close"></i></span></button>
                         <h4 class="modal-title" id="myModalLabel">Add/Edit Job</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="background-color:rgb(192, 192, 192)">
                         <form class="job-form">
                             <div class="row">
                                 <div class="form-group col">
@@ -123,11 +122,11 @@
                                     <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Cancel</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        </form> <!-- end form -->
+                    </div> <!-- end modal-body -->
+                </div> <!-- end modal-content -->
+            </div> <!-- end modal-dialogue -->
+        </div> <!-- end modal -->
         <div class="search row">
             <span class="fa fa-search spyGlass"></span>
             <input placeholder="Search term" id="search">
@@ -156,18 +155,21 @@
             </table>
         </div>
     </div>
-
     <div class="modal fade imageModal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content" id="imageDisplay">
-                <!-- <div id="imageDisplay"></div> -->
                 <div class="modal-header" style="background-color:#da6206; color: #002145">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="far fa-window-close"></i></span></button>
-                    <h4 class="modal-title" id="image-modalLabel">Job Description</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
+                                class="far fa-window-close"></i></span></button>
+                    <h4 class="modal-title" id="myModalLabel">Job Description</h4>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="modal-body">
+                    <h1>this is a modal</h1>
+                    <img src="" alt="" srcset="" id="imageSrc">
+                </div> <!-- end modal-body -->
+            </div> <!-- end modal-content -->
+        </div> <!-- end modal-dialogue -->
+    </div> <!-- end modal -->
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>

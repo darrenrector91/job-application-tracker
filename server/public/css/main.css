@@ -231,6 +231,10 @@ input#fileButton {
     margin-top: 20px !important;
 }
 
+.modal-header {
+    background-color: rgb(202, 92, 8);
+}
+
 .tableButton {
     width: 40px;
 }
@@ -244,10 +248,10 @@ input#fileButton {
 
 thead {
     text-align: center;
-    background-color: rgb(218, 98, 6);
+    background-color: rgb(202, 92, 8);
     font-family: 'Questrial', sans-serif;
     font-size: 15pt !important;
-    color: rgb(49, 49, 49);
+    color: rgb(24, 23, 23);
     text-transform: uppercase;
 }
 
@@ -287,7 +291,7 @@ thead {
     position: absolute;
     right: 5mm;
     background: #fcfcfc;
-    border: 1px solid rgb(151, 218, 26);
+    /* border: 1px solid rgb(151, 218, 26); */
     border-radius: 2px;
     /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
     background-color: #aaa;
@@ -305,8 +309,6 @@ thead {
     z-index: 9999;
 
 }
-
-
 
 .clearSearch {
     position: absolute;
@@ -342,7 +344,7 @@ thead {
 
 .form-control {
     background-color: #e7e7e7b2 !important;
-    border: 2px solid rgb(151, 218, 26) !important;
+    /* border: 2px solid rgb(151, 218, 26) !important; */
     /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
 }
 
@@ -413,6 +415,18 @@ thead {
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 40px;
+}
+
+.statusOptions {
+    color: aqua;
+}
+
+th {
+    /* background-color: rgb(218, 98, 6, 0.150); */
+}
+
+td {
+    background-color: rgba(119, 119, 119, 0.377);
 }
 
 /* MEDIA QUERIES */

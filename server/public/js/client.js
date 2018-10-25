@@ -104,7 +104,7 @@ $(document).ready(function () {
       newRow.append('<td>' + data[i].position + '</td>');
       newRow.append('<td style="max-width: 100px;">' + data[i].notes + '</td>');
       newRow.append('<td>' + convertedDate + '</td>');
-      newRow.append('<td>' + data[i].status + '</td>');
+      newRow.append('<td class="status" style="color: white";>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
       //edit row button
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
@@ -116,8 +116,18 @@ $(document).ready(function () {
     }
   }
 
+  var status = $('.status');
+  status.each(function(index) {
+    if ($(this).text() == "Rejected") {
+      $(this).css("color", "red");
+    } else {
+      if ($(this).text() == "Applied" || $(this).text() == "Phone interview" || $(this).text() == "First interview" || $(this).text() == "Second interview" || $(this).text() == "Additional interview") {
+        $(this).css("color", "white");
+      }
+    }
+  });
+
   function newJob() {
-    console.log('in add new job on click');
 
     //setting variables
     let company = $('#company').val()
@@ -129,7 +139,8 @@ $(document).ready(function () {
     let status = $('#status').val()
     let filename = $('#filename').val()
 
-    if (checkInputs(company, notes, date)) {
+
+    if (checkInputs(company, date)) {
       let objectToSend = {
         company: company,
         contact: contact,
@@ -314,7 +325,7 @@ $(document).ready(function () {
       method: 'GET',
       success: function (response) {
         // console.log('response ', response);
-        
+
 
         $('#company').val(response[0].company).focus();
         $('#contact').val(response[0].contact);
@@ -402,9 +413,9 @@ $(document).ready(function () {
       var img = document.getElementById('image-modal');
       img.src = url;
 
-      // $('#imageDisplay').html('<img src=' + url + 'height="150mm" width="100%">');
-      $('#image-modal').modal('show').html('<img src=' + url + 'height="150mm" width="80%">');
-
+      $('#image-modal').modal({
+        show: true
+      }).html('<img src=' + url + '>');
 
     }).catch(function (error) {
       console.log('Error displaying image ', error);
@@ -462,4 +473,8 @@ $(document).ready(function () {
       return true;
     }
   }
+
+  $('.imageModal').click(function () {
+    window.location.reload();
+  })
 });
