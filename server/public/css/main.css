@@ -235,6 +235,12 @@ input#fileButton {
     background-color: rgb(202, 92, 8);
 }
 
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 1400px !important;
+    }
+}
+
 .tableButton {
     width: 40px;
 }
