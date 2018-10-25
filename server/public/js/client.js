@@ -117,7 +117,7 @@ $(document).ready(function () {
   }
 
   var status = $('.status');
-  status.each(function(index) {
+  status.each(function (index) {
     if ($(this).text() == "Rejected") {
       $(this).css("color", "red");
     } else {
@@ -318,15 +318,13 @@ $(document).ready(function () {
 
     let editDiv = $('#editJob');
     let jobID = $(this).val();
-    console.log('jobID from editJob, ', jobID);
+    // console.log('jobID from editJob, ', jobID);
 
     $.ajax({
       url: '/jobs/' + jobID,
       method: 'GET',
       success: function (response) {
-        // console.log('response ', response);
-
-
+        console.log('response ', response);
         $('#company').val(response[0].company).focus();
         $('#contact').val(response[0].contact);
         $('#email').val(response[0].email);
@@ -356,7 +354,7 @@ $(document).ready(function () {
         } else {
           msg = 'Uncaught Error.\n' + jqXHR.responseText;
         }
-        alert(html(msg));
+        swal(html(msg));
       }, //end ajax
     })
   }
@@ -369,6 +367,7 @@ $(document).ready(function () {
       success: function (data) {
         console.log('imageFileName: ', data);
         displayImage(data);
+
       },
       error: function (jqXHR, exception) {
         var msg = '';
@@ -413,9 +412,14 @@ $(document).ready(function () {
       var img = document.getElementById('image-modal');
       img.src = url;
 
+      // $('#image-modal').modal({
+      //   show: true
+      // }).html('<img src=' + url + '>');
+
+      $('#imageSrc').attr('src', url);
       $('#image-modal').modal({
         show: true
-      }).html('<img src=' + url + '>');
+      })
 
     }).catch(function (error) {
       console.log('Error displaying image ', error);

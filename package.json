@@ -1,7 +1,7 @@
 {
   "name": "jobs-records",
   "version": "1.0.0",
-  "description": "",
+  "description": "Steps to launch app",
   "main": "server/server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -26,5 +26,13 @@
     "start": "node server/server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darrenrector91/job-application-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/darrenrector91/job-application-tracker/issues"
+  },
+  "homepage": "https://github.com/darrenrector91/job-application-tracker#readme"
 }
