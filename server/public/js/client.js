@@ -478,7 +478,7 @@ $(document).ready(function () {
     }
   }
 
-  $('.imageModal').click(function () {
-    window.location.reload();
-  })
+  // $('.imageModal').click(function () {
+  //   window.location.reload();
+  // })
 });
