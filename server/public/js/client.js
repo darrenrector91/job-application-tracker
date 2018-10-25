@@ -3,7 +3,7 @@ $(document).ready(function () {
   getJobs();
 
   //clear button for search
-  $('.search').append('<td><button type="button" class="clearSearch btn btn-warning" style="color:#fff">Clear</button></td>')
+  $('.search').append('<button type="button" class="clearSearch btn btn-warning" style="color:#fff">Clear</button>')
 
   //click events
   $('#updateJob').on('click', newJob);
@@ -445,8 +445,6 @@ $(document).ready(function () {
   }
 
   let storage = firebase.storage();
-
-
 
   function selectFile() {
     var file = document.getElementById('file').files[0];

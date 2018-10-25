@@ -30,7 +30,7 @@ body {
     background: -webkit-radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
     background: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b554c", endColorstr="#4b2826", GradientType=1);
-
+    /* background-image: url('/./././server/public/images/back.svg') */
 }
 
 h1,
@@ -203,10 +203,6 @@ input#fileButton {
 
 }
 
-.spyGlass {
-    color: #fff;
-}
-
 .modal {
     position: absolute;
     z-index: 9999;
@@ -233,6 +229,12 @@ input#fileButton {
 
 .modal-header {
     background-color: rgb(202, 92, 8);
+}
+
+
+
+.table-responsive {
+    width: auto !important;
 }
 
 @media (min-width: 992px) {
@@ -268,7 +270,6 @@ thead {
 #table {
     width: 374mm;
     position: relative;
-    right: 36mm;
     font-size: 12pt;
     font-weight: 600;
     text-align: center;
@@ -294,14 +295,11 @@ thead {
 .search input {
     width: 100mm;
     height: 44px;
-    position: absolute;
-    right: 5mm;
+    position: relative;
+    left: 116px;
     background: #fcfcfc;
-    /* border: 1px solid rgb(151, 218, 26); */
-    border-radius: 2px;
-    /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
     background-color: #aaa;
-    color: #fff;
+    color: black;
 }
 
 .search input {
@@ -311,14 +309,17 @@ thead {
 .search .fa-search {
     position: absolute;
     top: 3.3mm;
-    right: 98mm;
+    right: 62mm;
     z-index: 9999;
+    color: #fefefe;
+
 
 }
 
 .clearSearch {
-    position: absolute;
-    left: 99mm;
+    position: relative;
+    left: 134mm;
+    bottom: 42px;
     background-color: transparent !important;
     border: 2px solid cornflowerblue;
     color: #fff;
@@ -406,8 +407,7 @@ thead {
 
 .newJobBtn {
     position: absolute;
-    left: 356mm;
-    top: 102px;
+    margin-left: 1087px;
 }
 
 .modal-title {
