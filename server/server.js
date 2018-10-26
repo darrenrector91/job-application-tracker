@@ -2,10 +2,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 5000;
-const passport = require('./strategies/sql.localstrategy');
-const sessionConfig = require('./modules/session-middleware');
-
-
 
 const jobsRoute = require('./routes/jobs.route');
 
@@ -21,10 +17,3 @@ app.use('/jobs', jobsRoute);
 app.listen(port, function () {
   console.log('listening on port', port);
 });
-
-// Passport Session Configuration
-app.use(sessionConfig);
-
-// Start up passport sessions
-app.use(passport.initialize());
-app.use(passport.session());
