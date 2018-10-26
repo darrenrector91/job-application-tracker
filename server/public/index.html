@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Styling -->
     <link rel="stylesheet" href="css/main.css">
+    <!-- Mobile Menu -->
+    <link rel="stylesheet" href="css/mobile-menu.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
     <!-- Font Awesome -->
@@ -32,10 +34,17 @@
         <h5 class="my-0 mr-md-auto font-weight-normal">Gig Finder</h5>
         <a class="btn btn-outline-primary" href="login.html">Exit</a>
     </div> -->
+    <div class="topnav" id="myTopnav">
+        <!-- <a href="index.html" class="active">Home</a> -->
+        <a href="login.html" class="active">Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <header>
         <h1 class="page-title">Gig Finder</h1>
     </header>
-    <a href="login.html"><button id="logoutBtn" class="btn btn-light">Logout</button></a>
+    <!-- <a href="login.html"><button id="logoutBtn" class="btn btn-light">Logout</button></a> -->
     <!-- <a href="login.html"><button id="testBtn" class="btn btn-secondary">test</button></a> -->
     <div class="container">
         <!-- Button trigger modal -->
@@ -192,7 +201,9 @@
     <!-- Moment.js -->
     <script src="vendors/bootstrap-datepicker.js"></script>
     <!-- Bootstrap Datepicker -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <!-- Mobile Menu -->
+    <script src="js/mobile-menu.js"></script>
 </body>
 
 </html>

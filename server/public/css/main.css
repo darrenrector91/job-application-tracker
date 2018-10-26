@@ -164,10 +164,11 @@ b.max-bold {
 .search {
     font-family: 'Questrial', sans-serif;
 
+
 }
 
 .page-title {
-    margin-top: 20px;
+    margin: 20px 0 40px 0;
     text-align: center;
     font-size: 42pt;
     letter-spacing: 1pt;
@@ -392,10 +393,9 @@ thead {
     font-size: 15pt;
 }
 
-
 .newJobBtn {
     position: absolute;
-    margin-left: 1087px;
+    margin-left: 73%;
 }
 
 .modal-title {
@@ -477,9 +477,9 @@ td {
     .newJobBtn {
         overflow-x: auto;
         position: relative;
-        right: 1085px;
+        right: 73%;
         top: 104px;
-        width: 380px;
+        width: 382px;
 
     }
 
@@ -517,6 +517,11 @@ td {
         margin: 5mm;
         background-color: transparent;
         color: white;
+    }
+
+    .index-copyright {
+        position: relative;
+        top: 90%;
     }
 
     /* Samsung Galaxy S5 ----------- */
