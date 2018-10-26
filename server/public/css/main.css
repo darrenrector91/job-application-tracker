@@ -425,14 +425,6 @@ td {
     top: 90%;
 }
 
-@media (min-width: 576px) {
-    .modal-dialog {
-        max-width: 800px;
-        margin: 1.75rem auto;
-    }
-}
-
-
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 768px) {
