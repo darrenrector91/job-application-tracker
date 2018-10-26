@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 5000;
-// const passport = require('./strategies/sql.localstrategy');
+const passport = require('./strategies/sql.localstrategy');
+const sessionConfig = require('./modules/session-middleware');
+
 
 
 const jobsRoute = require('./routes/jobs.route');
@@ -21,8 +23,8 @@ app.listen(port, function () {
 });
 
 // Passport Session Configuration
-// app.use(sessionConfig);
+app.use(sessionConfig);
 
 // Start up passport sessions
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());

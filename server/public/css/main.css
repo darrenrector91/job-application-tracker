@@ -355,25 +355,13 @@ thead {
     /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
 }
 
-
-/* #displayImg {
-    position: absolute;
-    left: 25%;
-    height: 100mm;
-    width: 50mm;
-} */
-
-#testBtn,
-#tableBtn {
+#logoutBtn {
     position: relative;
-    left: 359mm;
+    left: 350mm;
     bottom: 28mm;
     margin: 5mm;
-}
-
-#testBtn {
-    background-color: white;
-    color: black;
+    background-color: transparent;
+    color: white;
 }
 
 .progress {
@@ -429,6 +417,10 @@ thead {
 
 td {
     background-color: rgba(119, 119, 119, 0.377);
+}
+
+.bg-secondary {
+    background-color: #777 !important;
 }
 
 @media (min-width: 576px) {
