@@ -41,7 +41,7 @@ html {
     padding: 15px;
     margin: 0 auto;
     position: relative;
-    bottom: 100px;
+    bottom: 220px;
 }
 
 .form-signin .checkbox {
@@ -84,6 +84,11 @@ html {
     height: 400px;
     width: 400px;
     position: relative;
-    top: 100px;
+    top: 90px;
 
+}
+
+.text-muted {
+    position: relative;
+    top: 90%;
 }
