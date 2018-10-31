@@ -320,7 +320,6 @@ $(document).ready(function () {
       success: function (response) {
         // console.log('response ', response)
 
-
         $('#company').val(response[0].company).focus()
         $('#contact').val(response[0].contact)
         $('#email').val(response[0].email)
@@ -350,8 +349,13 @@ $(document).ready(function () {
         } else {
           msg = 'Uncaught Error.\n' + jqXHR.responseText
         }
+<<<<<<< HEAD
         console.log(msg)
       } // end ajax
+=======
+        swal(html(msg));
+      }, //end ajax
+>>>>>>> e1784c5d75208b8ed9635ca0246942182c0373ea
     })
   }
 
@@ -361,8 +365,14 @@ $(document).ready(function () {
       type: 'GET',
       url: '/jobs/filename/' + ID,
       success: function (data) {
+<<<<<<< HEAD
         console.log('imageFileName: ', data)
         displayImage(data)
+=======
+        console.log('imageFileName: ', data);
+        displayImage(data);
+
+>>>>>>> e1784c5d75208b8ed9635ca0246942182c0373ea
       },
       error: function (jqXHR, exception) {
         var msg = ''
@@ -406,9 +416,18 @@ $(document).ready(function () {
       var img = document.getElementById('image-modal')
       img.src = url
 
+      // $('#image-modal').modal({
+      //   show: true
+      // }).html('<img src=' + url + '>');
+
+      $('#imageSrc').attr('src', url);
       $('#image-modal').modal({
         show: true
+<<<<<<< HEAD
       }).html('<img src=' + url + '>')
+=======
+      })
+>>>>>>> e1784c5d75208b8ed9635ca0246942182c0373ea
 
     }).catch(function (error) {
       console.log('Error displaying image ', error)
@@ -433,7 +452,11 @@ $(document).ready(function () {
     })
   }
 
+<<<<<<< HEAD
   let storage = firebase.storage()
+=======
+  let storage = firebase.storage();
+>>>>>>> e1784c5d75208b8ed9635ca0246942182c0373ea
 
   function selectFile() {
     var file = document.getElementById('file').files[0]
@@ -466,7 +489,14 @@ $(document).ready(function () {
     }
   }
 
+<<<<<<< HEAD
   $('.imageModal').click(function () {
     window.location.reload()
   })
 })
+=======
+  // $('.imageModal').click(function () {
+  //   window.location.reload();
+  // })
+});
+>>>>>>> e1784c5d75208b8ed9635ca0246942182c0373ea

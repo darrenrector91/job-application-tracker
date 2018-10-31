@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Job Tracking</title>
+    <title>Gig Finder</title>
 
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Styling -->
     <link rel="stylesheet" href="css/main.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Mobile Menu -->
+    <link rel="stylesheet" href="css/mobile-menu.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
     <!-- Font Awesome -->
@@ -27,6 +30,17 @@
 </head>
 
 <body>
+    <!-- <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Gig Finder</h5>
+        <a class="btn btn-outline-primary" href="login.html">Exit</a>
+    </div> -->
+    <div class="topnav" id="myTopnav">
+        <!-- <a href="index.html" class="active">Home</a> -->
+        <a href="login.html" class="active">Logout</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <header>
         <h1 class="page-title">Gig Finder</h1>
     </header>
@@ -141,9 +155,9 @@
                         <th class="">#</th>
                         <th class="col-sm-.5">Company</th>
                         <th class="col-sm-.5">Contact</th>
-                        <th class="col-sm-.5">Contact email</th>
+                        <th class="col-sm-.5">Email</th>
                         <th class="col-sm-.25">Position</th>
-                        <th class="col-sm-.5">Notes/Information</th>
+                        <th class="col-sm-.5">Notes</th>
                         <th class="col-sm-.5">Date</th>
                         <th class="col-sm-.5">Status</th>
                         <th class="col-sm-.5">File</th>
@@ -158,8 +172,8 @@
             </table>
         </div>
     </div>
-    <div class="modal fade imageModal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade imageodal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content" id="imageDisplay">
                 <div class="modal-header" style="background-color:#da6206; color: #002145">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
@@ -167,12 +181,12 @@
                     <h4 class="modal-title" id="myModalLabel">Job Description</h4>
                 </div>
                 <div class="modal-body">
-                    <h1>this is a modal</h1>
-                    <img src="" alt="" srcset="" id="imageSrc">
+                    <img src="" id="imageSrc">
                 </div> <!-- end modal-body -->
             </div> <!-- end modal-content -->
         </div> <!-- end modal-dialogue -->
     </div> <!-- end modal -->
+    <p class="mt-5 mb-3 text-muted text-center index-copyright">&copy;&nbsp;2018 Gig Finder</p>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
@@ -185,7 +199,9 @@
     <!-- Bootstrap -->
     <script src="vendors/bootstrap.min.js"></script>
     <!-- Bootstrap Datepicker -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <!-- Mobile Menu -->
+    <script src="js/mobile-menu.js"></script>
 </body>
 
 </html>

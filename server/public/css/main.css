@@ -30,7 +30,7 @@ body {
     background: -webkit-radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
     background: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b554c", endColorstr="#4b2826", GradientType=1);
-
+    /* background-image: url('/./././server/public/images/back.svg') */
 }
 
 h1,
@@ -164,10 +164,11 @@ b.max-bold {
 .search {
     font-family: 'Questrial', sans-serif;
 
+
 }
 
 .page-title {
-    margin-top: 20px;
+    margin: 20px 0 40px 0;
     text-align: center;
     font-size: 42pt;
     letter-spacing: 1pt;
@@ -203,10 +204,6 @@ input#fileButton {
 
 }
 
-.spyGlass {
-    color: #fff;
-}
-
 .modal {
     position: absolute;
     z-index: 9999;
@@ -235,8 +232,16 @@ input#fileButton {
     background-color: rgb(202, 92, 8);
 }
 
-.tableButton {
-    width: 40px;
+
+
+.table-responsive {
+    width: auto !important;
+}
+
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 1400px !important;
+    }
 }
 
 #clearform {
@@ -260,9 +265,8 @@ thead {
 }
 
 #table {
-    width: 374mm;
+    width: 100%;
     position: relative;
-    right: 36mm;
     font-size: 12pt;
     font-weight: 600;
     text-align: center;
@@ -288,14 +292,11 @@ thead {
 .search input {
     width: 100mm;
     height: 44px;
-    position: absolute;
-    right: 5mm;
+    position: relative;
+    left: 116px;
     background: #fcfcfc;
-    /* border: 1px solid rgb(151, 218, 26); */
-    border-radius: 2px;
-    /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
     background-color: #aaa;
-    color: #fff;
+    color: black;
 }
 
 .search input {
@@ -305,14 +306,17 @@ thead {
 .search .fa-search {
     position: absolute;
     top: 3.3mm;
-    right: 98mm;
+    right: 62mm;
     z-index: 9999;
+    color: #fefefe;
+
 
 }
 
 .clearSearch {
-    position: absolute;
-    left: 99mm;
+    position: relative;
+    left: 134mm;
+    bottom: 42px;
     background-color: transparent !important;
     border: 2px solid cornflowerblue;
     color: #fff;
@@ -348,17 +352,9 @@ thead {
     /* box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; */
 }
 
-
-/* #displayImg {
-    position: absolute;
-    left: 25%;
-    height: 100mm;
-    width: 50mm;
-} */
-
-#testBtn,
-#tableBtn {
+#logoutBtn {
     position: relative;
+<<<<<<< HEAD
     left: 324mm;
     bottom: 3mm;
     margin: 5mm;
@@ -367,6 +363,13 @@ thead {
 #testBtn {
     background-color: #e28913;
     color: black;
+=======
+    left: 350mm;
+    bottom: 17mm;
+    margin: 5mm;
+    background-color: transparent;
+    color: white;
+>>>>>>> e1784c5d75208b8ed9635ca0246942182c0373ea
 }
 
 .progress {
@@ -397,11 +400,9 @@ thead {
     font-size: 15pt;
 }
 
-
 .newJobBtn {
     position: absolute;
-    left: 356mm;
-    top: 102px;
+    margin-left: 73%;
 }
 
 .modal-title {
@@ -423,6 +424,16 @@ thead {
 
 td {
     background-color: rgba(119, 119, 119, 0.377);
+}
+
+.bg-secondary {
+    background-color: #777 !important;
+}
+
+.index-copyright {
+    color: #FFF !important;
+    position: relative;
+    top: 90%;
 }
 
 /* MEDIA QUERIES */
@@ -456,6 +467,8 @@ td {
     .clearSearch {
         position: relative;
         left: 450px;
+        top: 0;
+
     }
 
     .modal-body label {
@@ -464,10 +477,11 @@ td {
 
     .newJobBtn {
         overflow-x: auto;
-        position: absolute;
-        left: 15px;
-        top: 151px;
-        width: 380px;
+        position: relative;
+        right: 73%;
+        top: 104px;
+        width: 382px;
+
     }
 
     #table {
@@ -497,4 +511,21 @@ td {
         margin-top: 2px !important;
     }
 
+<<<<<<< HEAD
+=======
+    #logoutBtn {
+        position: relative;
+        left: 82mm;
+        bottom: 0;
+        margin: 5mm;
+        background-color: transparent;
+        color: white;
+    }
+
+    .index-copyright {
+        position: relative;
+        top: 90%;
+    }
+
+>>>>>>> e1784c5d75208b8ed9635ca0246942182c0373ea
 }
