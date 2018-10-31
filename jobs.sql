@@ -9,3 +9,14 @@ CREATE TABLE job (
     status VARCHAR(200) NULL,
     filename VARCHAR(255) NULL
 );
+
+CREATE TABLE contacts (
+	id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    position VARCHAR(255) NOT NULL,
+	company VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	phone VARCHAR(255) NOT NULL,
+	date DATE NOT NULL,
+	notes VARCHAR(255) NOT NULL
+);
