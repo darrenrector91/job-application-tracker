@@ -346,11 +346,14 @@ thead {
 
 #logoutBtn {
     position: relative;
-    left: 350mm;
-    bottom: 17mm;
+    left: 324mm;
+    bottom: 3mm;
     margin: 5mm;
-    background-color: transparent;
-    color: white;
+}
+
+#testBtn {
+    background-color: #e28913;
+    color: black;
 }
 
 .progress {
@@ -384,7 +387,7 @@ thead {
 .newJobBtn {
     position: absolute;
     left: 82.1%;
-    top: 47%;
+    top: 170px;
 
 }
 
