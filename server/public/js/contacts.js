@@ -96,8 +96,6 @@ $(document).ready(function () {
                     $('#editContact').empty()
                     $('#updateContact').on('click', newContact) // end updateContact on click
                     $('#updateContact').off('click', updateContact)
-                    $('#formLabel').text('Add Contact')
-                    $('#updateContact').text('Add Contact')
 
                     // clear inputs after contact updated
 
@@ -172,6 +170,9 @@ $(document).ready(function () {
     }
 
     function updateContact() {
+
+
+
         let name = $('#name').val()
         let company = $('#company').val()
         let position = $('#position').val()
@@ -198,8 +199,7 @@ $(document).ready(function () {
                     $('#editContact').empty()
                     $('#updateContact').on('click', newContact)
                     $('#updateContact').off('click', updateContact)
-                    $('#formLabel').text('Add Contact')
-                    $('#updateContact').text('Add Contact')
+                    $('#contactModalLabel').text('Edit Contact');
 
                     $('#name').val('').focus()
                     $('#company').val('')
@@ -233,6 +233,8 @@ $(document).ready(function () {
     }
 
     function editContact() {
+        $('#contactModalLabel').text('Edit Contact')
+
         $('#updateContact').text('Edit')
         $('#updateContact').off('click', newContact) // end updateContact on click
         $('#updateContact').on('click', updateContact)
@@ -299,6 +301,18 @@ $(document).ready(function () {
         window.location.reload()
     }
 
-
+    $("#phone").keypress(function (e) {
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        }
+        var curchr = this.value.length;
+        var curval = $(this).val();
+        if (curchr == 3 && e.which != 8 && e.which != 0) {
+            $(this).val(curval + "-");
+        } else if (curchr == 7 && e.which != 8 && e.which != 0) {
+            $(this).val(curval + "-");
+        }
+        $(this).attr('maxlength', '12');
+    });
 
 })

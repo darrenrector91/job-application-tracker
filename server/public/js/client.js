@@ -312,8 +312,7 @@ $(document).ready(function () {
   }
 
   function editJob() {
-
-    $('#updateJob').text('Edit');
+    $('#myModalLabel').text('Edit Job');
     $('#updateJob').off('click', newJob); //end updateJob on click
     $('#updateJob').on('click', updateJob);
 
