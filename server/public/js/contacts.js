@@ -182,8 +182,8 @@ $(document).ready(function () {
         if (checkInputs(name, company, email)) {
             let contactID = $(this).val()
             let objectToUpdate = {
-                company: name,
-                contact: company,
+                name: name,
+                company: company,
                 position: position,
                 email: email,
                 phone: phone,
@@ -247,10 +247,10 @@ $(document).ready(function () {
             success: function (response) {
                 // console.log('response ', response)
 
-                $('#name').val(response[0].company).focus()
-                $('#company').val(response[0].contact)
-                $('#position').val(response[0].email)
-                $('#email').val(response[0].position)
+                $('#name').val(response[0].name).focus()
+                $('#company').val(response[0].company)
+                $('#position').val(response[0].position)
+                $('#email').val(response[0].email)
                 $('#phone').val(response[0].phone)
                 $('#notes').val(response[0].notes)
                 $('#updateContact').val(response[0].id)
