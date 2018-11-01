@@ -81,7 +81,8 @@ $(document).ready(function () {
         } else {
           msg = 'Uncaught Error.\n' + jqXHR.responseText;
         }
-        alert(html(msg));
+        console.log(msg);
+
       }, //end ajax
       // display on DOM with buttons that allow edit of each
     })
