@@ -476,8 +476,4 @@ $(document).ready(function () {
       return true;
     }
   }
-
-  // $('.imageModal').click(function () {
-  //   window.location.reload();
-  // })
 });
