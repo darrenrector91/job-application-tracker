@@ -1,0 +1,20 @@
+#homeNavBtn {
+    position: relative;
+    left: 320mm;
+    bottom: 3mm;
+    margin: 5mm;
+    background-color: #e28913;
+    color: black;
+}
+
+.table-bordered {
+    /* border: none !important; */
+    display: inline-table !important;
+}
+
+.newContactBtn {
+    position: absolute;
+    left: 303mm;
+    top: 183px;
+
+}

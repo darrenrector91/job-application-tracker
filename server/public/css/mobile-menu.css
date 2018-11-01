@@ -25,7 +25,7 @@
 
 /* Add an active class to highlight the current page */
 .active {
-    background-color: rgb(206, 103, 7);
+    /* background-color: rgb(206, 103, 7); */
     color: white;
 }
 
