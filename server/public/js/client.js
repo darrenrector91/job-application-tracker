@@ -31,6 +31,7 @@ $(document).ready(function () {
     storageBucket: "gig-finder-75751.appspot.com",
     messagingSenderId: "25565657670"
   };
+
   firebase.initializeApp(config)
   var uploader = document.getElementById('uploader');
   var fileButton = document.getElementById('fileButton');
