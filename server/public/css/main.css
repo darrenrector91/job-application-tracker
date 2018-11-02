@@ -391,8 +391,8 @@ thead {
 
 .newJobBtn {
     position: absolute;
-    left: 82.1%;
-    top: 170px;
+    left: 84%;
+    top: 202px;
 
 }
 
@@ -426,6 +426,12 @@ td {
     position: relative;
     top: 90%;
 }
+
+.icon-name {
+    margin: 20px;
+    float: left;
+}
+
 
 /* MEDIA QUERIES */
 

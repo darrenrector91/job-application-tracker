@@ -14,9 +14,9 @@
 
 .newContactBtn {
     position: absolute;
-    left: 303mm;
-    top: 171px;
-
+    left: 1175px;
+    top: 197px;
+    height: 42px;
 }
 
 /* MEDIA QUERIES */
@@ -60,7 +60,7 @@
         overflow-x: auto;
         position: relative;
         left: 12px;
-        top: 33px;
+        top: 37px;
         width: 360px;
     }
 
