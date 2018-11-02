@@ -104,7 +104,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: 'PUT',
-                url: '/contacts/update/' + id,
+                url: '/contacts/update/',
                 data: objectToUpdate,
                 success: function (response) {
                     console.log('response', response);
