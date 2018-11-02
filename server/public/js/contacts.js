@@ -80,7 +80,6 @@ $(document).ready(function () {
     }
 
     function newContact() {
-
         //setting variables
         let name = $('#name').val()
         let position = $('#position').val()
@@ -88,7 +87,6 @@ $(document).ready(function () {
         let email = $('#email').val()
         let phone = $('#phone').val()
         let notes = $('#notes').val()
-
 
         if (checkInputs(name)) {
             let objectToSend = {
@@ -105,7 +103,7 @@ $(document).ready(function () {
             $.ajax({
                 type: 'PUT',
                 url: '/contacts/update/',
-                data: objectToUpdate,
+                data: objectToSend,
                 success: function (response) {
                     console.log('response', response);
                     getContacts();

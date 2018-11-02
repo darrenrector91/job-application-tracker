@@ -157,7 +157,7 @@ $(document).ready(function () {
 
       $.ajax({
         type: 'PUT',
-        url: '/jobs/update/' + jobID,
+        url: '/jobs/update/',
         data: objectToUpdate,
         success: function (response) {
           console.log('response', response);
