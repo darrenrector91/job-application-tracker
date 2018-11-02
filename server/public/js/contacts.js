@@ -85,7 +85,7 @@ $(document).ready(function () {
         $.ajax({
             url: '/contacts',
             type: 'POST',
-            data: objectToSend,
+            data: newContact,
             success: function (response) {
                 console.log('got some jobs: ', response);
                 getContacts();
@@ -102,7 +102,7 @@ $(document).ready(function () {
             }
         }); //end ajax
         // call saveContact with the new obejct
-        // saveContact(objectToSend);
+        saveContact(objectToSend);
 
         // $.ajax({
         //     type: 'POST',
@@ -134,28 +134,28 @@ $(document).ready(function () {
         // }
     }
 
-    // function saveContact(newContact) {
+    function saveContact(newContact) {
 
-    //     $.ajax({
-    //         url: '/contacts',
-    //         type: 'POST',
-    //         data: newContact,
-    //         success: function (response) {
-    //             console.log('got some jobs: ', response);
-    //             getContacts();
-    //             $('#name').val('').focus();
-    //             $('#position').val('');
-    //             $('#company').val('');
-    //             $('#email').val('');
-    //             $('#phone').val('');
-    //             $('#notes').val('');
-    //         },
-    //         error: function (response) {
-    //             console.log('error response', response);
+        $.ajax({
+            url: '/contacts',
+            type: 'POST',
+            data: newContact,
+            success: function (response) {
+                console.log('got some jobs: ', response);
+                getContacts();
+                $('#name').val('').focus();
+                $('#position').val('');
+                $('#company').val('');
+                $('#email').val('');
+                $('#phone').val('');
+                $('#notes').val('');
+            },
+            error: function (response) {
+                console.log('error response', response);
 
-    //         }
-    //     }); //end ajax
-    // }
+            }
+        }); //end ajax
+    }
 
     function updateContact() {
 
