@@ -18,7 +18,7 @@ $(document).ready(function () {
         format: 'mm/dd/yyyy',
         container: container,
         todayHighlight: true,
-        autoclose: true,
+        autoclose: true
     })
 
     function getContacts() {
@@ -79,17 +79,17 @@ $(document).ready(function () {
             company: company,
             email: email,
             phone: phone,
-            notes: notes,
+            notes: notes
         };
 
         $.ajax({
             url: '/contacts',
             type: 'POST',
-            data: newContact,
+            data: objectToSend,
             success: function (response) {
-                console.log('got some jobs: ', response);
+                // console.log('got some jobs: ', response);
                 getContacts();
-                $('#name').val('').focus();
+                $('#name').val('');
                 $('#position').val('');
                 $('#company').val('');
                 $('#email').val('');
@@ -98,11 +98,14 @@ $(document).ready(function () {
             },
             error: function (response) {
                 console.log('error response', response);
+                // alert(response)
 
             }
         }); //end ajax
         // call saveContact with the new obejct
         saveContact(objectToSend);
+        // console.log(saveContact);
+
 
         // $.ajax({
         //     type: 'POST',
@@ -134,12 +137,12 @@ $(document).ready(function () {
         // }
     }
 
-    function saveContact(newContact) {
+    function saveContact(objectToSend) {
 
         $.ajax({
             url: '/contacts',
             type: 'POST',
-            data: newContact,
+            data: objectToSend,
             success: function (response) {
                 console.log('got some jobs: ', response);
                 getContacts();
@@ -168,7 +171,7 @@ $(document).ready(function () {
 
         if (checkInputs(name)) {
             let contactID = $(this).val();
-            let objectToUpdate = {
+            let data = {
                 name: name,
                 position: position,
                 company: company,
@@ -179,7 +182,7 @@ $(document).ready(function () {
             $.ajax({
                 type: 'PUT',
                 url: '/contacts/update/' + contactID,
-                data: objectToUpdate,
+                data: data,
                 success: function (response) {
                     getContacts();
                     $('#editContact').empty();
@@ -239,12 +242,12 @@ $(document).ready(function () {
 
     function deleteContact() {
         let id = $(this).val();
-        console.log('id: ', id);
+        // console.log('id: ', id);
         $.ajax({
             type: 'DELETE',
             url: '/contacts/' + id,
             success: function (response) {
-                console.log('response', response);
+                // console.log('response', response);
                 getContacts();
             },
             error: function (error) {

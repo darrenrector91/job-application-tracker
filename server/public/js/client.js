@@ -39,7 +39,7 @@ $(document).ready(function () {
     var file = e.target.files[0];
     // Create a storage ref
     var storageRef = firebase.storage().ref('screenshots/' + file.name);
-    console.log(file.name);
+    // console.log(file.name);
     // Upload file
     var task = storageRef.put(file)
     // Update progress bar
@@ -144,7 +144,7 @@ $(document).ready(function () {
         url: '/jobs/update/',
         data: objectToUpdate,
         success: function (response) {
-          console.log('response', response);
+          // console.log('response', response);
           getJobs();
           $('#editJob').empty();
           $('#updateJob').on('click', newJob); //end updateJob on click
@@ -178,7 +178,7 @@ $(document).ready(function () {
       type: 'POST',
       data: newJob,
       success: function (response) {
-        console.log('got some jobs: ', response);
+        // console.log('got some jobs: ', response);
         getJobs();
         $('#company').val('').focus();
         $('#contact').val('');
@@ -263,7 +263,7 @@ $(document).ready(function () {
       url: '/jobs/' + jobID,
       method: 'GET',
       success: function (response) {
-        console.log('response ', response);
+        // console.log('response ', response);
         $('#company').val(response[0].company).focus();
         $('#contact').val(response[0].contact);
         $('#email').val(response[0].email);
@@ -289,7 +289,7 @@ $(document).ready(function () {
       type: 'GET',
       url: '/jobs/filename/' + ID,
       success: function (data) {
-        console.log('imageFileName: ', data);
+        // console.log('imageFileName: ', data);
         displayImage(data);
 
       }, // end success
@@ -338,12 +338,12 @@ $(document).ready(function () {
 
   function deleteJob() {
     let id = $(this).val();
-    console.log('id: ', id);
+    // console.log('id: ', id);
     $.ajax({
       type: 'DELETE',
       url: '/jobs/' + id,
       success: function (response) {
-        console.log('response', response);
+        // console.log('response', response);
         getJobs();
       },
       error: function (error) {

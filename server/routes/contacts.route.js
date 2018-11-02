@@ -60,8 +60,8 @@ router.put('/update/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const queryText = 'INSERT INTO contacts (name, company, position, email, phone, notes) VALUES ($1, $2, $3, $4, $5, $6)';
-    pool.query(queryText, [req.body.name, req.body.company, req.body.position, req.body.email, req.body.phone, req.body.notes])
+    const queryText = 'INSERT INTO contacts (name, position, company, email, phone, notes) VALUES ($1, $2, $3, $4, $5, $6)';
+    pool.query(queryText, [req.body.name, req.body.position, req.body.company, req.body.email, req.body.phone, req.body.notes])
         .then((result) => {
             console.log('result:', result.rows);
             res.send(result.rows);
@@ -71,6 +71,5 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         });
 });
-
 
 module.exports = router;
