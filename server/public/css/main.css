@@ -429,37 +429,31 @@ td {
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 420px) {
 
     .modal-content {
         z-index: 9999;
         width: 395px !important;
         padding-bottom: 75px;
-
     }
 
     input#fileButton {
-        /* border: 1px solid #000 !important; */
-        /* background-color: lightgray; */
         width: 361px;
-        /* border-radius: 4px; */
         color: #000;
         z-index: -1;
-
     }
 
     input#search {
-        position: absolute;
-        left: 132px;
-        width: 310px;
-
+        position: relative;
+        left: -11px;
+        bottom: -6px;
+        width: 286px;
     }
 
     .clearSearch {
-        position: relative;
-        left: 450px;
-        top: 0;
-
+        position: absolute;
+        left: 301px;
+        bottom: 7px;
     }
 
     .modal-body label {
@@ -469,18 +463,16 @@ td {
     .newJobBtn {
         overflow-x: auto;
         position: relative;
-        right: 73%;
-        top: 104px;
-        width: 382px;
-
+        left: 12px;
+        top: 33px;
+        width: 360px;
     }
 
     #table {
         width: 100%;
-        top: 70px;
+        position: relative;
+        bottom: 45px;
         left: 17px;
-        padding-bottom: 130px;
-
     }
 
     #imageDisplay {
@@ -490,11 +482,22 @@ td {
         margin-left: auto;
     }
 
+    .search {
+        height: 15mm;
+        width: 100%;
+        bottom: 83px;
+        position: relative;
+        color: #aaa;
+        font-size: 16px;
+        margin-left: 124px;
+        margin-top: 17px;
+    }
+
     .search .fa-search {
         color: #fff;
-        position: absolute;
-        top: 3.3mm;
-        right: 59mm;
+        position: relative;
+        left: 14px;
+        margin-top: 7px;
         z-index: 1;
     }
 
@@ -514,6 +517,11 @@ td {
     .index-copyright {
         position: relative;
         top: 90%;
+    }
+
+    .topnav {
+        background-color: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
+        overflow: hidden;
     }
 
 }
