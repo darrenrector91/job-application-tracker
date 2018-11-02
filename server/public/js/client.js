@@ -110,7 +110,7 @@ $(document).ready(function () {
       //edit row button
       newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
       //delete row button
-      newRow.append('<td><button type="button" class="deleteJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
+      newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
       // display image button
       newRow.append('<td><button type="button" class="getImageFileName btn btn-info" data-toggle="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
       $('#viewJobs').append(newRow);
@@ -475,4 +475,18 @@ $(document).ready(function () {
       return true;
     }
   }
+
+  $("#phone").keypress(function (e) {
+    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      return false;
+    }
+    var curchr = this.value.length;
+    var curval = $(this).val();
+    if (curchr == 3 && e.which != 8 && e.which != 0) {
+      $(this).val(curval + "-");
+    } else if (curchr == 7 && e.which != 8 && e.which != 0) {
+      $(this).val(curval + "-");
+    }
+    $(this).attr('maxlength', '12');
+  });
 });

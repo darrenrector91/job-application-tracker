@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacts</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Styling -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <!-- Mobile Menu -->
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    <!-- Bootstrap Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <!-- Sweet Alerts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" class="active">Home</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <header>
+        <h1 class="page-title">Contacts</h1>
+    </header>
+    <!-- <a href="contacts.html"><button id="logoutBtn" class="btn btn-light">Contacts</button></a> -->
+    <div class="container">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-warning newContactBtn" data-toggle="modal" data-target="#contactModal">
+            Add contact
+        </button>
+        <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:rgb(214, 97, 19); color: #000000">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
+                                    class="far fa-window-close"></i></span></button>
+                        <h4 class="modal-title" id="contactModalLabel">Add Contact</h4>
+                    </div>
+                    <div class="modal-body" style="background-color:rgb(192, 192, 192)">
+                        <form class="job-form">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label for="name" class="control-label">Name</label>
+                                    <input type="text" class="form-control" id="name" aria-describedby="name"
+                                        placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label for="company" class="control-label">Company</label>
+                                    <input type="text" class="form-control" id="company" placeholder="Company">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label for="position" class="control-label">Position</label>
+                                    <input type="text" class="form-control" id="position" placeholder="Position">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label for="email" class="control-label">Email</label>
+                                    <input type="text" class="form-control" id="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label for="phone" class="control-label">Phone</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group col">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Notes</span>
+                                    </div>
+                                    <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="add notes..."></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- Clear form/reload page -->
+                                <!-- Not the purest way to handle clearing form but enough for this piece -->
+                                <div class="form-group col">
+                                    <button type="submit" class="rowBtn btn btn-primary" id="updateContact">Submit</button>
+                                    <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Cancel</button>
+                                </div>
+                            </div>
+                        </form> <!-- end form -->
+                    </div> <!-- end modal-body -->
+                </div> <!-- end modal-content -->
+            </div> <!-- end modal-dialogue -->
+        </div> <!-- end modal -->
+        <div class="search row">
+            <span class="fa fa-search spyGlass"></span>
+            <input placeholder="Search term" id="search">
+        </div>
+        <div id="table" class="row" style="overflow-x:auto;">
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th class="">#</th>
+                        <th class="col-sm-.5">Name</th>
+                        <th class="col-sm-.5">Position</th>
+                        <th class="col-sm-.5">Company</th>
+                        <th class="col-sm-.5">Email</th>
+                        <th class="col-sm-.5">Phone</th>
+                        <th class="col-sm-.5">Notes</th>
+                        <th class="col-sm-.5">Edit</th>
+                        <th class="col-sm-.5">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tbody id="viewContacts"></tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade imageModal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" id="imageDisplay">
+                <div class="modal-header" style="background-color:#da6206; color: #002145">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
+                                class="far fa-window-close"></i></span></button>
+                    <h4 class="modal-title" id="contactModalLabel">Add Contact</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="imageSrc">
+                </div> <!-- end modal-body -->
+            </div> <!-- end modal-content -->
+        </div> <!-- end modal-dialogue -->
+    </div> <!-- end modal -->
+    <p class="mt-5 mb-3 text-muted text-center index-copyright">&copy;&nbsp;2018 Gig Finder</p>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
+    <!-- Scripts -->
+    <script src="js/contacts.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap.min.js"></script>
+    <!-- Bootstrap Datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <!-- Mobile Menu -->
+    <script src="js/mobile-menu.js"></script>
+</body>
+
+</html>

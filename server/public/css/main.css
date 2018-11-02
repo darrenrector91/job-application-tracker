@@ -1,6 +1,11 @@
 /* ---------------------------------
        PRIMARY STYLES
 --------------------------------- */
+.container {
+    padding-right: none !important;
+    padding-left: none !important;
+
+}
 
 html {
     font-size: 100%;
@@ -257,10 +262,10 @@ thead {
 }
 
 #table {
-    width: 100%;
+    /* width: 100%;
     position: relative;
     font-size: 12pt;
-    font-weight: 600;
+    font-weight: 600; */
     text-align: center;
 }
 
@@ -321,11 +326,11 @@ thead {
     border-color: rgb(61, 141, 51) !important;
 }
 
-.deleteJob {
+/* .deleteJob {
     color: whitesmoke !important;
     background-color: rgb(192, 82, 68) !important;
     border-color: rgb(192, 82, 68) !important;
-}
+} */
 
 .dateColumn {
     width: 9%;
