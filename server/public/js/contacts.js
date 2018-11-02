@@ -28,27 +28,11 @@ $(document).ready(function () {
             type: 'GET',
             success: function (data) {
                 displayContacts(data);
-            }, // end success
-            error: function (jqXHR, exception) {
-                var msg = '';
-                if (jqXHR.status === 0) {
-                    msg = 'Not connect.\n Verify Network.';
-                } else if (jqXHR.status == 404) {
-                    msg = 'Requested page not found. [404]';
-                } else if (jqXHR.status == 500) {
-                    msg = 'Internal Server Error [500].';
-                } else if (exception === 'parsererror') {
-                    msg = 'Requested JSON parse failed.';
-                } else if (exception === 'timeout') {
-                    msg = 'Time out error.';
-                } else if (exception === 'abort') {
-                    msg = 'Ajax request aborted.';
-                } else {
-                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                }
-                console.log(msg);
+            },
+            error: function (response) {
+                console.log('error response', response);
 
-            }, //end ajax
+            }
             // display on DOM with buttons that allow edit of each
         })
     } // end getContacts
@@ -88,69 +72,20 @@ $(document).ready(function () {
         let phone = $('#phone').val()
         let notes = $('#notes').val()
 
-        if (checkInputs(name)) {
-            let objectToSend = {
-                name: name,
-                position: position,
-                company: company,
-                email: email,
-                phone: notes,
-                notes: notes,
-            };
-            // call saveContact with the new obejct
-            saveContact(objectToSend);
-
-            $.ajax({
-                type: 'PUT',
-                url: '/contacts/update/',
-                data: objectToSend,
-                success: function (response) {
-                    console.log('response', response);
-                    getContacts();
-                    $('#editContact').empty();
-                    $('#updateContact').on('click', newContact); //end updateContact on click
-                    $('#updateContact').off('click', updateContact);
-                    $('#contactModalLabel').text('Add Job');
-                    $('#updateContact').text('Add Job');
-
-                    //clear inputs after job updated
-                    $('#name').val('');
-                    $('#position').val('');
-                    $('#company').val('');
-                    $('#email').val('');
-                    $('#phone').val('');
-                    $('#notes').val('');
-                    $('#updateContact').val('');
-                },
-                error: function (jqXHR, exception) {
-                    var msg = '';
-                    if (jqXHR.status === 0) {
-                        msg = 'Not connect.\n Verify Network.';
-                    } else if (jqXHR.status == 404) {
-                        msg = 'Requested page not found. [404]';
-                    } else if (jqXHR.status == 500) {
-                        msg = 'Internal Server Error [500].';
-                    } else if (exception === 'parsererror') {
-                        msg = 'Requested JSON parse failed.';
-                    } else if (exception === 'timeout') {
-                        msg = 'Time out error.';
-                    } else if (exception === 'abort') {
-                        msg = 'Ajax request aborted.';
-                    } else {
-                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                    }
-                    console.log('erro new contact', msg);
-                }, //end ajax
-            });
-        }
-    }
-
-    function saveContact(newContact) {
+        // if (checkInputs(name)) {
+        let objectToSend = {
+            name: name,
+            position: position,
+            company: company,
+            email: email,
+            phone: phone,
+            notes: notes,
+        };
 
         $.ajax({
             url: '/contacts',
             type: 'POST',
-            data: newContact,
+            data: objectToSend,
             success: function (response) {
                 console.log('got some jobs: ', response);
                 getContacts();
@@ -160,28 +95,67 @@ $(document).ready(function () {
                 $('#email').val('');
                 $('#phone').val('');
                 $('#notes').val('');
-            }, // end success
-            error: function (jqXHR, exception) {
-                var msg = '';
-                if (jqXHR.status === 0) {
-                    msg = 'Not connect.\n Verify Network.';
-                } else if (jqXHR.status == 404) {
-                    msg = 'Requested page not found. [404]';
-                } else if (jqXHR.status == 500) {
-                    msg = 'Internal Server Error [500].';
-                } else if (exception === 'parsererror') {
-                    msg = 'Requested JSON parse failed.';
-                } else if (exception === 'timeout') {
-                    msg = 'Time out error.';
-                } else if (exception === 'abort') {
-                    msg = 'Ajax request aborted.';
-                } else {
-                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                }
-                alert(html(msg));
-            }, //end ajax
+            },
+            error: function (response) {
+                console.log('error response', response);
+
+            }
         }); //end ajax
+        // call saveContact with the new obejct
+        // saveContact(objectToSend);
+
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/contacts/update/',
+        //     data: objectToUpdate,
+        //     success: function (response) {
+        //         console.log('response', response);
+        //         getContacts();
+        //         $('#editContact').empty();
+        //         $('#updateContact').on('click', newContact); //end updateContact on click
+        //         $('#updateContact').off('click', updateContact);
+        //         $('#contactModalLabel').text('Add Job');
+        //         $('#updateContact').text('Add Job');
+
+        //         //clear inputs after job updated
+        //         $('#name').val('');
+        //         $('#position').val('');
+        //         $('#company').val('');
+        //         $('#email').val('');
+        //         $('#phone').val('');
+        //         $('#notes').val('');
+        //         $('#updateContact').val('');
+        //     },
+        //     error: function (response) {
+        //         console.log('error response', response);
+
+        //     }
+        // });
+        // }
     }
+
+    // function saveContact(newContact) {
+
+    //     $.ajax({
+    //         url: '/contacts',
+    //         type: 'POST',
+    //         data: newContact,
+    //         success: function (response) {
+    //             console.log('got some jobs: ', response);
+    //             getContacts();
+    //             $('#name').val('').focus();
+    //             $('#position').val('');
+    //             $('#company').val('');
+    //             $('#email').val('');
+    //             $('#phone').val('');
+    //             $('#notes').val('');
+    //         },
+    //         error: function (response) {
+    //             console.log('error response', response);
+
+    //         }
+    //     }); //end ajax
+    // }
 
     function updateContact() {
 
@@ -191,7 +165,6 @@ $(document).ready(function () {
         let email = $('#email').val()
         let phone = $('#phone').val()
         let notes = $('#notes').val()
-
 
         if (checkInputs(name)) {
             let contactID = $(this).val();
@@ -225,25 +198,10 @@ $(document).ready(function () {
                     $('#filename').val('');
                     $('#updateContact').val('');
                 },
-                error: function (jqXHR, exception) {
-                    var msg = '';
-                    if (jqXHR.status === 0) {
-                        msg = 'Not connect.\n Verify Network.';
-                    } else if (jqXHR.status == 404) {
-                        msg = 'Requested page not found. [404]';
-                    } else if (jqXHR.status == 500) {
-                        msg = 'Internal Server Error [500].';
-                    } else if (exception === 'parsererror') {
-                        msg = 'Requested JSON parse failed.';
-                    } else if (exception === 'timeout') {
-                        msg = 'Time out error.';
-                    } else if (exception === 'abort') {
-                        msg = 'Ajax request aborted.';
-                    } else {
-                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                    }
-                    alert(html(msg));
-                }, //end ajax
+                error: function (response) {
+                    console.log('error response', response);
+
+                }
             });
         }
     }
@@ -272,25 +230,10 @@ $(document).ready(function () {
 
                 $('#contactModal').modal('show');
             },
-            error: function (jqXHR, exception) {
-                var msg = '';
-                if (jqXHR.status === 0) {
-                    msg = 'Not connect.\n Verify Network.';
-                } else if (jqXHR.status == 404) {
-                    msg = 'Requested page not found. [404]';
-                } else if (jqXHR.status == 500) {
-                    msg = 'Internal Server Error [500].';
-                } else if (exception === 'parsererror') {
-                    msg = 'Requested JSON parse failed.';
-                } else if (exception === 'timeout') {
-                    msg = 'Time out error.';
-                } else if (exception === 'abort') {
-                    msg = 'Ajax request aborted.';
-                } else {
-                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                }
-                swal(html(msg));
-            }, //end ajax
+            error: function (response) {
+                console.log('error response', response);
+
+            }
         })
     }
 

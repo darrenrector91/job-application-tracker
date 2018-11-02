@@ -32,20 +32,6 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.get('/filename/:id', (req, res) => {
-    console.log('in filename');
-    const queryText = 'SELECT filename FROM contacts WHERE id=$1';
-    pool.query(queryText, [req.params.id])
-        .then((result) => {
-            console.log('query results:', result);
-            res.send(result.rows);
-        })
-        .catch((err) => {
-            console.log('error making query:', err);
-            res.sendStatus(500);
-        });
-});
-
 router.delete('/:id', (req, res) => {
     const queryText = 'DELETE FROM contacts WHERE id = $1';
     pool.query(queryText, [req.params.id])

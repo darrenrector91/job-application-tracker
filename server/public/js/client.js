@@ -63,27 +63,11 @@ $(document).ready(function () {
       type: 'GET',
       success: function (data) {
         displayJobs(data);
-      }, // end success
-      error: function (jqXHR, exception) {
-        var msg = '';
-        if (jqXHR.status === 0) {
-          msg = 'Not connect.\n Verify Network.';
-        } else if (jqXHR.status == 404) {
-          msg = 'Requested page not found. [404]';
-        } else if (jqXHR.status == 500) {
-          msg = 'Internal Server Error [500].';
-        } else if (exception === 'parsererror') {
-          msg = 'Requested JSON parse failed.';
-        } else if (exception === 'timeout') {
-          msg = 'Time out error.';
-        } else if (exception === 'abort') {
-          msg = 'Ajax request aborted.';
-        } else {
-          msg = 'Uncaught Error.\n' + jqXHR.responseText;
-        }
-        console.log(msg);
+      },
+      error: function (response) {
+        console.log('error response', response);
 
-      }, //end ajax
+      }
       // display on DOM with buttons that allow edit of each
     })
   } // end getJobs
@@ -179,25 +163,10 @@ $(document).ready(function () {
           $('#filename').val('');
           $('#updateJob').val('');
         },
-        error: function (jqXHR, exception) {
-          var msg = '';
-          if (jqXHR.status === 0) {
-            msg = 'Not connect.\n Verify Network.';
-          } else if (jqXHR.status == 404) {
-            msg = 'Requested page not found. [404]';
-          } else if (jqXHR.status == 500) {
-            msg = 'Internal Server Error [500].';
-          } else if (exception === 'parsererror') {
-            msg = 'Requested JSON parse failed.';
-          } else if (exception === 'timeout') {
-            msg = 'Time out error.';
-          } else if (exception === 'abort') {
-            msg = 'Ajax request aborted.';
-          } else {
-            msg = 'Uncaught Error.\n' + jqXHR.responseText;
-          }
-          alert(html(msg));
-        }, //end ajax
+        error: function (response) {
+          console.log('error saving new job', response);
+
+        }
       });
     }
   }
@@ -220,25 +189,10 @@ $(document).ready(function () {
         $('#status').val('');
         $('#filename').val('');
       }, // end success
-      error: function (jqXHR, exception) {
-        var msg = '';
-        if (jqXHR.status === 0) {
-          msg = 'Not connect.\n Verify Network.';
-        } else if (jqXHR.status == 404) {
-          msg = 'Requested page not found. [404]';
-        } else if (jqXHR.status == 500) {
-          msg = 'Internal Server Error [500].';
-        } else if (exception === 'parsererror') {
-          msg = 'Requested JSON parse failed.';
-        } else if (exception === 'timeout') {
-          msg = 'Time out error.';
-        } else if (exception === 'abort') {
-          msg = 'Ajax request aborted.';
-        } else {
-          msg = 'Uncaught Error.\n' + jqXHR.responseText;
-        }
-        alert(html(msg));
-      }, //end ajax
+      error: function (response) {
+        console.log('error saving job', response);
+
+      }
     }); //end ajax
   }
 
@@ -287,26 +241,11 @@ $(document).ready(function () {
           $('#status').val('');
           $('#filename').val('');
           $('#updateJob').val('');
-        },
-        error: function (jqXHR, exception) {
-          var msg = '';
-          if (jqXHR.status === 0) {
-            msg = 'Not connect.\n Verify Network.';
-          } else if (jqXHR.status == 404) {
-            msg = 'Requested page not found. [404]';
-          } else if (jqXHR.status == 500) {
-            msg = 'Internal Server Error [500].';
-          } else if (exception === 'parsererror') {
-            msg = 'Requested JSON parse failed.';
-          } else if (exception === 'timeout') {
-            msg = 'Time out error.';
-          } else if (exception === 'abort') {
-            msg = 'Ajax request aborted.';
-          } else {
-            msg = 'Uncaught Error.\n' + jqXHR.responseText;
-          }
-          alert(html(msg));
-        }, //end ajax
+        }, // end success
+        error: function (response) {
+          console.log('error in updating job', response);
+
+        }
       });
     }
   }
@@ -336,26 +275,11 @@ $(document).ready(function () {
         $('#updateJob').val(response[0].id);
 
         $('#myModal').modal('show');
-      },
-      error: function (jqXHR, exception) {
-        var msg = '';
-        if (jqXHR.status === 0) {
-          msg = 'Not connect.\n Verify Network.';
-        } else if (jqXHR.status == 404) {
-          msg = 'Requested page not found. [404]';
-        } else if (jqXHR.status == 500) {
-          msg = 'Internal Server Error [500].';
-        } else if (exception === 'parsererror') {
-          msg = 'Requested JSON parse failed.';
-        } else if (exception === 'timeout') {
-          msg = 'Time out error.';
-        } else if (exception === 'abort') {
-          msg = 'Ajax request aborted.';
-        } else {
-          msg = 'Uncaught Error.\n' + jqXHR.responseText;
-        }
-        swal(html(msg));
-      }, //end ajax
+      }, // end success
+      error: function (response) {
+        console.log('error in edit job', response);
+
+      }
     })
   }
 
@@ -368,26 +292,11 @@ $(document).ready(function () {
         console.log('imageFileName: ', data);
         displayImage(data);
 
-      },
-      error: function (jqXHR, exception) {
-        var msg = '';
-        if (jqXHR.status === 0) {
-          msg = 'Not connect.\n Verify Network.';
-        } else if (jqXHR.status == 404) {
-          msg = 'Requested page not found. [404]';
-        } else if (jqXHR.status == 500) {
-          msg = 'Internal Server Error [500].';
-        } else if (exception === 'parsererror') {
-          msg = 'Requested JSON parse failed.';
-        } else if (exception === 'timeout') {
-          msg = 'Time out error.';
-        } else if (exception === 'abort') {
-          msg = 'Ajax request aborted.';
-        } else {
-          msg = 'Uncaught Error.\n' + jqXHR.responseText;
-        }
-        alert(html(msg));
-      }, //end ajax
+      }, // end success
+      error: function (response) {
+        console.log('error getting image filename', response);
+
+      }
     });
   }
 
