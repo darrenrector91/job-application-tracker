@@ -93,7 +93,7 @@ $(document).ready(function () {
       newRow.append('<td class="status" style="color: white";>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
       //edit row button
-      newRow.append('<td><button type="button" class="editJob btn btn-success tableButton" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
+      newRow.append('<td><button type="button" class="editJob tableEditBtn btn btn-success tableButton" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
       //delete row button
       newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
       // display image button

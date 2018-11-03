@@ -22,7 +22,12 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Styling -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/job.css">
     <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/media-queries.css">
     <!-- Mobile Menu -->
     <!-- <link rel="stylesheet" href="css/mobile-menu.css"> -->
     <!-- Google Fonts -->
@@ -51,10 +56,6 @@
                 <li><a href="contacts.html">Contacts</a></li>
             </ul>
             <a class="toggle-nav" href="#">&#9776;</a>
-            <!-- <form class="search-form">
-                <input type="text">
-                <button>Search</button>
-            </form> -->
         </nav>
     </header>
     <div class="container">
@@ -77,7 +78,7 @@
                         <h4 class="modal-title" id="myModalLabel">Add Job</h4>
                     </div>
                     <div class="modal-body" style="background-color:rgb(192, 192, 192)">
-                        <form class="job-form">
+                        <form class="modal-form-wrapper">
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="company-name" class="control-label">Company</label>
@@ -154,7 +155,7 @@
                                 <!-- Not the purest way to handle clearing form but enough for this piece -->
                                 <div class="form-group col">
                                     <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
-                                    <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Cancel</button>
+                                    <button type="submit" class="rowBtn btn btn-primary" id="clearModalBtn" onClick="window.location.reload()">Cancel</button>
                                 </div>
                             </div>
                         </form> <!-- end form -->
@@ -163,7 +164,7 @@
             </div> <!-- end modal-dialogue -->
         </div> <!-- end modal -->
         <div id="table" class="row" style="overflow-x:auto;">
-            <table class="table table-bordered table-hover table-responsive">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th class="">#</th>

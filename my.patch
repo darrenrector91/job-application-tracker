@@ -58,7 +58,7 @@ index 313f9b8..56d1ade 100644
 -                </div>
 -            </div>
 -            <div class="row">
--                <button type="button" class="btn btn-primary btn-size" id="btn-outline" onclick="clearForm()">Clear</button>
+-                <button type="button" class="btn btn-primary btn-size" id="btn-outline" onclick="clearModalBtn()">Clear</button>
 -                <button type="submit" class="btn btn-primary btn-size" id="updateJob">Submit</button>
 -                <div class="row" id="result1">TEST</div>
 -            </div>
@@ -250,7 +250,7 @@ index 514daf3..7be39a7 100644
    });
 -}
 -
--function clearForm() {
+-function clearModalBtn() {
 -    $('#company').val('').focus();
 -    $('#contact').val('');
 -    $('#email').val('');
@@ -280,7 +280,7 @@ index 5c684b9..60fd48e 100644
 +++ b/server/public/styles/main.css
 @@ -58,36 +58,8 @@ b.max-bold{ font-weight: 700; }
  
- .job-form {
+ .modal-form-wrapper {
      margin-top: 40px;
 -    margin-left: 60px;
 -    width: 350mm;

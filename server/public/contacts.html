@@ -12,8 +12,12 @@
     <!-- Styling -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/contact.css">
-    <!-- Menu -->
-    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
     <!-- Font Awesome -->
@@ -37,19 +41,19 @@
                 <li><a href="index.html">Home</a></li>
             </ul>
             <a class="toggle-nav" href="#">&#9776;</a>
-            <!-- <form class="search-form">
-                            <input type="text">
-                            <button>Search</button>
-                        </form> -->
         </nav>
     </header>
     <div class="container">
-        <h1 class="page-title">Contacts</h1>
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-warning newContactBtn" data-toggle="modal" data-target="#contactModal">
-            Add contact
-        </button>
+        <div class="row banner">
+            <div class="banner-title">
+                <h1 class="page-title">Contacts</h1>
+            </div>
+            <div class="row search-wrapper">
+                <input placeholder="Search" class="search-bar" id="search">
+                <button type="button" class="btn btn-warning newContactBtn" data-toggle="modal" data-target="#contactModal">
+                    Add contact</button>
+            </div>
+        </div>
         <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -59,7 +63,7 @@
                         <h4 class="modal-title" id="contactModalLabel">Add Contact</h4>
                     </div>
                     <div class="modal-body" style="background-color:rgb(192, 192, 192)">
-                        <form class="job-form">
+                        <form class="modal-form-wrapper">
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="name" class="control-label">Name</label>
@@ -104,7 +108,7 @@
                                 <!-- Not the purest way to handle clearing form but enough for this piece -->
                                 <div class="form-group col">
                                     <button type="submit" class="rowBtn btn btn-primary" id="updateContact">Submit</button>
-                                    <button type="submit" class="rowBtn btn btn-primary" id="clearform" onClick="window.location.reload()">Cancel</button>
+                                    <button type="submit" class="rowBtn btn btn-primary" id="clearModalBtn" onClick="window.location.reload()">Cancel</button>
                                 </div>
                             </div>
                         </form> <!-- end form -->
@@ -117,7 +121,7 @@
             <input placeholder="Search term" id="search">
         </div>
         <div id="table" class="row" style="overflow-x:auto;">
-            <table class="table table-bordered table-hover table-responsive">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th class="">#</th>

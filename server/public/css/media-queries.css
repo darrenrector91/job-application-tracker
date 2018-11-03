@@ -1,31 +1,6 @@
-#homeNavBtn {
-    position: relative;
-    left: 320mm;
-    bottom: 3mm;
-    margin: 5mm;
-    background-color: #e28913;
-    color: black;
-}
-
-.table-bordered {
-    /* border: none !important; */
-    display: inline-table !important;
-}
-
-.newContactBtn {
-    position: absolute;
-    left: 1175px;
-    top: 197px;
-    height: 42px;
-}
-
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 420px) {
-
-    .container {
-        height: auto;
-    }
 
     .modal-content {
         z-index: 9999;
@@ -39,35 +14,37 @@
         z-index: -1;
     }
 
-    input#search {
+    .search-wrapper {
         position: relative;
-        left: -11px;
-        bottom: -6px;
-        width: 286px;
+        bottom: 64px;
+        width: 100%;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .clearSearch {
         position: absolute;
-        left: 301px;
-        bottom: 7px;
+        left: 310px;
+        bottom: 13px;
     }
 
     .modal-body label {
         color: #000;
     }
 
-    .newContactBtn {
+    .newJobBtn {
         overflow-x: auto;
         position: relative;
         left: 12px;
-        top: 37px;
+        top: 11px;
         width: 360px;
     }
 
     #table {
         width: 100%;
         position: relative;
-        bottom: 45px;
+        bottom: 30px;
         left: 17px;
     }
 
@@ -109,10 +86,4 @@
         background-color: transparent;
         color: white;
     }
-
-    .topnav {
-        background-color: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
-        overflow: hidden;
-    }
-
 }
