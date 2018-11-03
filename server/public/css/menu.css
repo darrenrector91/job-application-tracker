@@ -3,6 +3,10 @@
     display: none;
 }
 
+.menu {
+    z-index: 9999;
+}
+
 /*----- Menu -----*/
 @media screen and (min-width: 860px) {
     .menu {
