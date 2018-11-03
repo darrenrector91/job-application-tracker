@@ -3,14 +3,14 @@ $(document).ready(function () {
   getJobs();
 
   //clear button for search
-  $('.search').append('<button type="button" class="clearSearch btn btn-warning" style="color:#fff">Clear</button>')
+  $('.search-wrapper').append('<button type="button" class="clearSearch btn btn-warning ">Clear</button>')
 
   //click events
   $('#updateJob').on('click', newJob);
   $('#viewJobs').on('click', '.editJob', editJob);
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
-  $('.search').on('click', '.clearSearch', clearSearch);
+  $('.search-wrapper').on('click', '.clearSearch', clearSearch);
 
   //datepicker
   var date_input = $('input[name="date"]'); //our date input has the name "date"
@@ -398,5 +398,12 @@ $(document).ready(function () {
       $(this).val(curval + "-");
     }
     $(this).attr('maxlength', '12');
+  });
+
+  jQuery('.toggle-nav').click(function (e) {
+    jQuery(this).toggleClass('active');
+    jQuery('.menu ul').toggleClass('active');
+
+    e.preventDefault();
   });
 });

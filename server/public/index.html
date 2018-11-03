@@ -22,8 +22,9 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Styling -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/banner.css">
     <!-- Mobile Menu -->
-    <link rel="stylesheet" href="css/mobile-menu.css">
+    <!-- <link rel="stylesheet" href="css/mobile-menu.css"> -->
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
     <!-- Font Awesome -->
@@ -36,27 +37,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
     <!-- Sweet Alerts -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Menu -->
+    <link rel="stylesheet" href="css/menu.css">
 
 </head>
 
 <body>
-    <div class="topnav" id="myTopnav">
-        <h2 class="icon-name">Gig Finder</h2>
-        <a href="contacts.html" class="active"><i class="fa fa-bars" style="font-size: 30px;"></i></a>
-        <!-- <a href="login.html" class="active">Logout</a> -->
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+
     <header>
-        <h1 class="page-title">Jobs</h1>
+        <nav class="menu">
+            <ul class="active">
+                <li class="current-item"><a href="index.html">Home</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+            <a class="toggle-nav" href="#">&#9776;</a>
+            <!-- <form class="search-form">
+                <input type="text">
+                <button>Search</button>
+            </form> -->
+        </nav>
     </header>
-    <!-- <a href="contacts.html"><button id="logoutBtn" class="btn btn-light">Contacts</button></a> -->
     <div class="container">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-warning newJobBtn" data-toggle="modal" data-target="#myModal">
-            Add job
-        </button>
+        <div class="row banner">
+            <div class="banner-title">
+                <h1 class="page-title">Jobs</h1>
+            </div>
+            <div class="row search-wrapper">
+                <input placeholder="Search" class="search-bar" id="search">
+                <button type="button" class="btn btn-warning newJobBtn" data-toggle="modal" data-target="#myModal">
+                    Add job</button>
+            </div>
+        </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -151,10 +162,6 @@
                 </div> <!-- end modal-content -->
             </div> <!-- end modal-dialogue -->
         </div> <!-- end modal -->
-        <div class="search row">
-            <span class="fa fa-search spyGlass"></span>
-            <input placeholder="Search term" id="search">
-        </div>
         <div id="table" class="row" style="overflow-x:auto;">
             <table class="table table-bordered table-hover table-responsive">
                 <thead>
@@ -179,7 +186,7 @@
             </table>
         </div>
     </div>
-    <div class="modal fade imageodal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
+    <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content" id="imageDisplay">
                 <div class="modal-header" style="background-color:#da6206; color: #002145">

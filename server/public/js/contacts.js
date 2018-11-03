@@ -239,4 +239,10 @@ $(document).ready(function () {
         }
         $(this).attr('maxlength', '12');
     });
+    jQuery('.toggle-nav').click(function (e) {
+        jQuery(this).toggleClass('active');
+        jQuery('.menu ul').toggleClass('active');
+
+        e.preventDefault();
+    });
 });

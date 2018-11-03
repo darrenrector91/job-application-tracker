@@ -1,0 +1,14 @@
+.banner {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner-title {
+    width: 100%;
+    height: 88px;
+    margin-bottom: 48px;
+    text-align: center;
+}

@@ -12,8 +12,8 @@
     <!-- Styling -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/contact.css">
-    <!-- Mobile Menu -->
-    <link rel="stylesheet" href="css/mobile-menu.css">
+    <!-- Menu -->
+    <link rel="stylesheet" href="css/menu.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
     <!-- Font Awesome -->
@@ -26,22 +26,26 @@
     <!-- Sweet Alerts -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+
 </head>
 
 <body>
-    <div class="topnav" id="myTopnav">
-        <h2 class="icon-name">Gig Finder</h2>
-        <a href="index.html" class="active"><i class="fa fa-bars" style="font-size: 35px;"></i></a>
-        <!-- <a href="login.html" class="active">Logout</a> -->
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
     <header>
-        <h1 class="page-title">Contacts</h1>
+        <nav class="menu">
+            <ul class="active">
+                <li class="current-item"><a href="contacts.html">Contacts</a></li>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+            <a class="toggle-nav" href="#">&#9776;</a>
+            <!-- <form class="search-form">
+                            <input type="text">
+                            <button>Search</button>
+                        </form> -->
+        </nav>
     </header>
-    <!-- <a href="contacts.html"><button id="logoutBtn" class="btn btn-light">Contacts</button></a> -->
     <div class="container">
+        <h1 class="page-title">Contacts</h1>
+
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-warning newContactBtn" data-toggle="modal" data-target="#contactModal">
             Add contact

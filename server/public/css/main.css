@@ -275,49 +275,33 @@ thead {
 
 }
 
-.search {
-    height: 10mm;
-    width: 100mm;
+.search-wrapper {
     position: relative;
-    right: 31mm;
-    margin-bottom: 5mm;
-    position: relative;
-    color: #aaa;
-    font-size: 16px;
+    width: 100%;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.search input {
-    width: 100mm;
-    height: 44px;
-    position: relative;
-    left: 116px;
-    background: #fcfcfc;
+.search-bar {
     background-color: #aaa;
-    color: black;
+    text-indent: 36px;
+    font-size: 20px;
+    width: 303px;
+    float: left;
 }
 
-.search input {
-    text-indent: 32px;
-}
-
-.search .fa-search {
-    position: absolute;
-    top: 3.3mm;
-    right: 62mm;
-    z-index: 9999;
-    color: #fefefe;
-
-
-}
 
 .clearSearch {
     position: relative;
-    left: 134mm;
-    bottom: 42px;
-    background-color: transparent !important;
-    border: 2px solid cornflowerblue;
-    color: #fff;
-    height: 43px;
+    right: 72px;
+}
+
+
+.newJobBtn {
+    position: relative;
+    left: 707px;
+
 }
 
 .editJob {
@@ -325,12 +309,6 @@ thead {
     background-color: rgb(61, 141, 51) !important;
     border-color: rgb(61, 141, 51) !important;
 }
-
-/* .deleteJob {
-    color: whitesmoke !important;
-    background-color: rgb(192, 82, 68) !important;
-    border-color: rgb(192, 82, 68) !important;
-} */
 
 .dateColumn {
     width: 9%;
@@ -389,12 +367,6 @@ thead {
     font-size: 15pt;
 }
 
-.newJobBtn {
-    position: absolute;
-    left: 84%;
-    top: 202px;
-
-}
 
 .modal-title {
     position: absolute;
@@ -449,17 +421,19 @@ td {
         z-index: -1;
     }
 
-    input#search {
+    .search-wrapper {
         position: relative;
-        left: -11px;
-        bottom: -6px;
-        width: 286px;
+        bottom: 64px;
+        width: 100%;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .clearSearch {
         position: absolute;
-        left: 301px;
-        bottom: 7px;
+        left: 310px;
+        bottom: 13px;
     }
 
     .modal-body label {
@@ -470,14 +444,14 @@ td {
         overflow-x: auto;
         position: relative;
         left: 12px;
-        top: 33px;
+        top: 11px;
         width: 360px;
     }
 
     #table {
         width: 100%;
         position: relative;
-        bottom: 45px;
+        bottom: 30px;
         left: 17px;
     }
 
@@ -525,9 +499,9 @@ td {
         top: 90%;
     }
 
-    .topnav {
+    /* .topnav {
         background-color: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
         overflow: hidden;
-    }
+    } */
 
 }
