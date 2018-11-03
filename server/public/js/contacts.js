@@ -3,7 +3,7 @@ $(document).ready(function () {
     getContacts();
 
     //clear button for search
-    $('.search').append('<button type="button" class="clearSearch btn btn-warning" style="color:#fff">Clear</button>')
+    $('.search-wrapper').append('<button type="button" class="contactClearSearchBtn btn btn-warning" >Clear</button>')
 
     //click events
     $('#updateContact').on('click', newContact);

@@ -7,16 +7,19 @@
     color: black;
 }
 
+.contactClearSearchBtn {
+    position: relative;
+    right: 104px;
+}
+
 .table-bordered {
     /* border: none !important; */
     display: inline-table !important;
 }
 
 .newContactBtn {
-    position: absolute;
-    left: 1175px;
-    top: 197px;
-    height: 42px;
+    position: relative;
+    left: 693px;
 }
 
 /* MEDIA QUERIES */
@@ -41,15 +44,16 @@
 
     input#search {
         position: relative;
-        left: -11px;
-        bottom: -6px;
+        left: 11px;
+        top: 2px;
         width: 286px;
     }
 
-    .clearSearch {
+    .contactClearSearchBtn {
         position: absolute;
         left: 301px;
-        bottom: 7px;
+        bottom: 11px;
+
     }
 
     .modal-body label {
@@ -60,7 +64,7 @@
         overflow-x: auto;
         position: relative;
         left: 12px;
-        top: 37px;
+        top: 13px;
         width: 360px;
     }
 
@@ -108,6 +112,11 @@
         margin: 5mm;
         background-color: transparent;
         color: white;
+    }
+
+    .index-copyright {
+        position: relative;
+        top: 90%;
     }
 
     .topnav {
