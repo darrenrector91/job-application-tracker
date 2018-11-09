@@ -7,11 +7,6 @@
     color: black;
 }
 
-.contactClearSearchBtn {
-    position: relative;
-    right: 104px;
-}
-
 .table-bordered {
     /* border: none !important; */
     display: inline-table !important;
@@ -19,8 +14,17 @@
 
 .newContactBtn {
     position: relative;
-    left: 693px;
+    left: 822px;
+    width: 140px !important;
+
 }
+
+.contactClearSearchBtn {
+    position: relative;
+    right: 287px;
+
+}
+
 
 /* MEDIA QUERIES */
 

@@ -192,3 +192,9 @@ input#fileButton {
     position: relative;
     top: 90%;
 }
+
+.functionBtn {
+    font-weight: bold;
+    font-size: 20px;
+    width: 130px;
+}

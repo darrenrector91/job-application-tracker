@@ -14,7 +14,7 @@
         padding: 10px 18px;
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
         border-radius: 3px;
-        background: #000;
+        background: #403e3ebf;
     }
 }
 
@@ -35,8 +35,9 @@
 
 .menu a {
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
-    color: #777;
+    color: rgb(255, 255, 255);
     transition: color linear 0.15s;
+    font-size: 30px;
 }
 
 .menu a:hover,

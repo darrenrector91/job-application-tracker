@@ -1,5 +1,10 @@
+.jobClearSearchBtn {
+    position: relative;
+    right: 277px;
+}
+
 .newJobBtn {
     position: relative;
-    left: 707px;
+    left: 832px;
 
 }

@@ -1,9 +1,8 @@
 #table {
-    /* width: 100%;
-    position: relative;
-    font-size: 12pt;
-    font-weight: 600; */
     text-align: center;
+    width: 1420px;
+    position: absolute;
+    right: 25px;
 }
 
 thead {

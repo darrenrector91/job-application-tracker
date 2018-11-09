@@ -3,7 +3,7 @@ $(document).ready(function () {
   getJobs();
 
   //clear button for search
-  $('.search-wrapper').append('<button type="button" class="clearSearch btn btn-warning ">Clear</button>')
+  $('.search-wrapper').append('<button type="button" class="jobClearSearchBtn functionBtn btn btn-warning ">Clear</button>')
 
   //click events
   $('#updateJob').on('click', newJob);
