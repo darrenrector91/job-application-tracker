@@ -37,12 +37,12 @@
 </head>
 
 <body>
-    <a href="register.html">register</a>
     <header>
         <nav class="menu">
             <ul class="active">
                 <li class="current-item"><a href="index.html">Jobs</a></li>
                 <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="index.html">Log out</a></li>
             </ul>
             <a class="toggle-nav" href="#">&#9776;</a>
         </nav>
@@ -54,7 +54,8 @@
             </div>
             <div class="row search-wrapper">
                 <input placeholder="Search" class="search-bar" id="search">
-                <button type="button" class="btn btn-warning newJobBtn functionBtn" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-outline-warning newJobBtn functionBtn" data-toggle="modal"
+                    data-target="#myModal">
                     Add job</button>
             </div>
         </div>
@@ -193,8 +194,10 @@
     <p class="mt-5 mb-3 text-muted text-center index-copyright">&copy;&nbsp;2018 Gig Finder</p>
 
     <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+
     <script src="js/firebase.js"></script>
 
 
