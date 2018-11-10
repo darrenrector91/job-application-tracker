@@ -49,7 +49,7 @@
 /*----- Search -----*/
 .search-form {
     float: right;
-    display: inline-block;
+    display: block;
 }
 
 .search-form input {
