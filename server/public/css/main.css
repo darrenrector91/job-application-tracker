@@ -1,200 +1,59 @@
-/* ---------------------------------
-       PRIMARY STYLES
---------------------------------- */
-.container {
-    padding-right: none !important;
-    padding-left: none !important;
-
-}
-
-html {
-    font-size: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    margin: 0px;
-    padding: 0px;
-    touch-action: manipulation;
-}
-
-
 body {
-    font-size: 16px;
-    /* font-family: 'Poppins', serif; */
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    word-wrap: break-word;
-    color: rgb(245, 245, 245) !important;
-    /* background-color: rgb(75, 40, 38) !important; */
-    /* background-color: rgb(98, 117, 151) !important; */
-    background: rgb(91, 85, 76);
-    background: -moz-radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
-    background: -webkit-radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
-    background: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b554c", endColorstr="#4b2826", GradientType=1);
-    /* background-image: url('/./././server/public/images/back.svg') */
+    background-color: #eceff1
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-ul,
-span,
-li,
-img,
-input,
-button {
-    margin: 0;
-    padding: 0;
+a.brand-logo {
+    left: 20px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    line-height: 1.5;
-    font-weight: inherit;
+.nav-wrapper {
+    font-family: 'Work Sans', sans-serif;
 }
 
-p {
-    line-height: 1.6;
-    font-size: 1.05em;
-    font-weight: 400;
-    color: #777;
-}
-
-h1 {
-    font-size: 4em;
-    line-height: 1;
-}
-
-h2 {
-    font-size: 2.2em;
-    line-height: 1.1;
-}
-
-h3 {
-    font-size: 1.8em;
-}
-
-h4 {
-    font-size: 1.3em;
-}
-
-h5 {
-    font-size: 1em;
-}
-
-h6 {
-    font-size: .9em;
-    letter-spacing: 1px;
-}
-
-a,
-button {
-    display: inline-block;
-    text-decoration: none;
-    color: inherit;
-    line-height: 1;
-    -webkit-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
-}
-
-a:focus,
-a:active,
-a:hover,
-button:focus,
-button:active,
-button:hover,
-a b.light-color:hover {
-    text-decoration: none;
-}
-
-b {
-    font-weight: 600;
-}
-
-img {
-    width: 100%;
-}
-
-li {
-    list-style: none;
-    display: inline-block;
-}
-
-span {
-    display: inline-block;
-}
-
-button {
-    outline: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-}
-
-.icon {
-    font-size: 1.1em;
-    display: inline-block;
-    line-height: inherit;
-}
-
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-    line-height: inherit;
-}
-
-b.max-bold {
-    font-weight: 700;
-}
-
-.page-title,
-.search {
-    font-family: 'Questrial', sans-serif;
-}
-
-.page-title {
-    margin: 20px 0 40px 0;
+.title h1 {
+    font-size: 80px;
     text-align: center;
-    font-size: 42pt;
-    letter-spacing: 1pt;
-
 }
 
-.concat div {
-    overflow: hidden;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: inherit;
+.large-icon {
+    font-size: 50px !important;
 }
 
-input#fileButton {
-    width: 460px;
-    color: #000;
+/* .active {
+    border-bottom: 5px solid #f4511e;
+    margin: 2px;
+    bottom: 5px;
 
+} */
+
+nav ul li:hover {
+    background-color: #cfd8dc;
+    color: #01579b
 }
 
-.index-copyright {
-    color: #FFF !important;
-    position: relative;
-    top: 90%;
+nav ul a {
+    font-size: 1.5rem !important;
 }
 
-.functionBtn {
-    font-weight: bold;
-    font-size: 20px;
-    width: 130px;
+nav ul li>a:hover {
+    /* color: #f4511e; */
+    color: #01579b;
+    text-decoration: none;
+}
+
+hr {
+    width: 80%;
+    background-color: #01579b;
+}
+
+.copyright-wrapper {
+    position: absolute;
+    left: 510px;
+    width: 100%;
+    top: 870px;
+}
+
+nav .brand-logo:hover {
+    text-decoration: none;
+    opacity: .8;
 }

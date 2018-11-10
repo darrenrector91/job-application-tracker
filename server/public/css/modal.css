@@ -1,14 +1,14 @@
-.modal {
+/* .modal {
     position: absolute;
     z-index: 9999;
     overflow-x: auto;
-}
+} */
 
-.modal-body label {
+/* .modal-body label {
     color: #000;
-}
+} */
 
-.imageModal {
+/* .imageModal {
     position: fixed;
     top: 0;
     right: 0;
@@ -20,11 +20,11 @@
     outline: 0;
     width: 830px !important;
     margin-top: 20px !important;
-}
+} */
 
-.modal-header {
+/* .modal-header {
     background-color: rgb(202, 92, 8) !important;
-}
+} */
 
 .form-control {
     background-color: #e7e7e7b2 !important;
@@ -58,11 +58,11 @@
 }
 
 
-.modal-title {
+/* .modal-title {
     position: absolute;
     left: 16px;
     font-size: 20pt;
-}
+} */
 
 #imageDisplay {
     width: 85%;
@@ -82,11 +82,11 @@
     margin-top: 4mm;
 }
 
-.modal-form-wrapper {
+/* .modal-form-wrapper {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
-}
+} */
 
 
 

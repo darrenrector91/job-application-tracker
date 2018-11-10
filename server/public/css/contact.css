@@ -109,19 +109,14 @@
         margin-top: 2px !important;
     }
 
-    #logoutBtn {
+    /* #logoutBtn {
         position: relative;
         left: 82mm;
         bottom: 0;
         margin: 5mm;
         background-color: transparent;
         color: white;
-    }
-
-    .index-copyright {
-        position: relative;
-        top: 90%;
-    }
+    } */
 
     .topnav {
         background-color: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);

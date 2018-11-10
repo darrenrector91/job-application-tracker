@@ -2,23 +2,24 @@
     text-align: center;
     width: 1420px;
     position: absolute;
-    right: 25px;
+    right: 9px;
+    top: 410px;
 }
 
-thead {
+/* thead {
     text-align: center;
     background-color: rgb(202, 92, 8);
     font-family: 'Questrial', sans-serif;
     font-size: 15pt !important;
     color: rgb(24, 23, 23);
     text-transform: uppercase;
-}
+} */
 
-td {
+/* td {
     background-color: rgba(119, 119, 119, 0.377);
-}
+} */
 
-.table-bordered {
+/* .table-bordered {
     margin-bottom: 20px;
 }
 
@@ -32,4 +33,4 @@ td {
     color: rgb(255, 255, 255) !important;
     background-color: rgb(61, 141, 51) !important;
     border-color: rgb(61, 141, 51) !important;
-}
+} */

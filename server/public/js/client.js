@@ -5,7 +5,8 @@ $(document).ready(function () {
 
 
   //clear button for search
-  $('.search-wrapper').append('<button type="button" class="jobClearSearchBtn functionBtn btn btn-outline-warning ">Clear</button>')
+  // $('.search-wrapper').append('<button type="button" class="jobClearSearchBtn functionBtn btn btn-outline-warning ">Clear</button>')
+  $('.search-wrapper').append('<a class="waves-effect waves-light btn jobClearSearchBtn functionBtn">Clear Search</a>')
 
   //click events
   $('#updateJob').on('click', newJob);
@@ -13,7 +14,7 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
   $('.search-wrapper').on('click', '.jobClearSearchBtn', clearSearch);
-  $('#logout').on('click', logout);
+  $('.logout').on('click', logout);
 
   uid = null;
   firebase.auth().onAuthStateChanged(function (user) {
@@ -96,16 +97,17 @@ $(document).ready(function () {
       newRow.append('<td>' + data[i].contact + '</td>');
       newRow.append('<td>' + data[i].email + '</td>');
       newRow.append('<td>' + data[i].position + '</td>');
-      newRow.append('<td style="max-width: 100px;">' + data[i].notes + '</td>');
+      newRow.append('<td>' + data[i].notes + '</td>');
       newRow.append('<td>' + convertedDate + '</td>');
-      newRow.append('<td class="status" style="color: white";>' + data[i].status + '</td>');
+      newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
       //edit row button
-      newRow.append('<td><button type="button" class="editJob tableEditBtn btn btn-success tableButton" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
-      //delete row button
-      newRow.append('<td><button type="button" class="deleteJob btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
+      newRow.append('<td><button type="button" class="editJob tableEditBtn btn-floating btn-small green tableButton" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
+      // //delete row button
+      newRow.append('<td><button type="button" class="deleteJob btn-floating btn-small red tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
+
       // display image button
-      newRow.append('<td><button type="button" class="getImageFileName btn btn-info" data-toggle="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
+      newRow.append('<td><button type="button" class="getImageFileName btn-floating btn-small light-blue darken-1" data-toggle="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
       $('#viewJobs').append(newRow);
     }
   }
@@ -347,7 +349,7 @@ $(document).ready(function () {
 
   function deleteJob() {
     let id = $(this).val();
-    // console.log('id: ', id);
+    console.log('id: ', id);
     $.ajax({
       type: 'DELETE',
       url: '/jobs/' + id,

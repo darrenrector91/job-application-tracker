@@ -1,10 +1,13 @@
-.jobClearSearchBtn {
-    position: relative;
-    right: 277px;
-}
-
 .newJobBtn {
-    position: relative;
-    left: 832px;
-
+    top: 29px;
+    left: 700px;
+    width: 150px;
 }
+
+/* #logout {
+    position: relative;
+    left: 1015px;
+    border: 1px solid orange;
+    padding: 8px;
+    border-radius: 2px;
+} */

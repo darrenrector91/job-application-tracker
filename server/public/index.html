@@ -11,12 +11,31 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <link rel="stylesheet" href="css/materialize.css">
 </head>
 
-<body class="text-center">
+<body>
+    <!-- <nav class="deep-orange darken-3" role="navigation">
+        <div class="nav-wrapper navbar-fixed container"><a id="logo-container" href="#" class="brand-logo center">Logo</a>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav> -->
+    <div class="navbar-fixed">
+        <nav class="deep-orange darken-3" role="navigation"></nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="jobs.html">Sass</a></li>
+                <li><a href="contacts.html">Components</a></li>
+                <li><a href="login.html">Components</a></li>
+
+            </ul>
+        </div>
+        </nav>
+    </div>
     <!-- The surrounding HTML is left untouched by FirebaseUI.
      Your app may use that space for branding, controls and other customizations.-->
-    <h1>Welcome to Gig Finder!</h1>
+    <h1 id="login-title">Welcome to Gig Finder!</h1>
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
 
@@ -39,6 +58,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <!-- Mobile Menu -->
     <script src="js/mobile-menu.js"></script>
+    <script src="js/materialize.js"></script>
 </body>
 
 
