@@ -2,6 +2,8 @@ $(document).ready(function () {
   // load existing jobs on page load
   getJobs();
 
+
+
   //clear button for search
   $('.search-wrapper').append('<button type="button" class="jobClearSearchBtn functionBtn btn btn-outline-warning ">Clear</button>')
 
@@ -11,7 +13,22 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
   $('.search-wrapper').on('click', '.jobClearSearchBtn', clearSearch);
+  $('#logout').on('click', logout);
 
+  uid = null;
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      uid = user.uid;
+    } else {
+      uid = null;
+      window.location.replace("login.html");
+    }
+  });
+
+  function logout() {
+    firebase.auth().signout();
+  }
 
   //datepicker
   var date_input = $('input[name="date"]'); //our date input has the name "date"
