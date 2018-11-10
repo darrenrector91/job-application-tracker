@@ -10,7 +10,7 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.editJob', editJob);
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
-  $('.search-wrapper').on('click', '.clearSearch', clearSearch);
+  $('.search-wrapper').on('click', '.jobClearSearchBtn', clearSearch);
 
 
   //datepicker
@@ -23,17 +23,7 @@ $(document).ready(function () {
     autoclose: true,
   })
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDgjY9O33RPzuRDfVPHhFZ_9h_SkGD0BH4",
-    authDomain: "gig-finder-75751.firebaseapp.com",
-    databaseURL: "https://gig-finder-75751.firebaseio.com",
-    projectId: "gig-finder-75751",
-    storageBucket: "gig-finder-75751.appspot.com",
-    messagingSenderId: "25565657670"
-  };
 
-  firebase.initializeApp(config)
   var uploader = document.getElementById('uploader');
   var fileButton = document.getElementById('fileButton');
   fileButton.addEventListener('change', function (e) {

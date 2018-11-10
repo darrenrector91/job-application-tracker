@@ -9,7 +9,7 @@ $(document).ready(function () {
     $('#updateContact').on('click', newContact);
     $('#viewContacts').on('click', '.editContact', editContact);
     $('#viewContacts').on('click', '.deleteContact', deleteContact);
-    $('.search').on('click', '.clearSearch', clearSearch);
+    $('.search-wrapper').on('click', '.contactClearSearchBtn', clearSearch);
 
     //datepicker
     var date_input = $('input[name="date"]'); //our date input has the name "date"
@@ -230,12 +230,12 @@ $(document).ready(function () {
         if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
             return false;
         }
-        var curchr = this.value.length;
-        var curval = $(this).val();
-        if (curchr == 3 && e.which != 8 && e.which != 0) {
-            $(this).val(curval + "-");
-        } else if (curchr == 7 && e.which != 8 && e.which != 0) {
-            $(this).val(curval + "-");
+        var currentChar = this.value.length;
+        var currentVal = $(this).val();
+        if (currentChar == 3 && e.which != 8 && e.which != 0) {
+            $(this).val(currentVal + "-");
+        } else if (currentChar == 7 && e.which != 8 && e.which != 0) {
+            $(this).val(currentVal + "-");
         }
         $(this).attr('maxlength', '12');
     });
