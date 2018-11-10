@@ -12,6 +12,7 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
   $('.search-wrapper').on('click', '.clearSearch', clearSearch);
 
+
   //datepicker
   var date_input = $('input[name="date"]'); //our date input has the name "date"
   var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
@@ -406,4 +407,14 @@ $(document).ready(function () {
 
     e.preventDefault();
   });
+
+  function login() {
+    console.log('in login');
+
+
+    userEmail = document.getElementById("imputEmail").value;
+    userPassword = document.getElementById("inputPassword").value;
+
+    window.alert(userEmail + " " + userPassword);
+  }
 });

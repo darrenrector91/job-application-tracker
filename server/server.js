@@ -11,9 +11,9 @@ const contactsRoute = require('./routes/contacts.route');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('server/public'));
 
-app.use('/./views/jobs', jobsRoute);
-app.use('/views/auth', auth);
-app.use('/views/contacts', contactsRoute);
+app.use('/jobs', jobsRoute);
+app.use('/auth', auth);
+app.use('/contacts', contactsRoute);
 
 
 // Start listening for requests on a specific port
