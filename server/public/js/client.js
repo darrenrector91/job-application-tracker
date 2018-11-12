@@ -149,16 +149,6 @@ $(document).ready(function () {
           $('#myModalLabel').text('Add Job');
           $('#updateJob').text('Add Job');
 
-          //clear inputs after job updated
-          $('#company').val('');
-          $('#contact').val('');
-          $('#email').val('');
-          $('#position').val('');
-          $('textarea').val('');
-          $('#date').val('');
-          $('#status').val('');
-          $('#filename').val('');
-          $('#updateJob').val('');
         },
         error: function (response) {
           console.log('error saving new job', response);
@@ -170,9 +160,9 @@ $(document).ready(function () {
 
   // Gets job from dB then send to updateJob
   function editJob() {
-    var e = document.getElementById("status");
-    var strStatus = e.options[e.selectedIndex].text;
-    console.log(strStatus)
+    // var e = document.getElementById("status");
+    // var strStatus = e.options[e.selectedIndex].text;
+    // console.log(strStatus)
 
     // TODO: GET THIS WORKING IN MATERIAL
     // handles labeling - not institued in materialcss right now
@@ -191,6 +181,10 @@ $(document).ready(function () {
         console.log('response ', response);
         $('#company').val(response[0].company).focus();
         $('#contact').val(response[0].contact);
+        console.log($('#contact').val());
+
+        console.log(response[0].contact);
+
         $('#email').val(response[0].email);
         $('#position').val(response[0].position);
         $('#notes').val(response[0].notes);
