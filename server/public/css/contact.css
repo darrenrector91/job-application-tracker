@@ -1,126 +1,18 @@
-#homeNavBtn {
-    position: relative;
-    left: 320mm;
-    bottom: 3mm;
-    margin: 5mm;
-    background-color: #e28913;
-    color: black;
+.addContactBtn {
+    top: 28px;
+    left: 720px;
+    width: 140px;
 }
 
-.table-bordered {
-    /* border: none !important; */
-    display: inline-table !important;
+.modal-title {
+    text-align: center;
 }
 
-.newContactBtn {
-    position: relative;
-    left: 822px;
-    width: 140px !important;
-
+/* input[type=text]:not(.browser-default):focus:not([readonly])+label {
+    color: #1976d2 !important;
+    font-size: 20px;
 }
 
-.contactClearSearchBtn {
-    position: relative;
-    right: 287px;
-
-}
-
-
-/* MEDIA QUERIES */
-
-@media only screen and (max-width: 420px) {
-
-    .container {
-        height: auto;
-    }
-
-    .modal-content {
-        z-index: 9999;
-        width: 395px !important;
-        padding-bottom: 75px;
-    }
-
-    input#fileButton {
-        width: 361px;
-        color: #000;
-        z-index: -1;
-    }
-
-    input#search {
-        position: relative;
-        left: 11px;
-        top: 2px;
-        width: 286px;
-    }
-
-    .contactClearSearchBtn {
-        position: absolute;
-        left: 301px;
-        bottom: 11px;
-
-    }
-
-    .modal-body label {
-        color: #000;
-    }
-
-    .newContactBtn {
-        overflow-x: auto;
-        position: relative;
-        left: 12px;
-        top: 13px;
-        width: 360px;
-    }
-
-    #table {
-        width: 100%;
-        position: relative;
-        bottom: 45px;
-        left: 17px;
-    }
-
-    #imageDisplay {
-        margin-top: 80px;
-        width: 85%;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    .search {
-        height: 15mm;
-        width: 100%;
-        bottom: 83px;
-        position: relative;
-        color: #aaa;
-        font-size: 16px;
-        margin-left: 124px;
-        margin-top: 17px;
-    }
-
-    .search .fa-search {
-        color: #fff;
-        position: relative;
-        left: 14px;
-        margin-top: 7px;
-        z-index: 1;
-    }
-
-    .form-group {
-        margin-top: 2px !important;
-    }
-
-    /* #logoutBtn {
-        position: relative;
-        left: 82mm;
-        bottom: 0;
-        margin: 5mm;
-        background-color: transparent;
-        color: white;
-    } */
-
-    .topnav {
-        background-color: radial-gradient(circle, rgba(91, 85, 76, 1) 0%, rgba(75, 40, 38, 1) 91%);
-        overflow: hidden;
-    }
-
-}
+.input-field .prefix.active {
+    color: #1976d2 !important;
+} */

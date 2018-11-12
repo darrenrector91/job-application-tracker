@@ -57,3 +57,26 @@ nav .brand-logo:hover {
     text-decoration: none;
     opacity: .8;
 }
+
+
+#clearModalBtn {
+    color: #1976d2;
+}
+
+.addJobBtn {
+    top: 28px;
+    left: 780px;
+    width: 140px;
+    color: black !important;
+}
+
+.modalClose {
+    font-size: 40px !important;
+}
+
+progress {
+    width: 240px !important;
+    position: relative !important;
+    right: 100px !important;
+    top: 3px !important;
+}

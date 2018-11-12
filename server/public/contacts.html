@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="css/menu.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial|Work+Sans|Material+Icons" " rel="
+        stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
@@ -30,119 +31,110 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
     <!-- Sweet Alerts -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <link rel="stylesheet" href="css/materialize.css">
 
 </head>
 
 <body>
-    <header>
-        <nav class="menu">
-            <ul class="active">
-                <li class="current-item"><a href="contacts.html">Contacts</a></li>
+    <nav>
+        <div class="nav-wrapper light-blue darken-4 navbar-fixed">
+            <a href="jobs.html" class="brand-logo"><i class="large-icon material-icons">search</i>Gig Finder</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="contacts.html">Contacts</a></li>
                 <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="index.html" class="logout">Logout</a></li>
             </ul>
-            <a class="toggle-nav" href="#">&#9776;</a>
-        </nav>
+        </div>
+    </nav>
+    <header class="title">
+        <h1>Contacts</h1>
     </header>
-    <div class="container">
-        <div class="row banner">
-            <div class="banner-title">
-                <h1 class="page-title">Contacts</h1>
+    <hr>
+    <div class="row jobSearch">
+        <form class="col s12">
+            <div class="row aboveTableRow">
+                <div class="input-field contactModalInput col s6">
+                    <i class="material-icons prefix">search</i>
+                    <input placeholder="Search" class="search-bar" id="search">
+                </div>
+                <button class="waves-effect waves-light btn jobClearSearchBtn functionBtn light-green accent-4">Clear
+                    Search</button>
+                <a class="waves-effect waves-light btn light-green accent-4 modal-trigger addContactBtn" data-target="contactModal">Add
+                    Contact</a>
             </div>
-            <div class="row search-wrapper">
-                <input placeholder="Search" class="search-bar" id="search">
-                <button type="button" class="btn btn-outline-warning newContactBtn functionBtn" data-toggle="modal"
-                    data-target="#contactModal">
-                    Add contact</button>
-            </div>
-        </div>
-        <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color:rgb(214, 97, 19); color: #000000">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-                                    class="far fa-window-close"></i></span></button>
-                        <h4 class="modal-title" id="contactModalLabel">Add Contact</h4>
-                    </div>
-                    <div class="modal-body" style="background-color:rgb(192, 192, 192)">
-                        <form class="modal-form-wrapper">
-                            <div class="row">
-                                <div class="form-group col">
-                                    <label for="name" class="control-label">Name</label>
-                                    <input type="text" class="form-control" id="name" aria-describedby="name"
-                                        placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col">
-                                    <label for="company" class="control-label">Company</label>
-                                    <input type="text" class="form-control" id="company" placeholder="Company">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col">
-                                    <label for="position" class="control-label">Position</label>
-                                    <input type="text" class="form-control" id="position" placeholder="Position">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col">
-                                    <label for="email" class="control-label">Email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col">
-                                    <label for="phone" class="control-label">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Phone">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-group col">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Notes</span>
-                                    </div>
-                                    <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="add notes..."></textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <!-- Clear form/reload page -->
-                                <!-- Not the purest way to handle clearing form but enough for this piece -->
-                                <div class="form-group col">
-                                    <button type="submit" class="rowBtn btn btn-primary" id="updateContact">Submit</button>
-                                    <button type="submit" class="rowBtn btn btn-primary" id="clearModalBtn" onClick="window.location.reload()">Cancel</button>
-                                </div>
-                            </div>
-                        </form> <!-- end form -->
-                    </div> <!-- end modal-body -->
-                </div> <!-- end modal-content -->
-            </div> <!-- end modal-dialogue -->
-        </div> <!-- end modal -->
-        <div id="table" class="row" style="overflow-x:auto;">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th class="">#</th>
-                        <th class="col-sm-.5">Name</th>
-                        <th class="col-sm-.5">Position</th>
-                        <th class="col-sm-.5">Company</th>
-                        <th class="col-sm-.5">Email</th>
-                        <th class="col-sm-.5">Phone</th>
-                        <th class="col-sm-.5">Notes</th>
-                        <th class="col-sm-.5">Edit</th>
-                        <th class="col-sm-.5">Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tbody id="viewContacts"></tbody>
-                </tbody>
-            </table>
-        </div>
+        </form>
     </div>
+    <div id="table" class="row" style="overflow-x:auto;">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Company</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Notes</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tbody id="viewContacts"></tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- Contact Modal  -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons modalClose">close</i></a>
+                <h4 class="modal-title" id="contactModalLabel">Add Contact</h4>
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field contactModalInput col s12">
+                            <input id="contact" type="text" class="validate" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field contactModalInput col s12">
+                            <input id="company" type="text" class="validate" placeholder="Company">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field contactModalInput col s12">
+                            <input id="position" type="text" class="validate" placeholder="Position">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field contactModalInput col s12">
+                            <input id="email" type="email" class="validate" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field contactModalInput col s12">
+                            <input id="phone" type="text" class="validate" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="input-field contactModalInput col s12">
+                                <textarea id="notes" name="textarea" class="materialize-textarea" placeholder="Notes"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+            </div>
+            <a class="waves-effect waves-light btn-small blue darken-2 modal-close" id="updateJob">Submit</a>
+            <a class="waves-effect waves-light btn-small white modal-close" id="clearModalBtn">Cancel</a>
+        </div>
+    </div> <!-- end contact modal-->
     <div class="modal fade imageModal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content" id="imageDisplay">
-                <div class="modal-header" style="background-color:#da6206; color: #002145">
+                <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
                                 class="far fa-window-close"></i></span></button>
                     <h4 class="modal-title" id="contactModalLabel">Add Contact</h4>
@@ -166,6 +158,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <!-- Mobile Menu -->
     <script src="js/mobile-menu.js"></script>
+    <script src="js/materialize.js"></script>
+
 </body>
 
 </html>

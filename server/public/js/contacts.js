@@ -2,8 +2,9 @@ $(document).ready(function () {
     // load existing contacts on page load
     getContacts();
 
-    //clear button for search
-    $('.search-wrapper').append('<button type="button" class="contactClearSearchBtn functionBtn btn btn-outline-warning" >Clear</button>')
+    $('.modal').modal({
+        dismissible: true
+    });
 
     //click events
     $('#updateContact').on('click', newContact);
@@ -54,10 +55,11 @@ $(document).ready(function () {
             newRow.append('<td>' + data[i].email + '</td>');
             newRow.append('<td>' + data[i].phone + '</td>');
             newRow.append('<td>' + data[i].notes + '</td>');
+
             //edit row button
-            newRow.append('<td><button type="button" class="editContact btn btn-success tableButton" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
+            newRow.append('<td><button type="button" class="editContact btn-floating btn-small green tableButton modal-trigger" data-target="contactModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
             //delete row button
-            newRow.append('<td><button type="button" class="deleteContact btn btn-danger tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
+            newRow.append('<td><button type="button" class="deleteContact btn-floating btn-small red tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
 
             $('#viewContacts').append(newRow);
         }

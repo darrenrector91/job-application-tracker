@@ -8,7 +8,7 @@
     <title>Gig Finder - Jobs</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
     <!-- Styling -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/job.css">
@@ -52,18 +52,6 @@
             </ul>
         </div>
     </nav>
-    <!-- <div class="container">
-        <div class="row banner">
-            <div class="banner-title">
-                <h1 class="page-title">Jobs</h1>
-            </div>
-            
-        </div> -->
-    <!-- <div class="row search-wrapper">
-        <input placeholder="Search" class="search-bar" id="search">
-        <button type="button" class="btn btn-outline-warning newJobBtn functionBtn" data-toggle="modal" data-target="#myModal">
-            Add job</button>
-    </div> -->
     <header class="title">
         <h1>Jobs</h1>
     </header>
@@ -71,114 +59,112 @@
     <div class="row jobSearch">
         <form class="col s12">
             <div class="row aboveTableRow">
-                <div class="input-field col s6">
+                <div class="input-field jobModalInput col s6">
                     <i class="material-icons prefix">search</i>
-                    <input id="icon_prefix searchInput" type="text" class="validate">
-                    <label for="icon_prefix">Search Jobs</label>
+                    <!-- <input id="search icon_prefix" type="text" class="validate"> -->
+                    <input placeholder="Search" class="search-bar" id="search">
                 </div>
-                <a class="waves-effect waves-light btn jobClearSearchBtn functionBtn light-green accent-4">Clear Search</a>
-                <a class="waves-effect waves-light btn newJobBtn functionBtn light-green accent-4" data-toggle="modal"
-                    data-target="#myModal">Add
+                <button class="waves-effect waves-light btn jobClearSearchBtn functionBtn light-green accent-4">Clear
+                    Search</button>
+
+                <a class="waves-effect waves-light btn light-green accent-4 modal-trigger addJobBtn" data-target="myModal">Add
                     Job</a>
             </div>
         </form>
     </div>
 
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color:rgb(158, 32, 0); color: #000000">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-                                class="far fa-window-close"></i></span></button>
-                    <h4 class="modal-title" id="myModalLabel">Add Job</h4>
-                </div>
-                <div class="modal-body" style="background-color:rgb(192, 192, 192)">
-                    <form class="modal-form-wrapper">
-                        <div class="row">
-                            <div class="form-group col">
-                                <label for="company-name" class="control-label">Company</label>
-                                <input type="text" class="form-control" id="company" aria-describedby="companyName"
-                                    placeholder="Company name">
-                            </div>
+
+
+
+
+
+
+
+
+    <!-- Job Modal  -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons modalClose">close</i></a>
+                <h4 class="modal-title" id="myModalLabel">Add Job</h4>
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field jobModalInput col s12">
+                            <input placeholder="Company" id="company" type="text" class="validate">
+                            <label for="company_name">Company</label>
                         </div>
-                        <div class="row">
-                            <div class="form-group col">
-                                <label for="company-contact" class="control-label">Name</label>
-                                <input type="text" class="form-control" id="contact" placeholder="Contact name">
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field jobModalInput col s12">
+                            <input placeholder="Contact name" id="contact" type="text" class="validate">
+                            <label for="name">Name</label>
                         </div>
-                        <div class="row">
-                            <div class="form-group col">
-                                <label for="contact-email" class="control-label">Email</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="Enter email"
-                                    placeholder="Email">
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field jobModalInput col s12">
+                            <input placeholder="Email" id="email" type="email" class="validate">
+                            <label for="email">Email</label>
                         </div>
-                        <div class="row">
-                            <div class="form-group col">
-                                <label for="position" class="control-label">Position</label>
-                                <input type="text" class="form-control" id="position" aria-describedby="Position"
-                                    placeholder="Position">
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field jobModalInput col s12">
+                            <input placeholder="Position" id="position" type="text" class="validate">
+                            <label for="position">Position</label>
                         </div>
-                        <div class="row">
-                            <div class="form-group col">
-                                <label for="status">Job status</label>
-                                <select class="form-control" id="status" placeholder="">
-                                    <option disabled selected>Select status</option>
-                                    <option>Applied</option>
-                                    <option>Sent to Robert Half</option>
-                                    <option>Phone interview</option>
-                                    <option>First interview</option>
-                                    <option>Second interview</option>
-                                    <option>Additional interview</option>
-                                    <option>Rejected</option>
-                                    <option>Offer made</option>
-                                    <option>Accepted offer</option>
-                                </select>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field jobModalInput col s12">
+                            <!-- <label>Job Status</label> -->
+                            <select id="status">
+                                <option value="" disabled selected>Select Status</option>
+                                <option value="1">Applied</option>
+                                <option value="2">Phone Interview</option>
+                                <option value="3">First Interview</option>
+                                <option value="4">Second Interview</option>
+                                <option value="5">Additional Interview</option>
+                                <option value="6">Rejected</option>
+                                <option value="7">Offer Made</option>
+                                <option value="8">Accepted Offer</option>
+                                <option value="9">Robert Half</option>
+                            </select>
                         </div>
-                        <div class="row">
-                            <div class="form-group col">
-                                <label for="date" class="control-label">Date</label>
-                                <input class="form-control" id="date" name="date" placeholder="Click to enter date"
-                                    type="text" />
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field jobModalInput col s12">
+                            <input placeholder="Date" type="text" class="datepicker" id="date">
+                            <label for="datepicker">Date</label>
+
                         </div>
-                        <div class="row">
-                            <div class="form-group col">
-                                <input type="file" value="upload" id="fileButton">
-                                <progress value="0" max="100" id="uploader">0%</progress>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="file" value="upload" id="fileButton">
+                            <progress value="0" max="100" id="uploader">0%</progress>
                         </div>
-                        <div class="row">
-                            <div class="form-group col">
-                                <label for="file" class="control-label">Filename</label>
-                                <input type="text" id="filename" class="form-control" name="file" placeholder="Image filename">
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Filename" id="filename" type="text" class="validate">
+                            <label for="filename">Filename</label>
                         </div>
-                        <div class="row">
-                            <div class="input-group col">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Notes</span>
-                                </div>
-                                <textarea class="form-control" aria-label="With textarea" id="notes" placeholder="add notes..."></textarea>
+                    </div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="input-field col s12">
+                                <textarea placeholder="Notes" id="notes" name="textarea" class="materialize-textarea"></textarea>
+                                <label for="textarea">Textarea</label>
                             </div>
-                        </div>
-                        <div class="row">
-                            <!-- Clear form/reload page -->
-                            <!-- Not the purest way to handle clearing form but enough for this piece -->
-                            <div class="form-group col">
-                                <button type="submit" class="rowBtn btn btn-primary" id="updateJob">Submit</button>
-                                <button type="submit" class="rowBtn btn btn-primary" id="clearModalBtn" onClick="window.location.reload()">Cancel</button>
-                            </div>
-                        </div>
-                    </form> <!-- end form -->
-                </div> <!-- end modal-body -->
-            </div> <!-- end modal-content -->
-        </div> <!-- end modal-dialogue -->
-    </div> <!-- end modal -->
+                        </form>
+                    </div>
+                </form>
+            </div>
+            <a class="waves-effect waves-light btn-small blue darken-2 modal-close" id="updateJob">Submit</a>
+            <a class="waves-effect waves-light btn-small white modal-close" id="clearModalBtn">Cancel</a>
+        </div>
+    </div> <!-- end contact modal-->
     <div id="table" class="row" style="overflow-x:auto;">
         <table class="responsive-table highlight table-bordered centered">
             <thead>
@@ -201,21 +187,34 @@
             <tbody id="viewJobs"></tbody>
             </tbody>
         </table>
-
     </div>
-    <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
-        <div class="modal-dialog modal-lg" role="document">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel" style="width:1400px; height:1400px;">
+        <div class="modal-dialog modal-lg " role="document">
             <div class="modal-content" id="imageDisplay">
-                <div class="modal-header" style="background-color:#da6206; color: #002145">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-                                class="far fa-window-close"></i></span></button>
-                    <h4 class="modal-title" id="myModalLabel"></h4>
+                <div class="modal-header">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons modalClose">close</i></a>
                 </div>
-                <div class="modal-body">
-                    <img src="" id="imageSrc">
-                </div> <!-- end modal-body -->
-            </div> <!-- end modal-content -->
-        </div> <!-- end modal-dialogue -->
+                <h4 class="modal-title" id="myModalLabel">Image Modal</h4>
+            </div>
+            <div class="modal-body">
+                <img src="" id="imageSrc">
+            </div> <!-- end modal-body -->
+        </div> <!-- end modal-content -->
+    </div> <!-- end modal-dialogue -->
 
     </div> <!-- end modal -->
 
@@ -225,8 +224,6 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
 
     <script src="js/firebase.js"></script>
-
-
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <!-- Fancybox -->
@@ -234,7 +231,7 @@
     <!-- Scripts -->
     <script src="js/client.js"></script>
     <!-- Bootstrap -->
-    <script src="vendors/bootstrap.min.js"></script>
+    <!-- <script src="vendors/bootstrap.min.js"></script> -->
     <!-- Bootstrap Datepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <!-- Mobile Menu -->
