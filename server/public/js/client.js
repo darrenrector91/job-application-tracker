@@ -27,10 +27,11 @@ $(document).ready(function () {
     }
   });
 
+  // firebase logout
   function logout() {
     firebase.auth().signout();
   }
-
+  // firebase storage
   var uploader = document.getElementById('uploader');
   var fileButton = document.getElementById('fileButton');
   fileButton.addEventListener('change', function (e) {
@@ -190,6 +191,9 @@ $(document).ready(function () {
   // }
 
   function updateJob() {
+    var e = document.getElementById("status");
+    var strStatus = e.options[e.selectedIndex].text;
+
     console.log('inside update job');
 
     let company = $('#company').val()
@@ -198,7 +202,7 @@ $(document).ready(function () {
     let position = $('#position').val()
     let notes = $('#notes').val()
     let date = $('#date').val()
-    let status = $('#status').value
+    let status = strStatus
     let filename = $('#filename').val()
 
     if (checkInputs(company)) {
