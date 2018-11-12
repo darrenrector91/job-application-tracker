@@ -41,7 +41,7 @@
 <body>
     <nav>
         <div class="nav-wrapper light-blue darken-4 navbar-fixed">
-            <a href="jobs.html" class="brand-logo"><i class="large-icon material-icons" onclick="window.location.reload()">search</i>Gig
+            <a href="jobs.html" class="brand-logo"><i class="large-icon material-icons">search</i>Gig
                 Finder</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="jobs.html">Jobs</a></li>
@@ -62,7 +62,7 @@
                     <i class="material-icons prefix">search</i>
                     <input placeholder="Search" class="search-bar" id="search">
                 </div>
-                <button class="waves-effect waves-light btn jobClearSearchBtn functionBtn light-green accent-4">Clear
+                <button class="waves-effect waves-light btn jobClearSearchBtn functionBtn light-green accent-4" onclick="window.location.reload()">Clear
                     Search</button>
 
                 <a class="waves-effect waves-light btn transparent modal-trigger addJobBtn" data-target="myModal" style="border:2px solid #64dd17">Add
@@ -74,7 +74,8 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons modalClose">close</i></a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="window.location.reload()"><i
+                        class="material-icons modalClose">close</i></a>
                 <h4 class="modal-title" id="myModalLabel">Add Job</h4>
             </div>
             <div class="row">
@@ -181,7 +182,8 @@
         <div class="modal-dialog modal-lg " role="document">
             <div class="modal-content" id="imageDisplay">
                 <div class="modal-header">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons modalClose">close</i></a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="window.location.reload()"><i
+                            class="material-icons modalClose">close</i></a>
                 </div>
                 <h4 class="modal-title" id="myModalLabel">Image Modal</h4>
             </div>

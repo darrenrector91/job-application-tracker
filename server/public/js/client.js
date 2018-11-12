@@ -2,10 +2,10 @@ $(document).ready(function () {
   // load existing jobs on page load
   getJobs();
 
-  // Initializtion for Materializecss
   $('.modal').modal({
     dismissible: false
   });
+
   $('select').formSelect();
   $('.datepicker').datepicker();
 
@@ -16,7 +16,6 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
   $('.logout').on('click', logout);
 
-  // cerify user is logged in using firebase
   uid = null;
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -28,12 +27,10 @@ $(document).ready(function () {
     }
   });
 
-  // firebase logout
   function logout() {
     firebase.auth().signout();
   }
 
-  // firebase file upload
   var uploader = document.getElementById('uploader');
   var fileButton = document.getElementById('fileButton');
   fileButton.addEventListener('change', function (e) {
@@ -58,7 +55,6 @@ $(document).ready(function () {
     )
   });
 
-  // get jobs form dB to display on DOM
   function getJobs() {
     // ajax call to server to get jobs
     $.ajax({
@@ -77,7 +73,6 @@ $(document).ready(function () {
 
   // gets jobs from dB to display in table onload
   function displayJobs(data) {
-    console.log(data);
     $('#viewJobs').empty();
     for (let i = 0; i < data.length; i++) {
       let newRow = $('<tr>');
@@ -96,16 +91,16 @@ $(document).ready(function () {
       newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
       //edit row button
-      newRow.append('<td><button type="button" class="editJob btn-floating btn-small green tableButton modal-trigger" data-target="myModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
+      newRow.append('<td><button type="button" class="editJob tableEditBtn btn-floating btn-small green tableButton modal-trigger" data-target="myModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
       // //delete row button
       newRow.append('<td><button type="button" class="deleteJob btn-floating btn-small red tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
+
       // display image button
       newRow.append('<td><button type="button" class="getImageFileName btn-floating btn-small light-blue darken-1 modal-trigger" data-target="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
       $('#viewJobs').append(newRow);
     }
   }
 
-  // add new job
   function newJob() {
     var e = document.getElementById("status");
     var strStatus = e.options[e.selectedIndex].text;
@@ -146,9 +141,19 @@ $(document).ready(function () {
           $('#editJob').empty();
           $('#updateJob').on('click', newJob); //end updateJob on click
           $('#updateJob').off('click', updateJob);
-          $('#myModalLabel').text('Add Job');
+          $('#formLabel').text('Add Job');
           $('#updateJob').text('Add Job');
 
+          //clear inputs after job updated
+          $('#company').val('');
+          $('#contact').val('');
+          $('#email').val('');
+          $('#position').val('');
+          $('textarea').val('');
+          $('#date').val('');
+          $('#status').val('');
+          $('#filename').val('');
+          $('#updateJob').val('');
         },
         error: function (response) {
           console.log('error saving new job', response);
@@ -158,60 +163,32 @@ $(document).ready(function () {
     }
   }
 
-  // Gets job from dB then send to updateJob
-  function editJob() {
-    // var e = document.getElementById("status");
-    // var strStatus = e.options[e.selectedIndex].text;
-    // console.log(strStatus)
+  // function saveJob(newJob) {
+  //   console.log(newJob);
 
-    // TODO: GET THIS WORKING IN MATERIAL
-    // handles labeling - not institued in materialcss right now
-    $('#myModalLabel').text('Edit Job');
-    $('#updateJob').off('click', newJob); //end updateJob on click
-    $('#updateJob').on('click', updateJob);
+  //   $.ajax({
+  //     url: '/jobs',
+  //     type: 'POST',
+  //     data: newJob,
+  //     success: function (response) {
+  //       console.log('got some jobs: ', response);
+  //       getJobs();
+  //       $('#company').val('').focus();
+  //       $('#contact').val('');
+  //       $('#email').val('');
+  //       $('#position').val('');
+  //       $('textarea').val('');
+  //       $('#date').val('');
+  //       $('#status').val('');
+  //       $('#filename').val('');
+  //     }, // end success
+  //     error: function (response) {
+  //       console.log('error saving job', response);
 
-    let editDiv = $('#editJob');
-    let jobID = $(this).val();
-    console.log('jobID from editJob, ', jobID);
+  //     }
+  //   }); //end ajax
+  // }
 
-    $.ajax({
-      url: '/jobs/' + jobID,
-      method: 'GET',
-      success: function (response) {
-        console.log('response ', response);
-        $('#company').val(response[0].company).focus();
-        $('#contact').val(response[0].contact);
-        console.log($('#contact').val());
-
-        console.log(response[0].contact);
-
-        $('#email').val(response[0].email);
-        $('#position').val(response[0].position);
-        $('#notes').val(response[0].notes);
-        $('#date').val(response[0].date);
-        $('#status').val(response[0].status);
-        $('#filename').val(response[0].filename);
-        $('#updateJob').val(response[0].id);
-
-        $('#company').val('');
-        $('#contact').val('');
-        $('#email').val('');
-        $('#position').val('');
-        $('textarea').val('');
-        $('#date').val('');
-        $('#status').val('');
-        $('#filename').val('');
-        $('#updateJob').val('');
-
-      }, // end success
-      error: function (response) {
-        console.log('error in edit job', response);
-
-      }
-    })
-  }
-
-  // update job form edit job dB retrieval(GET)
   function updateJob() {
     console.log('inside update job');
 
@@ -241,8 +218,6 @@ $(document).ready(function () {
         url: '/jobs/update/' + jobID,
         data: objectToUpdate,
         success: function (response) {
-          console.log(response);
-
           getJobs();
           $('#editJob').empty();
           $('#updateJob').on('click', newJob);
@@ -268,6 +243,39 @@ $(document).ready(function () {
     }
   }
 
+  function editJob() {
+    $('#myModalLabel').text('Edit Job');
+    $('#updateJob').off('click', newJob); //end updateJob on click
+    $('#updateJob').on('click', updateJob);
+
+    let editDiv = $('#editJob');
+    let jobID = $(this).val();
+    console.log('jobID from editJob, ', jobID);
+
+    $.ajax({
+      url: '/jobs/' + jobID,
+      method: 'GET',
+      success: function (response) {
+        // console.log('response ', response);
+        $('#company').val(response[0].company).focus();
+        $('#contact').val(response[0].contact);
+        $('#email').val(response[0].email);
+        $('#position').val(response[0].position);
+        $('#notes').val(response[0].notes);
+        $('#date').val(response[0].date);
+        $('#status').val(response[0].status);
+        $('#filename').val(response[0].filename);
+        $('#updateJob').val(response[0].id);
+
+        // $('#myModal').modal('show');
+      }, // end success
+      error: function (response) {
+        console.log('error in edit job', response);
+
+      }
+    })
+  }
+
   function getImageFileName() {
     let ID = $(this).val();
     $.ajax({
@@ -285,7 +293,6 @@ $(document).ready(function () {
     });
   }
 
-  // firebase function for taking imagename from dB and searching firebase storage
   function displayImage(data) {
     var imageData = data[0].filename;
 
@@ -307,8 +314,15 @@ $(document).ready(function () {
       var img = document.getElementById('image-modal');
       img.src = url;
 
+      // $('#image-modal').modal({
+      //   show: true
+      // }).html('<img src=' + url + '>');
+
       $('#imageSrc').attr('src', url);
       $('#image-modal').openModal();
+      // $('#image-modal').modal({
+      //   show: true
+      // })
 
     }).catch(function (error) {
       // console.log('Error displaying image ', error);
@@ -342,7 +356,7 @@ $(document).ready(function () {
   }
   // Write on keyup event of keyword input element
   $("#search").keyup(function () {
-    // console.log('in search');
+    console.log('in search');
 
     var searchText = $(this).val().toLowerCase();
     // Show only matching TR, hide rest of them
@@ -367,6 +381,20 @@ $(document).ready(function () {
     }
   }
 
+  $("#phone").keypress(function (e) {
+    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      return false;
+    }
+    var curchr = this.value.length;
+    var curval = $(this).val();
+    if (curchr == 3 && e.which != 8 && e.which != 0) {
+      $(this).val(curval + "-");
+    } else if (curchr == 7 && e.which != 8 && e.which != 0) {
+      $(this).val(curval + "-");
+    }
+    $(this).attr('maxlength', '12');
+  });
+
   jQuery('.toggle-nav').click(function (e) {
     jQuery(this).toggleClass('active');
     jQuery('.menu ul').toggleClass('active');
@@ -375,8 +403,12 @@ $(document).ready(function () {
   });
 
   function login() {
+    console.log('in login');
+
+
     userEmail = document.getElementById("imputEmail").value;
     userPassword = document.getElementById("inputPassword").value;
+
     window.alert(userEmail + " " + userPassword);
   }
 });
