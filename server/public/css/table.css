@@ -4,7 +4,12 @@
     position: absolute;
     right: 9px;
     top: 370px;
-    background-color: rgba(40, 86, 185, 0.342);
     border: 1px solid grey;
+    /* background-color: rgb(235, 235, 235); */
+
+}
+
+thead {
+    background-color: rgba(0, 29, 91, 0.342);
 
 }

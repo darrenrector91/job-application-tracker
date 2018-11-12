@@ -2,10 +2,10 @@ $(document).ready(function () {
   // load existing jobs on page load
   getJobs();
 
+  // materialize intialization for javascript objects
   $('.modal').modal({
     dismissible: false
   });
-
   $('select').formSelect();
   $('.datepicker').datepicker();
 
@@ -16,6 +16,7 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
   $('.logout').on('click', logout);
 
+  // check if user is still logged in --- authentication
   uid = null;
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -95,13 +96,13 @@ $(document).ready(function () {
       newRow.append('<td><button type="button" class="editJob tableEditBtn btn-floating btn-small green tableButton modal-trigger" data-target="myModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
       // //delete row button
       newRow.append('<td><button type="button" class="deleteJob btn-floating btn-small red tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
-
       // display image button
       newRow.append('<td><button type="button" class="getImageFileName btn-floating btn-small light-blue darken-1 modal-trigger" data-target="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
       $('#viewJobs').append(newRow);
     }
   }
 
+  // Create new job in modal
   function newJob() {
     var e = document.getElementById("status");
     var strStatus = e.options[e.selectedIndex].text;
@@ -129,9 +130,6 @@ $(document).ready(function () {
         status: status,
         filename: filename
       };
-      // console.log(objectToSend);
-      // call saveJob with the new obejct
-      // saveJob(objectToSend);
 
       $.ajax({
         type: 'POST',
@@ -164,32 +162,7 @@ $(document).ready(function () {
     }
   }
 
-  // function saveJob(newJob) {
-  //   console.log(newJob);
-
-  //   $.ajax({
-  //     url: '/jobs',
-  //     type: 'POST',
-  //     data: newJob,
-  //     success: function (response) {
-  //       console.log('got some jobs: ', response);
-  //       getJobs();
-  //       $('#company').val('').focus();
-  //       $('#contact').val('');
-  //       $('#email').val('');
-  //       $('#position').val('');
-  //       $('textarea').val('');
-  //       $('#date').val('');
-  //       $('#status').val('');
-  //       $('#filename').val('');
-  //     }, // end success
-  //     error: function (response) {
-  //       console.log('error saving job', response);
-
-  //     }
-  //   }); //end ajax
-  // }
-
+  // receive job object from editjob update in dB
   function updateJob() {
     var e = document.getElementById("status");
     var strStatus = e.options[e.selectedIndex].text;
@@ -247,6 +220,7 @@ $(document).ready(function () {
     }
   }
 
+  // get data from dB to edit job
   function editJob() {
     $('#myModalLabel').text('Edit Job');
     $('#updateJob').off('click', newJob); //end updateJob on click
@@ -271,15 +245,14 @@ $(document).ready(function () {
         $('#filename').val(response[0].filename);
         $('#updateJob').val(response[0].id);
 
-        // $('#myModal').modal('show');
       }, // end success
       error: function (response) {
         console.log('error in edit job', response);
-
       }
     })
   }
 
+  // Getting image filename to pass to firebase to search firebase storage
   function getImageFileName() {
     let ID = $(this).val();
     $.ajax({
@@ -296,7 +269,7 @@ $(document).ready(function () {
       }
     });
   }
-
+  // display image after from google firebase storage
   function displayImage(data) {
     var imageData = data[0].filename;
 
@@ -318,22 +291,15 @@ $(document).ready(function () {
       var img = document.getElementById('image-modal');
       img.src = url;
 
-      // $('#image-modal').modal({
-      //   show: true
-      // }).html('<img src=' + url + '>');
-
       $('#imageSrc').attr('src', url);
       $('#image-modal').openModal();
-      // $('#image-modal').modal({
-      //   show: true
-      // })
 
     }).catch(function (error) {
       // console.log('Error displaying image ', error);
-
     });
   };
 
+  // delete job from table
   function deleteJob() {
     let id = $(this).val();
     // console.log('id: ', id);
@@ -350,7 +316,7 @@ $(document).ready(function () {
 
     });
   }
-
+  // Firebase code for file selection
   let storage = firebase.storage();
 
   function selectFile() {
@@ -372,10 +338,15 @@ $(document).ready(function () {
     });
   });
 
+  // clear search using window reload
+  // not the most sound method/will improve
+  // TODO:improve clear search
   function clearSearch() {
     window.location.reload();
   }
 
+  // check inputs/reduced to one do to testing
+  // TODO: reimplement input verification
   function checkInputs(company) {
     if (company == '') {
       alert('Company can not be empty, please review required fields.');
@@ -384,7 +355,7 @@ $(document).ready(function () {
       return true;
     }
   }
-
+  // search on key up
   $("#phone").keypress(function (e) {
     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
       return false;
@@ -406,9 +377,8 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
+  // firebase login
   function login() {
-    console.log('in login');
-
 
     userEmail = document.getElementById("imputEmail").value;
     userPassword = document.getElementById("inputPassword").value;
