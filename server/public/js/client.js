@@ -189,59 +189,59 @@ $(document).ready(function () {
   //   }); //end ajax
   // }
 
-  function updateJob() {
-    console.log('inside update job');
+  // function updateJob() {
+  //   console.log('inside update job');
 
-    let company = $('#company').val()
-    let contact = $('#contact').val()
-    let email = $('#email').val()
-    let position = $('#position').val()
-    let notes = $('#notes').val()
-    let date = $('#date').val()
-    let status = $('#status').value
-    let filename = $('#filename').val()
+  //   let company = $('#company').val()
+  //   let contact = $('#contact').val()
+  //   let email = $('#email').val()
+  //   let position = $('#position').val()
+  //   let notes = $('#notes').val()
+  //   let date = $('#date').val()
+  //   let status = $('#status').value
+  //   let filename = $('#filename').val()
 
-    if (checkInputs(company)) {
-      let jobID = $(this).val();
-      let objectToUpdate = {
-        company: company,
-        contact: contact,
-        email: email,
-        position: position,
-        notes: notes,
-        date: date,
-        status: status,
-        filename: filename
-      };
-      $.ajax({
-        type: 'PUT',
-        url: '/jobs/update/' + jobID,
-        data: objectToUpdate,
-        success: function (response) {
-          getJobs();
-          $('#editJob').empty();
-          $('#updateJob').on('click', newJob);
-          $('#updateJob').off('click', updateJob);
-          $('#formLabel').text('Edit Job');
-          $('#updateJob').text('Edit Job');
+  //   if (checkInputs(company)) {
+  //     let jobID = $(this).val();
+  //     let objectToUpdate = {
+  //       company: company,
+  //       contact: contact,
+  //       email: email,
+  //       position: position,
+  //       notes: notes,
+  //       date: date,
+  //       status: status,
+  //       filename: filename
+  //     };
+  //     $.ajax({
+  //       type: 'PUT',
+  //       url: '/jobs/update/' + jobID,
+  //       data: objectToUpdate,
+  //       success: function (response) {
+  //         getJobs();
+  //         $('#editJob').empty();
+  //         $('#updateJob').on('click', newJob);
+  //         $('#updateJob').off('click', updateJob);
+  //         $('#formLabel').text('Edit Job');
+  //         $('#updateJob').text('Edit Job');
 
-          $('#company').val('');
-          $('#contact').val('');
-          $('#email').val('');
-          $('#position').val('');
-          $('textarea').val('');
-          $('#date').val('');
-          $('#status').val('');
-          $('#filename').val('');
-          $('#updateJob').val('');
-        }, // end success
-        error: function (response) {
-          console.log('error in updating job', response);
+  //         $('#company').val('');
+  //         $('#contact').val('');
+  //         $('#email').val('');
+  //         $('#position').val('');
+  //         $('textarea').val('');
+  //         $('#date').val('');
+  //         $('#status').val('');
+  //         $('#filename').val('');
+  //         $('#updateJob').val('');
+  //       }, // end success
+  //       error: function (response) {
+  //         console.log('error in updating job', response);
 
-        }
-      });
-    }
-  }
+  //       }
+  //     });
+  //   }
+  // }
 
   function editJob() {
     $('#myModalLabel').text('Edit Job');
@@ -314,15 +314,8 @@ $(document).ready(function () {
       var img = document.getElementById('image-modal');
       img.src = url;
 
-      // $('#image-modal').modal({
-      //   show: true
-      // }).html('<img src=' + url + '>');
-
       $('#imageSrc').attr('src', url);
       $('#image-modal').openModal();
-      // $('#image-modal').modal({
-      //   show: true
-      // })
 
     }).catch(function (error) {
       // console.log('Error displaying image ', error);
@@ -356,7 +349,7 @@ $(document).ready(function () {
   }
   // Write on keyup event of keyword input element
   $("#search").keyup(function () {
-    console.log('in search');
+    // console.log('in search');
 
     var searchText = $(this).val().toLowerCase();
     // Show only matching TR, hide rest of them
@@ -380,20 +373,6 @@ $(document).ready(function () {
       return true;
     }
   }
-
-  $("#phone").keypress(function (e) {
-    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-      return false;
-    }
-    var curchr = this.value.length;
-    var curval = $(this).val();
-    if (curchr == 3 && e.which != 8 && e.which != 0) {
-      $(this).val(curval + "-");
-    } else if (curchr == 7 && e.which != 8 && e.which != 0) {
-      $(this).val(curval + "-");
-    }
-    $(this).attr('maxlength', '12');
-  });
 
   jQuery('.toggle-nav').click(function (e) {
     jQuery(this).toggleClass('active');

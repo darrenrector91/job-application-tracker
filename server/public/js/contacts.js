@@ -248,4 +248,18 @@ $(document).ready(function () {
 
         e.preventDefault();
     });
+
+    $("#phone").keypress(function (e) {
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        }
+        var curchr = this.value.length;
+        var curval = $(this).val();
+        if (curchr == 3 && e.which != 8 && e.which != 0) {
+            $(this).val(curval + "-");
+        } else if (curchr == 7 && e.which != 8 && e.which != 0) {
+            $(this).val(curval + "-");
+        }
+        $(this).attr('maxlength', '12');
+    });
 });

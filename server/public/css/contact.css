@@ -2,10 +2,15 @@
     top: 28px;
     left: 720px;
     width: 140px;
+    color: black !important;
 }
 
 .modal-title {
     text-align: center;
+}
+
+placeholder {
+    color: black;
 }
 
 /* input[type=text]:not(.browser-default):focus:not([readonly])+label {
