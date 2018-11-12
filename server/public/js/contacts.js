@@ -3,7 +3,7 @@ $(document).ready(function () {
     getContacts();
 
     $('.modal').modal({
-        dismissible: true
+        dismissible: false
     });
 
     //click events
@@ -55,11 +55,10 @@ $(document).ready(function () {
             newRow.append('<td>' + data[i].email + '</td>');
             newRow.append('<td>' + data[i].phone + '</td>');
             newRow.append('<td>' + data[i].notes + '</td>');
-
             //edit row button
-            newRow.append('<td><button type="button" class="editContact btn-floating btn-small green tableButton modal-trigger" data-target="contactModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
+            newRow.append('<td><button type="button" class="editContact btn-floating btn-small green modal-trigger" data-target="contactModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
             //delete row button
-            newRow.append('<td><button type="button" class="deleteContact btn-floating btn-small red tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
+            newRow.append('<td><button type="button" class="deleteContact btn-floating btn-small red" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
 
             $('#viewContacts').append(newRow);
         }
@@ -168,7 +167,7 @@ $(document).ready(function () {
             url: '/contacts/' + contactID,
             method: 'GET',
             success: function (response) {
-                console.log('response ', response);
+                // console.log('response ', response);
                 $('#name').val(response[0].name).focus();
                 $('#position').val(response[0].position);
                 $('#company').val(response[0].company);
@@ -177,7 +176,7 @@ $(document).ready(function () {
                 $('#notes').val(response[0].notes);
                 $('#updateContact').val(response[0].id);
 
-                $('#contactModal').modal('show');
+                // $('#contactModal').modal('show');
             },
             error: function (response) {
                 console.log('error response', response);
@@ -247,19 +246,5 @@ $(document).ready(function () {
         jQuery('.menu ul').toggleClass('active');
 
         e.preventDefault();
-    });
-
-    $("#phone").keypress(function (e) {
-        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-            return false;
-        }
-        var curchr = this.value.length;
-        var curval = $(this).val();
-        if (curchr == 3 && e.which != 8 && e.which != 0) {
-            $(this).val(curval + "-");
-        } else if (curchr == 7 && e.which != 8 && e.which != 0) {
-            $(this).val(curval + "-");
-        }
-        $(this).attr('maxlength', '12');
     });
 });

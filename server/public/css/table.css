@@ -3,6 +3,8 @@
     width: 1420px;
     position: absolute;
     right: 9px;
-    top: 410px;
+    top: 370px;
+    background-color: rgba(40, 86, 185, 0.342);
+    border: 1px solid grey;
 
 }

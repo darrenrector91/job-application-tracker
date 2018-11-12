@@ -36,20 +36,23 @@
 </head>
 
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-wrapper light-blue darken-4 navbar-fixed">
             <a href="jobs.html" class="brand-logo"><i class="large-icon material-icons">search</i>Gig Finder</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="contacts.html">Contacts</a></li>
                 <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
                 <li><a href="index.html" class="logout">Logout</a></li>
             </ul>
         </div>
     </nav>
+    <!-- Header title -->
     <header class="title">
         <h1>Contacts</h1>
     </header>
     <hr>
+    <!-- Search -->
     <div class="row jobSearch">
         <form class="col s12">
             <div class="row aboveTableRow">
@@ -59,11 +62,11 @@
                 </div>
                 <button class="waves-effect waves-light btn jobClearSearchBtn functionBtn light-green accent-4">Clear
                     Search</button>
-                <a class="waves-effect waves-light btn light-green accent-4 modal-trigger addContactBtn" data-target="contactModal">Add
-                    Contact</a>
+                <a class="waves-effect waves-light btn transparent modal-trigger addContactBtn" data-target="contactModal" style="border:2px solid #64dd17">Add Contact</a>
             </div>
         </form>
     </div>
+    <!-- Contact table -->
     <div id="table" class="row" style="overflow-x:auto;">
         <table class="table table-bordered table-hover">
             <thead>
@@ -88,36 +91,42 @@
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons modalClose">close</i></a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons modalClose" onclick="window.location.reload()">close</i></a>
                 <h4 class="modal-title" id="contactModalLabel">Add Contact</h4>
             </div>
             <div class="row">
                 <form class="col s12">
+                    <!-- Contact name -->
                     <div class="row">
                         <div class="input-field contactModalInput col s12">
-                            <input id="contact" type="text" class="validate" placeholder="Name">
+                            <input id="name" type="text" class="validate" placeholder="Name">
                         </div>
                     </div>
+                    <!-- Company name -->
                     <div class="row">
                         <div class="input-field contactModalInput col s12">
                             <input id="company" type="text" class="validate" placeholder="Company">
                         </div>
                     </div>
+                    <!-- Position -->
                     <div class="row">
                         <div class="input-field contactModalInput col s12">
                             <input id="position" type="text" class="validate" placeholder="Position">
                         </div>
                     </div>
+                    <!-- Email -->
                     <div class="row">
                         <div class="input-field contactModalInput col s12">
                             <input id="email" type="email" class="validate" placeholder="Email">
                         </div>
                     </div>
+                    <!-- Phone -->
                     <div class="row">
                         <div class="input-field contactModalInput col s12">
                             <input id="phone" type="text" class="validate" placeholder="Phone">
                         </div>
                     </div>
+                    <!-- Notes -->
                     <div class="row">
                         <form class="col s12">
                             <div class="input-field contactModalInput col s12">
@@ -127,28 +136,21 @@
                     </div>
                 </form>
             </div>
-            <a class="waves-effect waves-light btn-small blue darken-2 modal-close" id="updateJob">Submit</a>
-            <a class="waves-effect waves-light btn-small white modal-close" id="clearModalBtn">Cancel</a>
+            <!-- Conatct modal buttons -->
+            <a class="waves-effect waves-light btn-large blue darken-2 modal-close" id="updateContact" onclick="window.location.reload()">Submit</a>
+
+            <a class="waves-effect waves-light btn-large white modal-close" id="clearModalBtn" style="border:2px solid #1976d2; font-weight: bold;" onclick="window.location.reload()">Cancel</a>
         </div>
     </div> <!-- end contact modal-->
-    <div class="modal fade imageModal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content" id="imageDisplay">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i
-                                class="far fa-window-close"></i></span></button>
-                    <h4 class="modal-title" id="contactModalLabel">Add Contact</h4>
 
-                </div>
-                <div class="modal-body">
-                    <img src="" id="imageSrc">
-                </div> <!-- end modal-body -->
-            </div> <!-- end modal-content -->
-        </div> <!-- end modal-dialogue -->
-    </div> <!-- end modal -->
+
+    <!-- ***********************
+    ***********SCRIPTS**********
+    **************************** -->
+
     <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Fancybox -->
+    <script src="
+                js/jquery.min.js"> </script> <!-- Fancybox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
     <!-- Scripts -->
     <script src="js/contacts.js"></script>

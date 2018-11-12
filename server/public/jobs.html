@@ -36,16 +36,14 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/materialize.css">
 
-
-
 </head>
 
 <body>
     <nav>
         <div class="nav-wrapper light-blue darken-4 navbar-fixed">
-            <a href="jobs.html" class="brand-logo"><i class="large-icon material-icons">search</i>Gig Finder</a>
+            <a href="jobs.html" class="brand-logo"><i class="large-icon material-icons" onclick="window.location.reload()">search</i>Gig Finder</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a class="active" href="jobs.html">Jobs</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
                 <li><a href="contacts.html">Contacts</a></li>
                 <li><a href="index.html" class="logout">Logout</a></li>
 
@@ -61,27 +59,16 @@
             <div class="row aboveTableRow">
                 <div class="input-field jobModalInput col s6">
                     <i class="material-icons prefix">search</i>
-                    <!-- <input id="search icon_prefix" type="text" class="validate"> -->
                     <input placeholder="Search" class="search-bar" id="search">
                 </div>
                 <button class="waves-effect waves-light btn jobClearSearchBtn functionBtn light-green accent-4">Clear
                     Search</button>
 
-                <a class="waves-effect waves-light btn light-green accent-4 modal-trigger addJobBtn" data-target="myModal">Add
+                <a class="waves-effect waves-light btn transparent modal-trigger addJobBtn" data-target="myModal" style="border:2px solid #64dd17">Add
                     Job</a>
             </div>
         </form>
     </div>
-
-
-
-
-
-
-
-
-
-
     <!-- Job Modal  -->
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -117,7 +104,6 @@
                     </div>
                     <div class="row">
                         <div class="input-field jobModalInput col s12">
-                            <!-- <label>Job Status</label> -->
                             <select id="status">
                                 <option value="" disabled selected>Select Status</option>
                                 <option value="1">Applied</option>
@@ -161,11 +147,11 @@
                     </div>
                 </form>
             </div>
-            <a class="waves-effect waves-light btn-small blue darken-2 modal-close" id="updateJob">Submit</a>
-            <a class="waves-effect waves-light btn-small white modal-close" id="clearModalBtn">Cancel</a>
+            <a class="waves-effect waves-light btn-large blue darken-2 modal-close" id="updateJob" onclick="window.location.reload()">Submit</a>
+            <a class="waves-effect waves-light btn-large grey lighten-3 modal-close" id="clearModalBtn" style="border:2px solid #1976d2; font-weight: bold;" onclick="window.location.reload()">Cancel</a>
         </div>
     </div> <!-- end contact modal-->
-    <div id="table" class="row" style="overflow-x:auto;">
+    <div id="table" class="row">
         <table class="responsive-table highlight table-bordered centered">
             <thead>
                 <tr>
@@ -188,20 +174,7 @@
             </tbody>
         </table>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- Image modal -->
     <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modalLabel" style="width:1400px; height:1400px;">
         <div class="modal-dialog modal-lg " role="document">
             <div class="modal-content" id="imageDisplay">
@@ -217,7 +190,6 @@
     </div> <!-- end modal-dialogue -->
 
     </div> <!-- end modal -->
-
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-storage.js"></script>
