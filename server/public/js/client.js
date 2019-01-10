@@ -166,7 +166,6 @@ $(document).ready(function () {
   function updateJob() {
     var e = document.getElementById("status");
     var strStatus = e.options[e.selectedIndex].text;
-
     console.log('inside update job');
 
     let company = $('#company').val()
@@ -234,7 +233,7 @@ $(document).ready(function () {
       url: '/jobs/' + jobID,
       method: 'GET',
       success: function (response) {
-        // console.log('response ', response);
+        console.log('response ', response);
         $('#company').val(response[0].company).focus();
         $('#contact').val(response[0].contact);
         $('#email').val(response[0].email);
@@ -380,7 +379,7 @@ $(document).ready(function () {
   // firebase login
   function login() {
 
-    userEmail = document.getElementById("imputEmail").value;
+    userEmail = document.getElementById("inputEmail").value;
     userPassword = document.getElementById("inputPassword").value;
 
     window.alert(userEmail + " " + userPassword);
