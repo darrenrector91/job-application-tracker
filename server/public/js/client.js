@@ -78,7 +78,7 @@ $(document).ready(function () {
     $('#viewJobs').empty();
     for (let i = 0; i < data.length; i++) {
       let newRow = $('<tr>');
-      // using MediaStreamErrorEvent.js to parse date into a readable format
+      // using moment.js to parse date
       let convertedDate = data[i].date;
       convertedDate = convertedDate.split('T')[0];
 

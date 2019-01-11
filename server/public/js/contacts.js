@@ -10,6 +10,7 @@ $(document).ready(function () {
     $('#updateContact').on('click', newContact);
     $('#viewContacts').on('click', '.editContact', editContact);
     $('#viewContacts').on('click', '.deleteContact', deleteContact);
+    $('#viewContacts').on('click', '.sendEmail', sendEmail);
     $('.search-wrapper').on('click', '.contactClearSearchBtn', clearSearch);
 
     //datepicker
@@ -55,7 +56,10 @@ $(document).ready(function () {
             newRow.append('<td>' + data[i].email + '</td>');
             newRow.append('<td>' + data[i].phone + '</td>');
             newRow.append('<td>' + data[i].notes + '</td>');
-            //edit row button
+            // open email modal
+            newRow.append('<td><button type="button" class="sendEmail btn-floating btn-small purple darken-1  modal-trigger" data-target="emailModal" value="' + data[i].id + '"><i class="fas fa-envelope"></i></button></td>');
+            $('#viewJobs').append(newRow);
+            // open edit edit contact modal
             newRow.append('<td><button type="button" class="editContact btn-floating btn-small green modal-trigger" data-target="contactModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
             //delete row button
             newRow.append('<td><button type="button" class="deleteContact btn-floating btn-small red" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
@@ -63,6 +67,25 @@ $(document).ready(function () {
             $('#viewContacts').append(newRow);
         }
     }
+
+    // function getEmailAddress(to, subject, bodyText) {
+    //     var form = document.createElement('form');
+
+    //     //Set the form attributes 
+    //     form.setAttribute('method', 'post');
+    //     form.setAttribute('enctype', 'text/plain');
+    //     form.setAttribute('action', 'mailto:' + escape(to) + '?Subject=' + escape(subject) + '&Body=' + escape(bodyText ? bodyText : ' '));
+    //     form.setAttribute('style', 'display:none');
+
+    //     //Append the form to the body
+    //     document.body.appendChild(form);
+
+    //     //Submit the form
+    //     form.submit();
+
+    //     //Clean up
+    //     document.body.removeChild(form);
+    // }
 
     function newContact() {
         //setting variables
@@ -185,9 +208,32 @@ $(document).ready(function () {
         })
     }
 
+    function sendEmail() {
+        $('#emailModalLabel').text('Email Contact');
+
+        // let editDiv = $('#sendEmail');
+        let contactID = $(this).val();
+        console.log('contactID, ', contactID);
+
+        $.ajax({
+            url: '/contact_email/' + contactID,
+            method: 'GET',
+            success: function (response) {
+                console.log('response ', response);
+                $('#email').val(response[0].email);
+
+                $('#contactModal').modal('show');
+            },
+            error: function (response) {
+                console.log('error response', response);
+
+            }
+        })
+    }
+
     function deleteContact() {
         let id = $(this).val();
-        // console.log('id: ', id);
+        console.log('id: ', id);
         $.ajax({
             type: 'DELETE',
             url: '/contacts/' + id,

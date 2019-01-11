@@ -39,11 +39,14 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-wrapper light-blue darken-4 navbar-fixed">
-            <a href="jobs.html" class="brand-logo"><i class="large-icon material-icons">search</i>Gig Finder</a>
+            <a href="jobs.html" class="brand-logo">Gig Finder</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
-                <li><a href="index.html" class="logout">Logout</a></li>
+                <li><a href="jobs.html"><i class="fas fa-briefcase menu-icons"></i></a></li>
+                <li><a href="contacts.html"><i class="fas fa-users menu-icons"></i></a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt menu-icons"></i></a></li>
+                <!-- <li><a href="jobs.html">Jobs</a></li> -->
+                <!-- <li><a href="contacts.html">Contacts</a></li> -->
+                <!-- <li><a href="index.html" class="logout">Logout</a></li> -->
             </ul>
         </div>
     </nav>
@@ -79,6 +82,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Notes</th>
+                    <th>Email</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -152,6 +156,49 @@
                 onclick="window.location.reload()">Cancel</a>
         </div>
     </div> <!-- end contact modal-->
+    <!-- Email Modal  -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons modalClose"
+                        onclick="window.location.reload()">close</i></a>
+                <h4 class="modal-title" id="emailModalLabel">Email Contact</h4>
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <!-- Email -->
+                    <div class="row">
+                        <div class="input-field emailModalInput col s12">
+                            <input id="email" type="email" class="validate" placeholder="Email">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <!-- Subject -->
+                    <div class="row">
+                        <div class="input-field emailModalInput col s12">
+                            <input id="subject" type="text" class="validate" placeholder="Subject">
+                            <label for="subject">Subject</label>
+                        </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="input-field emailModalInput col s12">
+                                <textarea id="bodyText" name="textarea" class="materialize-textarea" placeholder="Body"></textarea>
+                                <label for="bodyText">Notes</label>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+            </div>
+            <!-- Email modal buttons -->
+            <a class="waves-effect waves-light btn-large blue darken-2 modal-close" id="emailContact" onclick="window.location.reload()">Submit</a>
+
+            <a class="waves-effect waves-light btn-large white modal-close" id="clearModalBtn" style="border:2px solid #1976d2; font-weight: bold;"
+                onclick="window.location.reload()">Cancel</a>
+        </div>
+    </div> <!-- end contact modal-->
+
 
 
     <!-- ***********************

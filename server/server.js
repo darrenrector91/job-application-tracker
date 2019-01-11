@@ -3,6 +3,15 @@ var app = express();
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 5000;
 var auth = require('./auth');
+// var nodemailer = require('nodemailer');
+
+// var transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: 'youremail@address.com',
+//     pass: 'yourpassword'
+//   }
+// });
 
 const jobsRoute = require('./routes/jobs.route');
 const contactsRoute = require('./routes/contacts.route');

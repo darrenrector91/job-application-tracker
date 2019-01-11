@@ -13,6 +13,14 @@ placeholder {
     color: black;
 }
 
+.menu-icons {
+    margin: 0 20px;
+}
+
+.menu-icons :hover {
+    border: 2px solid black !important;
+}
+
 /* input[type=text]:not(.browser-default):focus:not([readonly])+label {
     color: #1976d2 !important;
     font-size: 20px;
