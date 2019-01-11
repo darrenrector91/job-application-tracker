@@ -5716,7 +5716,8 @@ body.keyboard-focused .dropdown-content li:focus {
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
-  mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+          mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+
 }
 
 .waves-input-wrapper {
