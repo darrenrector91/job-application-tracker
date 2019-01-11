@@ -32,6 +32,8 @@ nav ul li>a:hover {
     text-decoration: none;
     border-bottom: 3px solid rgb(110, 197, 28);
     border-top: 3px solid rgb(110, 197, 28);
+    height: 80px;
+    margin-right: 10px;
 
 }
 
