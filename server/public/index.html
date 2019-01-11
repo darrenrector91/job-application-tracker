@@ -7,14 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gig Finder Login</title>
 
-    <link rel="stylesheet" href="css/login.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-    <link rel="stylesheet" href="css/materialize.css">
+    <!-- Firebase -->
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <!-- Materialize -->
+    <link rel="stylesheet" href="vendors/materialize.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Questrial|Work+Sans|Material+Icons" rel="stylesheet">
+    <!-- Login -->
+    <link rel="stylesheet" href="css/login.css">
+    <!-- Main -->
     <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="./images/favicon.ico">
 
 </head>
@@ -29,8 +32,7 @@
         </div>
     </nav>
     </div>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-     Your app may use that space for branding, controls and other customizations.-->
+    <!-- Firebase HTML -->
     <h1 id="login-title">Welcome to Gig Finder!</h1>
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
@@ -38,7 +40,7 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
-    <script src="js/firebase.js"></script>
+    <script src="vendors/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
 
 
@@ -54,7 +56,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <!-- Mobile Menu -->
     <!-- <script src="js/mobile-menu.js"></script> -->
-    <script src="js/materialize.js"></script>
+    <script src="js/vendors/materialize.js"></script>
 </body>
 
 

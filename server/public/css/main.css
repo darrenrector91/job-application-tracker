@@ -19,16 +19,9 @@ a.brand-logo {
     font-size: 50px !important;
 }
 
-/* .active {
-    border-bottom: 5px solid #f4511e;
-    margin: 2px;
-    bottom: 5px;
-
-} */
-
 nav ul li:hover {
-    background-color: #cfd8dc;
-    color: #01579b
+    background-color: #01589b0a;
+    /* color: #01579b */
 }
 
 nav ul a {
@@ -36,9 +29,10 @@ nav ul a {
 }
 
 nav ul li>a:hover {
-    /* color: #f4511e; */
-    color: #01579b;
     text-decoration: none;
+    border-bottom: 3px solid rgb(110, 197, 28);
+    border-top: 3px solid rgb(110, 197, 28);
+
 }
 
 hr {

@@ -95,21 +95,20 @@ $(document).ready(function () {
       newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
       // get email address
-      newRow.append('<td><button type="button" class="getEmailAddress btn-floating btn-small purple" value="' + data[i].email + '"><i class="fas fa-envelope"></i></button></td>');
+      newRow.append('<td><button type="button" class="getEmailAddress btn-floating btn-small orange tableButton" value="' + data[i].email + '"><i class="fas fa-envelope"></i></button></td>');
       $('#viewJobs').append(newRow);
       //edit row button
       newRow.append('<td><button type="button" class="editJob tableEditBtn btn-floating btn-small green tableButton modal-trigger" data-target="myModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
       // //delete row button
       newRow.append('<td><button type="button" class="deleteJob btn-floating btn-small red tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
       // display image button
-      newRow.append('<td><button type="button" class="getImageFileName btn-floating btn-small light-blue darken-1 modal-trigger" data-target="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
+      newRow.append('<td><button type="button" class="getImageFileName btn-floating btn-small light-blue darken-1 modal-trigger tableButton" data-target="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
       $('#viewJobs').append(newRow);
     }
   }
 
   function getEmailAddress() {
     let to = $(this).val();
-    console.log(to);
 
     var form = document.createElement('form');
 
