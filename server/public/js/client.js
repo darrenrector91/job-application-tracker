@@ -15,6 +15,8 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
   $('.logout').on('click', logout);
+  $('#viewJobs').on('click', '.getEmailAddress', getEmailAddress);
+
 
   // check if user is still logged in --- authentication
   uid = null;
@@ -92,6 +94,9 @@ $(document).ready(function () {
       newRow.append('<td>' + convertedDate + '</td>');
       newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
+      // get email address
+      newRow.append('<td><button type="button" class="getEmailAddress btn-floating btn-small purple" value="' + data[i].email + '"><i class="fas fa-envelope"></i></button></td>');
+      $('#viewJobs').append(newRow);
       //edit row button
       newRow.append('<td><button type="button" class="editJob tableEditBtn btn-floating btn-small green tableButton modal-trigger" data-target="myModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
       // //delete row button
@@ -100,6 +105,28 @@ $(document).ready(function () {
       newRow.append('<td><button type="button" class="getImageFileName btn-floating btn-small light-blue darken-1 modal-trigger" data-target="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
       $('#viewJobs').append(newRow);
     }
+  }
+
+  function getEmailAddress() {
+    let to = $(this).val();
+    console.log(to);
+
+    var form = document.createElement('form');
+
+    //Set the form attributes 
+    form.setAttribute('method', 'post');
+    form.setAttribute('enctype', 'text/plain');
+    form.setAttribute('action', 'mailto:' + to);
+    form.setAttribute('style', 'display:none');
+
+    //Append the form to the body
+    document.body.appendChild(form);
+
+    //Submit the form
+    form.submit();
+
+    //Clean up
+    document.body.removeChild(form);
   }
 
   // Create new job in modal

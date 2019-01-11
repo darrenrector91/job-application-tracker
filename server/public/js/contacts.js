@@ -56,12 +56,12 @@ $(document).ready(function () {
             newRow.append('<td>' + data[i].email + '</td>');
             newRow.append('<td>' + data[i].phone + '</td>');
             newRow.append('<td>' + data[i].notes + '</td>');
-            // display email button
-            newRow.append('<td><button type="button" class="getEmailAddress btn-floating btn-small light-blue darken-1" value="' + data[i].email + '"><i class="fas fa-envelope"></i></button></td>');
+            // get email address
+            newRow.append('<td><button type="button" class="getEmailAddress btn-floating btn-small purple" value="' + data[i].email + '"><i class="fas fa-envelope"></i></button></td>');
             $('#viewJobs').append(newRow);
-            //edit row button
+            //edit row 
             newRow.append('<td><button type="button" class="editContact btn-floating btn-small green modal-trigger" data-target="contactModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
-            //delete row button
+            //delete row 
             newRow.append('<td><button type="button" class="deleteContact btn-floating btn-small red" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
 
             $('#viewContacts').append(newRow);
