@@ -11,10 +11,10 @@ $(document).ready(function () {
 
   //click events
   $('#updateJob').on('click', newJob);
+  $('.logout').on('click', logout);
   $('#viewJobs').on('click', '.editJob', editJob);
   $('#viewJobs').on('click', '.deleteJob', deleteJob);
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
-  $('.logout').on('click', logout);
   $('#viewJobs').on('click', '.getEmailAddress', getEmailAddress);
 
 
