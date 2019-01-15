@@ -1,5 +1,5 @@
 body {
-    background-color: #fff;
+    background-color: rgb(233, 231, 231);
 }
 
 a.brand-logo {
@@ -59,10 +59,15 @@ nav .brand-logo:hover {
 }
 
 .addJobBtn {
-    top: 29px;
-    left: 351px;
+    top: 28px;
+    left: 780px;
     width: 140px;
     color: black !important;
+
+    /* top: 29px;
+    left: 351px;
+    width: 140px;
+    color: black !important; */
 
 }
 
