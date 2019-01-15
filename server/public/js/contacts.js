@@ -1,4 +1,10 @@
 $(document).ready(function () {
+
+    // import getSearch from './bot';
+    // let a = getSearch();
+    // console.log(a);
+
+
     // load existing contacts on page load
     getContacts();
     getCompany();
@@ -237,7 +243,7 @@ $(document).ready(function () {
 
     function deleteContact() {
         let id = $(this).val();
-        console.log('id: ', id);
+        // console.log('id: ', id);
         $.ajax({
             type: 'DELETE',
             url: '/contacts/' + id,

@@ -18,7 +18,8 @@
     "npm": "^6.5.0",
     "pg": "^7.7.1",
     "standard": "^12.0.1",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "twit": "^2.2.11"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
