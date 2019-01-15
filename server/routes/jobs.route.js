@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     console.log('hit get jobs');
 
-    const queryText = 'SELECT * FROM job ORDER BY id';
+    const queryText = 'SELECT * FROM job ORDER BY date DESC';
     pool.query(queryText)
         .then((result) => {
             console.log('query results:', result);
