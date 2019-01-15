@@ -1,6 +1,17 @@
 $(document).ready(function () {
     // load existing contacts on page load
     getContacts();
+    getCompany();
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var elems = document.querySelectorAll('.dropdown-trigger');
+    //     var instances = M.Dropdown.init(elems, options);
+    // });
+
+    // Or with jQuery
+
+    $('.dropdown-trigger').dropdown();
+
 
     $('.modal').modal({
         dismissible: false
@@ -38,6 +49,28 @@ $(document).ready(function () {
             // display on DOM with buttons that allow edit of each
         })
     } // end getContacts
+
+    function getCompany() {
+        // ajax call to server to get company
+        $.ajax({
+            url: '/contacts/company',
+            type: 'GET',
+            success: function (data) {
+                console.log(data);
+                addCompanyToList(data);
+            },
+            error: function (response) {
+                console.log('error response', response);
+            }
+            // display on DOM with buttons that allow edit of each
+        })
+    } // end getContacts
+
+
+    function addCompanyToList(data) {
+        console.log('inside displayCompanyTweets: ', data);
+
+    }
 
     // gets jobs from dB to display in table onload
     function displayContacts(data) {

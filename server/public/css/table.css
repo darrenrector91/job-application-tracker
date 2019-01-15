@@ -6,10 +6,12 @@
     left: 10px;
     border: 1px solid grey;
     border-radius: 6px;
+    background-color: rgb(243, 241, 241);
 
 }
 
 thead {
-    background-color: rgba(0, 29, 91, 0.342);
+    background-color: rgba(0,87,155,.8);
+    color: rgb(243, 241, 241);
 
 }

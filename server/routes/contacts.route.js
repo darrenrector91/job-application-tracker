@@ -17,6 +17,24 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/company', (req, res) => {
+    console.log('in get company');
+
+    const queryText = 'SELECT company FROM contacts';
+    pool.query(queryText)
+        .then((result) => {
+            console.log('query results:', result);
+            res.send(result.rows);
+        })
+        .catch((err) => {
+            console.log('error making query:', err);
+            res.sendStatus(500);
+        });
+});
+
+
+
+
 router.get('/:id', (req, res) => {
     console.log('hit get contacts');
 
