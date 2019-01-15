@@ -1,0 +1,26 @@
+.twitter-timeline {
+    position: relative;
+    left: 1133px;
+    top: 16px;
+    border: 2px solid black;
+    height: 400px;
+    width: 290px;
+}
+
+.timeline-widget {
+    width: 280px!important;
+    position: absolute!important;
+    left: 1150px!important;
+}
+
+#tweets {
+    width: 410px;
+    height: 600px;
+    margin-left: 1000px;
+    border: 1px solid rgb(141, 140, 140);
+    border-radius: 6px;
+    overflow-y: scroll;
+    position: relative;
+    bottom: 29px;
+}
+

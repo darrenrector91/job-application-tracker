@@ -1,11 +1,11 @@
 #table {
     text-align: center;
-    width: 1420px;
+    width: 973px;
     position: absolute;
-    right: 9px;
     top: 370px;
+    left: 10px;
     border: 1px solid grey;
-    /* background-color: rgb(235, 235, 235); */
+    border-radius: 6px;
 
 }
 
