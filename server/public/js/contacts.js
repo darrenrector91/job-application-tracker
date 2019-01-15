@@ -1,6 +1,15 @@
 $(document).ready(function () {
+
+    // import getSearch from './bot';
+    // let a = getSearch();
+    // console.log(a);
+
+
     // load existing contacts on page load
     getContacts();
+    getCompany();
+
+    $('.dropdown-trigger').dropdown();
 
     $('.modal').modal({
         dismissible: false
@@ -38,6 +47,28 @@ $(document).ready(function () {
             // display on DOM with buttons that allow edit of each
         })
     } // end getContacts
+
+    function getCompany() {
+        // ajax call to server to get company
+        $.ajax({
+            url: '/contacts/company',
+            type: 'GET',
+            success: function (data) {
+                console.log(data);
+                addCompanyToList(data);
+            },
+            error: function (response) {
+                console.log('error response', response);
+            }
+            // display on DOM with buttons that allow edit of each
+        })
+    } // end getContacts
+
+
+    function addCompanyToList(data) {
+        console.log('inside displayCompanyTweets: ', data);
+
+    }
 
     // gets jobs from dB to display in table onload
     function displayContacts(data) {
@@ -212,7 +243,7 @@ $(document).ready(function () {
 
     function deleteContact() {
         let id = $(this).val();
-        console.log('id: ', id);
+        // console.log('id: ', id);
         $.ajax({
             type: 'DELETE',
             url: '/contacts/' + id,

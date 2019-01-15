@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(233, 231, 231);
+    background-color: rgb(224, 224, 224);
 }
 
 a.brand-logo {
@@ -76,10 +76,10 @@ nav .brand-logo:hover {
 }
 
 progress {
-    width: 240px !important;
+    width: 320px !important;
     position: relative !important;
-    right: 100px !important;
-    top: 3px !important;
+    right: 320px !important;
+    top: 31px !important;
 }
 
 #myModalLabel {
