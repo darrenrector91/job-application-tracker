@@ -1,8 +1,7 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // load existing jobs on page load
   getJobs();
 
-  // materialize intialization for javascript objects
   $('.modal').modal({
     dismissible: false
   });
@@ -17,16 +16,15 @@ $(document).ready(function () {
   $('#viewJobs').on('click', '.getImageFileName', getImageFileName);
   $('#viewJobs').on('click', '.getEmailAddress', getEmailAddress);
 
-
   // check if user is still logged in --- authentication
   uid = null;
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
       uid = user.uid;
     } else {
       uid = null;
-      window.location.replace("index.html");
+      window.location.replace('index.html');
     }
   });
 
@@ -37,26 +35,27 @@ $(document).ready(function () {
   // firebase storage
   var uploader = document.getElementById('uploader');
   var fileButton = document.getElementById('fileButton');
-  fileButton.addEventListener('change', function (e) {
+  fileButton.addEventListener('change', function(e) {
     // Get file
     var file = e.target.files[0];
     // Create a storage ref
     var storageRef = firebase.storage().ref('screenshots/' + file.name);
     // console.log(file.name);
     // Upload file
-    var task = storageRef.put(file)
+    var task = storageRef.put(file);
     // Update progress bar
-    task.on('state_changed',
+    task.on(
+      'state_changed',
       function progress(snapshot) {
-        var percentage = (snapshot.bytesTransferred /
-          snapshot.totalBytes) * 100;
+        var percentage =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         uploader.value = percentage;
       },
       function error(error) {
-        window.alert('error uploading image, check console', error)
+        window.alert('error uploading image, check console', error);
       },
-      function complete() { }
-    )
+      function complete() {}
+    );
   });
 
   function getJobs() {
@@ -64,15 +63,14 @@ $(document).ready(function () {
     $.ajax({
       url: '/jobs',
       type: 'GET',
-      success: function (data) {
+      success: function(data) {
         displayJobs(data);
       },
-      error: function (response) {
+      error: function(response) {
         console.log('error response', response);
-
       }
       // display on DOM with buttons that allow edit of each
-    })
+    });
   } // end getJobs
 
   // gets jobs from dB to display in table onload
@@ -95,14 +93,30 @@ $(document).ready(function () {
       newRow.append('<td>' + data[i].status + '</td>');
       newRow.append('<td>' + data[i].filename + '</td>');
       // get email address
-      newRow.append('<td><button type="button" class="getEmailAddress btn-floating btn-small orange tableButton" value="' + data[i].email + '"><i class="fas fa-envelope"></i></button></td>');
+      newRow.append(
+        '<td><button type="button" class="getEmailAddress btn-floating btn-small orange tableButton" value="' +
+          data[i].email +
+          '"><i class="fas fa-envelope"></i></button></td>'
+      );
       $('#viewJobs').append(newRow);
       //edit row button
-      newRow.append('<td><button type="button" class="editJob tableEditBtn btn-floating btn-small green tableButton modal-trigger" data-target="myModal" value="' + data[i].id + '"><i class="fas fa-pencil-alt"></i></button></td>');
+      newRow.append(
+        '<td><button type="button" class="editJob tableEditBtn btn-floating btn-small green tableButton modal-trigger" data-target="myModal" value="' +
+          data[i].id +
+          '"><i class="fas fa-pencil-alt"></i></button></td>'
+      );
       // //delete row button
-      newRow.append('<td><button type="button" class="deleteJob btn-floating btn-small red tableButton" value="' + data[i].id + '"><i class="fa fa-trash"></i></button></td>');
+      newRow.append(
+        '<td><button type="button" class="deleteJob btn-floating btn-small red tableButton" value="' +
+          data[i].id +
+          '"><i class="fa fa-trash"></i></button></td>'
+      );
       // display image button
-      newRow.append('<td><button type="button" class="getImageFileName btn-floating btn-small light-blue darken-1 modal-trigger tableButton" data-target="image-modal" data-target="#image-modal" value="' + data[i].id + '"><i class="fa fa-image"></i></button></td>');
+      newRow.append(
+        '<td><button type="button" class="getImageFileName btn-floating btn-small light-blue darken-1 modal-trigger tableButton" data-target="image-modal" data-target="#image-modal" value="' +
+          data[i].id +
+          '"><i class="fa fa-image"></i></button></td>'
+      );
       $('#viewJobs').append(newRow);
     }
   }
@@ -112,7 +126,7 @@ $(document).ready(function () {
 
     var form = document.createElement('form');
 
-    //Set the form attributes 
+    //Set the form attributes
     form.setAttribute('method', 'post');
     form.setAttribute('enctype', 'text/plain');
     form.setAttribute('action', 'mailto:' + to);
@@ -130,20 +144,19 @@ $(document).ready(function () {
 
   // Create new job in modal
   function newJob() {
-    var e = document.getElementById("status");
+    var e = document.getElementById('status');
     var strStatus = e.options[e.selectedIndex].text;
     // console.log(strStatus)
 
     //setting variables
-    let company = $('#company').val()
-    let contact = $('#contact').val()
-    let email = $('#email').val()
-    let position = $('#position').val()
-    let notes = $('#notes').val()
-    let date = $('#date').val()
-    let status = strStatus
-    let filename = $('#filename').val()
-
+    let company = $('#company').val();
+    let contact = $('#contact').val();
+    let email = $('#email').val();
+    let position = $('#position').val();
+    let notes = $('#notes').val();
+    let date = $('#date').val();
+    let status = strStatus;
+    let filename = $('#filename').val();
 
     if (checkInputs(company)) {
       let objectToSend = {
@@ -161,7 +174,7 @@ $(document).ready(function () {
         type: 'POST',
         url: '/jobs',
         data: objectToSend,
-        success: function (response) {
+        success: function(response) {
           getJobs();
           $('#editJob').empty();
           $('#updateJob').on('click', newJob); //end updateJob on click
@@ -180,9 +193,8 @@ $(document).ready(function () {
           $('#filename').val('');
           $('#updateJob').val('');
         },
-        error: function (response) {
+        error: function(response) {
           console.log('error saving new job', response);
-
         }
       });
     }
@@ -190,18 +202,18 @@ $(document).ready(function () {
 
   // receive job object from editjob update in dB
   function updateJob() {
-    var e = document.getElementById("status");
+    var e = document.getElementById('status');
     var strStatus = e.options[e.selectedIndex].text;
     console.log('inside update job');
 
-    let company = $('#company').val()
-    let contact = $('#contact').val()
-    let email = $('#email').val()
-    let position = $('#position').val()
-    let notes = $('#notes').val()
-    let date = $('#date').val()
-    let status = strStatus
-    let filename = $('#filename').val()
+    let company = $('#company').val();
+    let contact = $('#contact').val();
+    let email = $('#email').val();
+    let position = $('#position').val();
+    let notes = $('#notes').val();
+    let date = $('#date').val();
+    let status = strStatus;
+    let filename = $('#filename').val();
 
     if (checkInputs(company)) {
       let jobID = $(this).val();
@@ -219,7 +231,7 @@ $(document).ready(function () {
         type: 'PUT',
         url: '/jobs/update/' + jobID,
         data: objectToUpdate,
-        success: function (response) {
+        success: function(response) {
           getJobs();
           $('#editJob').empty();
           $('#updateJob').on('click', newJob);
@@ -237,9 +249,8 @@ $(document).ready(function () {
           $('#filename').val('');
           $('#updateJob').val('');
         }, // end success
-        error: function (response) {
+        error: function(response) {
           console.log('error in updating job', response);
-
         }
       });
     }
@@ -258,9 +269,11 @@ $(document).ready(function () {
     $.ajax({
       url: '/jobs/' + jobID,
       method: 'GET',
-      success: function (response) {
+      success: function(response) {
         console.log('response ', response);
-        $('#company').val(response[0].company).focus();
+        $('#company')
+          .val(response[0].company)
+          .focus();
         $('#contact').val(response[0].contact);
         $('#email').val(response[0].email);
         $('#position').val(response[0].position);
@@ -269,12 +282,11 @@ $(document).ready(function () {
         $('#status').val(response[0].status);
         $('#filename').val(response[0].filename);
         $('#updateJob').val(response[0].id);
-
       }, // end success
-      error: function (response) {
+      error: function(response) {
         console.log('error in edit job', response);
       }
-    })
+    });
   }
 
   // Getting image filename to pass to firebase to search firebase storage
@@ -283,14 +295,12 @@ $(document).ready(function () {
     $.ajax({
       type: 'GET',
       url: '/jobs/filename/' + ID,
-      success: function (data) {
+      success: function(data) {
         // console.log('imageFileName: ', data);
         displayImage(data);
-
       }, // end success
-      error: function (response) {
+      error: function(response) {
         console.log('error getting image filename', response);
-
       }
     });
   }
@@ -301,28 +311,29 @@ $(document).ready(function () {
     //Get image from storage
     let storageRef = storage.ref('screenshots/' + imageData);
 
-    storageRef.getDownloadURL().then(function (url) {
+    storageRef
+      .getDownloadURL()
+      .then(function(url) {
+        // This can be downloaded directly:
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob';
+        xhr.onload = function(event) {
+          var blob = xhr.response;
+        };
 
-      // This can be downloaded directly:
-      var xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
-      xhr.onload = function (event) {
-        var blob = xhr.response;
-      };
+        xhr.open('GET', url);
+        xhr.send();
 
-      xhr.open('GET', url);
-      xhr.send();
+        var img = document.getElementById('image-modal');
+        img.src = url;
 
-      var img = document.getElementById('image-modal');
-      img.src = url;
-
-      $('#imageSrc').attr('src', url);
-      $('#image-modal').openModal();
-
-    }).catch(function (error) {
-      // console.log('Error displaying image ', error);
-    });
-  };
+        $('#imageSrc').attr('src', url);
+        $('#image-modal').openModal();
+      })
+      .catch(function(error) {
+        // console.log('Error displaying image ', error);
+      });
+  }
 
   // delete job from table
   function deleteJob() {
@@ -331,14 +342,13 @@ $(document).ready(function () {
     $.ajax({
       type: 'DELETE',
       url: '/jobs/' + id,
-      success: function (response) {
+      success: function(response) {
         // console.log('response', response);
         getJobs();
       },
-      error: function (error) {
+      error: function(error) {
         console.log('Error deleting job ', error);
       }
-
     });
   }
   // Firebase code for file selection
@@ -350,16 +360,22 @@ $(document).ready(function () {
     document.getElementById('displayFileName').innerHTML = filename;
   }
   // Write on keyup event of keyword input element
-  $("#search").keyup(function () {
+  $('#search').keyup(function() {
     console.log('in search');
 
-    var searchText = $(this).val().toLowerCase();
+    var searchText = $(this)
+      .val()
+      .toLowerCase();
     // Show only matching TR, hide rest of them
-    $.each($("#table tbody tr"), function () {
-      if ($(this).text().toLowerCase().indexOf(searchText) === -1)
+    $.each($('#table tbody tr'), function() {
+      if (
+        $(this)
+          .text()
+          .toLowerCase()
+          .indexOf(searchText) === -1
+      )
         $(this).hide();
-      else
-        $(this).show();
+      else $(this).show();
     });
   });
 
@@ -381,21 +397,21 @@ $(document).ready(function () {
     }
   }
   // search on key up
-  $("#phone").keypress(function (e) {
+  $('#phone').keypress(function(e) {
     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
       return false;
     }
     var curchr = this.value.length;
     var curval = $(this).val();
     if (curchr == 3 && e.which != 8 && e.which != 0) {
-      $(this).val(curval + "-");
+      $(this).val(curval + '-');
     } else if (curchr == 7 && e.which != 8 && e.which != 0) {
-      $(this).val(curval + "-");
+      $(this).val(curval + '-');
     }
     $(this).attr('maxlength', '12');
   });
 
-  jQuery('.toggle-nav').click(function (e) {
+  jQuery('.toggle-nav').click(function(e) {
     jQuery(this).toggleClass('active');
     jQuery('.menu ul').toggleClass('active');
 
@@ -404,10 +420,9 @@ $(document).ready(function () {
 
   // firebase login
   function login() {
+    userEmail = document.getElementById('inputEmail').value;
+    userPassword = document.getElementById('inputPassword').value;
 
-    userEmail = document.getElementById("inputEmail").value;
-    userPassword = document.getElementById("inputPassword").value;
-
-    window.alert(userEmail + " " + userPassword);
+    window.alert(userEmail + ' ' + userPassword);
   }
 });

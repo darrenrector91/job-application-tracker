@@ -5,24 +5,23 @@
   "main": "server/server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "bootstrap-datepicker": "^1.8.0",
     "chart.js": "^2.7.3",
     "cloudinary": "^1.13.2",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.4",
     "install": "^0.12.2",
-    "jquery": "^3.3.1",
-    "materialize-css": "^1.0.0",
+    "jquery": "^3.4.1",
     "nodemailer": "^5.1.1",
-    "npm": "^6.5.0",
+    "npm": "^6.12.0",
     "pg": "^7.7.1",
     "standard": "^12.0.1",
     "sweetalert": "^2.1.2",
     "twit": "^2.2.11"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.19.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -37,5 +36,6 @@
   "bugs": {
     "url": "https://github.com/darrenrector91/job-application-tracker/issues"
   },
-  "homepage": "https://github.com/darrenrector91/job-application-tracker#readme"
+  "homepage": "https://github.com/darrenrector91/job-application-tracker#readme",
+  "keywords": []
 }
